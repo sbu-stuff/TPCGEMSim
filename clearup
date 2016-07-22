@@ -1,0 +1,5 @@
+cd $TPCSIM/TPCInfoObjects/src; make clean
+cd $TPCSIM/TPCSimulation/libgem; make clean
+cd $TPCSIM/TPCSimulation; make clean
+cd $TPCSIM/TPCSimQT; make clean
+cd $TPCSIM
