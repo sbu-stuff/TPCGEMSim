@@ -111,6 +111,7 @@ void forkSim(int processes, TrackHeed* track)
   const int nEvents = 1;
   const int nParticles = 5;
   char particles[][5] = {"e-", "pi", "p", "mu", "e+"};
+  int particleId[5] = {11, 211, 2212, 13, -11};
   const int nMomentums = 6;
   double momentums[6] = {100.e9, 50.e9, 10.e9, 5.e9, 1.e9, .5e9};
   const int nDirections = 4;
@@ -152,7 +153,7 @@ void forkSim(int processes, TrackHeed* track)
 	  obj->particle = particles[p];
 	  obj->momentum = momentums[m];
 	  obj->nEvents = nEvents;
-	  obj->id = p;
+	  obj->id = particleId[p];
 
 	  std::cout<< "d: " << d << " p:" << p << " m:" << m << "\n";
 	  std::cout<< "Child: " << i << " particle: " << particles[p] 
