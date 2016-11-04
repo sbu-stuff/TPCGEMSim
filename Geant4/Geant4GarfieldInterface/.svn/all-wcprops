@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface
+END
+physics.mac
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/physics.mac
+END
+init_vis.mac
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/init_vis.mac
+END
+gui.mac
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/gui.mac
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/.project
+END
+GNUmakefile
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/GNUmakefile
+END
+.cproject
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/.cproject
+END
+ar_70_co2_30_1000mbar.gas
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/ar_70_co2_30_1000mbar.gas
+END
+G4History.macro
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/G4History.macro
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/README
+END
+vis.mac
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/vis.mac
+END
+run.mac
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/run.mac
+END
+icons.mac
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/icons.mac
+END
+garfieldGeometry.gdml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/garfieldGeometry.gdml
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/CMakeLists.txt
+END
+exampleGarfield.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/exampleGarfield.cc
+END

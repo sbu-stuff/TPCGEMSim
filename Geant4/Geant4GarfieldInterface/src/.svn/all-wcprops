@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/src
+END
+GarfieldG4FastSimulationModel.cc
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/src/GarfieldG4FastSimulationModel.cc
+END
+GarfieldPhysicsList.cc
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/src/GarfieldPhysicsList.cc
+END
+GarfieldEventAction.cc
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/src/GarfieldEventAction.cc
+END
+GarfieldPhysics.cc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/src/GarfieldPhysics.cc
+END
+GarfieldRunAction.cc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/src/GarfieldRunAction.cc
+END
+GarfieldDetectorConstruction.cc
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/src/GarfieldDetectorConstruction.cc
+END
+GarfieldSteppingAction.cc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/src/GarfieldSteppingAction.cc
+END
+GarfieldMessenger.cc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/src/GarfieldMessenger.cc
+END
+GarfieldPrimaryGeneratorAction.cc
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/guest/garfield/!svn/ver/405/trunk/Examples/Geant4GarfieldInterface/src/GarfieldPrimaryGeneratorAction.cc
+END
