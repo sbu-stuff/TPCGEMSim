@@ -111,7 +111,7 @@ void GarfieldDetectorConstruction::DefineMaterials() {
 	CF4->AddElement(F, natoms = 4);
 
 	G4Material* NeCF4_95_5 = new G4Material("NeCF4_95_5",
-			density = 1.8223 * CLHEP::mg / CLHEP::cm3, ncomponents = 2,
+			density = 1.041 * CLHEP::mg / CLHEP::cm3, ncomponents = 2,
 			kStateGas);
 
 	NeCF4_95_5->AddElement(Ne, fractionmass = 0.95);
