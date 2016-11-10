@@ -238,7 +238,7 @@ G4VPhysicalVolume* GarfieldDetectorConstruction::DefineVolumes() {
 				      /*absorberThicknessZ +*/ tubeRadius), // its position
 			tubeLVO,       // its logical volume
 			"OuterTube",           // its name
-			worldLV,          // its mother  volume
+			tubeLV, //			worldLV,          // its mother  volume
 			false,            // no boolean operation
 			0,                // copy number
 			fCheckOverlaps);  // checking overlaps
