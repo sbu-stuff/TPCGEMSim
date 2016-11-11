@@ -250,7 +250,8 @@ void GarfieldPhysics::InitializePhysics() {
 
 	fMediumMagboltz = new Garfield::MediumMagboltz();
 
-	fMediumMagboltz->SetComposition("ar", 70., "co2", 30.);
+	// fMediumMagboltz->SetComposition("ar", 70., "co2", 30.);
+	fMediumMagboltz->SetComposition("ne", 95., "cf4", 5.);
 	fMediumMagboltz->SetTemperature(293.15);
 	fMediumMagboltz->SetPressure(760.);
 	fMediumMagboltz->EnableDebugging();
@@ -259,8 +260,9 @@ void GarfieldPhysics::InitializePhysics() {
 // Set the Penning transfer efficiency.
 	const double rPenning = 0.57;
 	const double lambdaPenning = 0.;
-	fMediumMagboltz->EnablePenningTransfer(rPenning, lambdaPenning, "ar");
-	fMediumMagboltz->LoadGasFile("ar_70_co2_30_1000mbar.gas");
+	fMediumMagboltz->EnablePenningTransfer(rPenning, lambdaPenning, "ne");
+	// fMediumMagboltz->LoadGasFile("ar_70_co2_30_1000mbar.gas");
+	fMediumMagboltz->LoadGasFile("ne_95_cf4_5_1000mbar.gas");
 
 	fSensor = new Garfield::Sensor();
 	fDrift = new Garfield::AvalancheMC();

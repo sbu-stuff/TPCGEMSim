@@ -60,13 +60,13 @@ GarfieldRunAction::GarfieldRunAction() :
 	//
 
 	// Creating histograms
-	analysisManager->CreateH1("1", "Edep in absorber", 100, 0., 800 * MeV);
-	analysisManager->CreateH1("2", "trackL in absorber", 100, 0., 1 * m);
-	analysisManager->CreateH1("3", "Edep in gas", 1000, 0., 100 * keV);
+	analysisManager->CreateH1("hist1", "Edep in absorber", 100, 0., 800 * MeV);
+	analysisManager->CreateH1("hist2", "trackL in absorber", 100, 0., 1 * m);
+	analysisManager->CreateH1("hist3", "Edep in gas", 1000, 0., 100 * keV);
 
-	analysisManager->CreateH1("4", "Avalanche size in gas", 10000,0, 10000);
-	analysisManager->CreateH1("5", "gain", 1000, 0., 100);
-	analysisManager->CreateH3("1", "Track position",200, -10*cm, 10*cm, 29, -1.45*cm, 1.45*cm, 29,-1.45*cm, 1.45*cm);
+	analysisManager->CreateH1("hist4", "Avalanche size in gas", 10000,0, 10000);
+	analysisManager->CreateH1("hist5", "gain", 1000, 0., 100);
+	analysisManager->CreateH3("hist6", "Track position",200, -10*cm, 10*cm, 29, -1.45*cm, 1.45*cm, 29,-1.45*cm, 1.45*cm);
 
 	// Creating ntuple
 	//

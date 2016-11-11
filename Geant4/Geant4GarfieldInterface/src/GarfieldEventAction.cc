@@ -79,6 +79,7 @@ void GarfieldEventAction::EndOfEventAction(const G4Event* event) {
 	fAvalancheSize = garfieldPhysics->GetAvalancheSize();
 	fGain = garfieldPhysics->GetGain();
 
+	std::cout << "LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK" << fEnergyAbs << fGain << "\n" ;
 	// fill histograms
 	analysisManager->FillH1(1, fEnergyAbs);
 	analysisManager->FillH1(2, fTrackLAbs);
