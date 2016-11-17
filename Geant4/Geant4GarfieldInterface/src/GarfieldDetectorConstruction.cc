@@ -57,7 +57,7 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 GarfieldDetectorConstruction::GarfieldDetectorConstruction() :
-  G4VUserDetectorConstruction(), fAbsorberPV(0), fTubePV(0), fTubePVO(0), fGasPV(0), fWirePV(
+  G4VUserDetectorConstruction(), fAbsorberPV(0), fTubePVO(0), fTubePV(0), fGasPV(0), fWirePV(
 				0), fAbsorberMaterial(0), fAbsorberLV(0), fCheckOverlaps(true), fGarfieldG4FastSimulationModel(
 				0), fGarfieldMessenger(0) {
 	fGarfieldMessenger = new GarfieldMessenger(this);
@@ -200,7 +200,8 @@ G4VPhysicalVolume* GarfieldDetectorConstruction::DefineVolumes() {
 	// Drift tube
 	//
 	G4VSolid* tubeO = new G4Tubs("OuterTube",     // its name
-			tubeRadius - tubeThickness, tubeRadius, tubeHalfLength + tubeThickness, 0, 2 * pi); // its size
+			0, tubeRadius, tubeHalfLength + tubeThickness, 0, 2 * pi); // its size
+	//			tubeRadius - tubeThickness, tubeRadius, tubeHalfLength + tubeThickness, 0, 2 * pi); // its size
 
 	G4LogicalVolume* tubeLVO = new G4LogicalVolume(tubeO, // its solid
 			cathodeMaterial, // its material
@@ -216,23 +217,6 @@ G4VPhysicalVolume* GarfieldDetectorConstruction::DefineVolumes() {
 			false,            // no boolean operation
 			0,                // copy number
 			fCheckOverlaps);  // checking overlaps
-	
-	G4VSolid* tubeS = new G4Tubs("Tube",     // its name
-			tubeInnerRadius - tubeThickness, tubeInnerRadius, tubeHalfLength + tubeThickness, 0, 2 * pi); // its size
-
-	G4LogicalVolume* tubeLV = new G4LogicalVolume(tubeS, // its solid
-			cathodeMaterial, // its material
-			"Tube");          // its name
-
-	fTubePV = new G4PVPlacement(0,
-			G4ThreeVector(0., 0.,0.), // its position
-			tubeLV,       // its logical volume
-			"Tube",           // its name
-			worldLV,          // its mother  volume
-			false,            // no boolean operation
-			0,                // copy number
-			fCheckOverlaps);  // checking overlaps
-
 	//
 	// Drift Tube Gas
 	//
@@ -249,7 +233,24 @@ G4VPhysicalVolume* GarfieldDetectorConstruction::DefineVolumes() {
 			G4ThreeVector(0., 0., 0.), // its position
 			gasLV,       // its logical volume
 			"Gas",           // its name
-			worldLV,          // its mother  volume
+			tubeLVO,          // its mother  volume
+			false,            // no boolean operation
+			0,                // copy number
+			fCheckOverlaps);  // checking overlaps
+
+	// Inner Tube
+	G4VSolid* tubeS = new G4Tubs("Tube",     // its name
+			tubeInnerRadius - tubeThickness, tubeInnerRadius, tubeHalfLength + tubeThickness, 0, 2 * pi); // its size
+
+	G4LogicalVolume* tubeLV = new G4LogicalVolume(tubeS, // its solid
+			cathodeMaterial, // its material
+			"Tube");          // its name
+
+	fTubePV = new G4PVPlacement(0,
+			G4ThreeVector(0., 0.,0.), // its position
+			tubeLV,       // its logical volume
+			"Tube",           // its name
+			tubeLVO,          // its mother  volume
 			false,            // no boolean operation
 			0,                // copy number
 			fCheckOverlaps);  // checking overlaps
@@ -268,7 +269,7 @@ G4VPhysicalVolume* GarfieldDetectorConstruction::DefineVolumes() {
 			G4ThreeVector(0., 0., 0.), // its position
 			wireLV,       // its logical volume
 			"Wire",           // its name
-			worldLV,      // its mother  volume
+			tubeLVO,      // its mother  volume
 			false,            // no boolean operation
 			0,                // copy number
 			fCheckOverlaps);  // checking overlaps

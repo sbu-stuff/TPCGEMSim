@@ -69,7 +69,7 @@ set(EXAMPLEGARFIELD_SCRIPTS
   init_vis.mac
   run.mac
   vis.mac
-  ar_70_co2_30_1000mbar.gas
+  ne_95_cf4_5_1000mbar.gas
   )
 
 

@@ -285,9 +285,11 @@ void GarfieldPhysics::CreateGeometry() {
 // Wire radius [cm]
 	const double rWire = 25.e-4;
 // Outer radius of the tube [cm]
-	const double rTube = 1.451;
+	const double rTube = 80;
+//	const double rTube = 1.451;
 // Half-length of the tube [cm]
-	const double lTube = 10.;
+	const double lTube = 50.;
+//	const double lTube = 10.;
 
 	fGeometrySimple = new Garfield::GeometrySimple();
 // Make a tube (centered at the origin, inner radius: 0, outer radius: rTube).
@@ -319,12 +321,15 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 // Wire radius [cm]
 	const double rWire = 25.e-4;
 // Outer radius of the tube [cm]
-	const double rTube = 1.45;
+	const double rTube = 80;
+//	const double rTube = 1.451;
 // Half-length of the tube [cm]
-	const double lTube = 10.;
+	const double lTube = 50.;
+//	const double lTube = 10.;
 
 	double eKin_eV = ekin_MeV * 1e+6;
 
+	//	double xc = 21., yc = 21., zc = 0., tc = 0.;
 	double xc = 0., yc = 0., zc = 0., tc = 0.;
 // Number of electrons produced in a collision
 	int nc = 0;
