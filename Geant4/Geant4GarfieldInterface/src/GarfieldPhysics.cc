@@ -329,8 +329,8 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 
 	double eKin_eV = ekin_MeV * 1e+6;
 
-	//	double xc = 21., yc = 21., zc = 0., tc = 0.;
-	double xc = 0., yc = 0., zc = 0., tc = 0.;
+	double xc = 21., yc = 21., zc = 0., tc = 0.;
+	//	double xc = 0., yc = 0., zc = 0., tc = 0.;
 // Number of electrons produced in a collision
 	int nc = 0;
 // Energy loss in a collision
@@ -357,7 +357,13 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 				if (particleName == "gamma") {
 					fEnergyDeposit += fTrackHeed->GetW();
 				}
-				analysisManager->FillH3(1, ze * 10, xe * 10, ye * 10);
+				// std::cout << ">>>>>>>>H3 input "<< ze << " " << xe << " " << ye << std::endl;
+				// analysisManager->FillH3(1, ze * 10, xe * 10, ye * 10);
+				// analysisManager->FillH3(1, ze, xe, ye);
+				analysisManager->FillNtupleDColumn(3,xe);
+				analysisManager->FillNtupleDColumn(4,ye);
+				analysisManager->FillNtupleDColumn(5,ze);
+				analysisManager->AddNtupleRow();
 				if (createSecondariesInGeant4) {
 					double newTime = te;
 					if (newTime < time) {
@@ -415,7 +421,8 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 							dze);
 					if (ze < lTube && ze > -lTube
 							&& sqrt(xe * xe + ye * ye) < rTube) {
-						analysisManager->FillH3(1, ze * 10, xe * 10, ye * 10);
+					  std::cout << ">>>>>>>>H3 2nd input "<< ze << " " << xe << " " << ye << std::endl;
+					  // analysisManager->FillH3(1, ze * 10, xe * 10, ye * 10);
 						if (createSecondariesInGeant4) {
 							double newTime = te;
 							if (newTime < time) {

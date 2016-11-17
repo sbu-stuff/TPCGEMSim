@@ -79,23 +79,25 @@ void GarfieldEventAction::EndOfEventAction(const G4Event* event) {
 	fAvalancheSize = garfieldPhysics->GetAvalancheSize();
 	fGain = garfieldPhysics->GetGain();
 
-	std::cout << "LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK" << fEnergyAbs << fGain << "\n" ;
+	// std::cout << "LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK" << fEnergyAbs << fGain << "\n" ;
 	// fill histograms
+	/*
 	analysisManager->FillH1(1, fEnergyAbs);
 	analysisManager->FillH1(2, fTrackLAbs);
 	analysisManager->FillH1(3, fEnergyGas);
 	analysisManager->FillH1(4, fAvalancheSize);
 	analysisManager->FillH1(5, fGain);
 
-
+	*/
 
 	// fill ntuple
-	analysisManager->FillNtupleDColumn(0, fEnergyAbs);
-	analysisManager->FillNtupleDColumn(1, fTrackLAbs);
-	analysisManager->FillNtupleDColumn(2, fEnergyGas);
-	analysisManager->FillNtupleDColumn(3, fAvalancheSize);
-	analysisManager->FillNtupleDColumn(4, fGain);
-
+	// analysisManager->FillNtupleDColumn(0, fEnergyAbs);
+	// analysisManager->FillNtupleDColumn(1, fTrackLAbs);
+	analysisManager->FillNtupleDColumn(0, fEnergyGas);
+	analysisManager->FillNtupleDColumn(1, fAvalancheSize);
+	analysisManager->FillNtupleDColumn(2, fGain);
+	analysisManager->AddNtupleRow();
+	
 	// Print per event (modulo n)
 	//
 	G4int eventID = event->GetEventID();
