@@ -36,6 +36,7 @@
 #include "G4Gamma.hh"
 
 #include "G4SystemOfUnits.hh"
+#include "GarfieldAnalysis.hh"
 
 GarfieldG4FastSimulationModel::GarfieldG4FastSimulationModel(G4String modelName,
 		G4Region* envelope) :
@@ -115,6 +116,7 @@ void GarfieldG4FastSimulationModel::DoIt(const G4FastTrack& fastTrack,
 		particleName = "anti-proton";
 	}
 
+	//G4cout << "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE" << G4endl;
 	fGarfieldPhysics->DoIt(particleName, ekin_MeV, globalTime,
 			localPosition.x() / CLHEP::cm, localPosition.y() / CLHEP::cm,
 			localPosition.z() / CLHEP::cm, localdir.x(), localdir.y(),

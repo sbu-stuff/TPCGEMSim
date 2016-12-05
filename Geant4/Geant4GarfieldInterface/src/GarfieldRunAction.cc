@@ -71,20 +71,16 @@ GarfieldRunAction::GarfieldRunAction() :
 	*/
 	// Creating ntuple
 	//
+	
 	analysisManager->CreateNtuple("Garfield", "Edep and TrackL");
-	// analysisManager->CreateNtupleDColumn("Eabs");
-	// analysisManager->CreateNtupleDColumn("Labs");
 	analysisManager->CreateNtupleDColumn("Egas");
 	analysisManager->CreateNtupleDColumn("AvalancheSize");
 	analysisManager->CreateNtupleDColumn("Gain");
 	analysisManager->CreateNtupleDColumn("xe");
 	analysisManager->CreateNtupleDColumn("ye");
 	analysisManager->CreateNtupleDColumn("ze");
-
 	analysisManager->FinishNtuple();
-
-
-
+	
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -95,7 +91,7 @@ GarfieldRunAction::~GarfieldRunAction() {
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void GarfieldRunAction::BeginOfRunAction(const G4Run* /*run*/) {
+void GarfieldRunAction::BeginOfRunAction(const G4Run* run) {
 	//inform the runManager to save random number seed
 	//G4RunManager::GetRunManager()->SetRandomNumberStore(true);
 
@@ -104,8 +100,10 @@ void GarfieldRunAction::BeginOfRunAction(const G4Run* /*run*/) {
 
 	// Open an output file
 	//
-	G4String fileName = "Garfield";
+	G4String fileName = "Garfield"+std::to_string(run->GetRunID());
 	analysisManager->OpenFile(fileName);
+	G4cout << "OOOOOpening file " << fileName << G4endl;
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

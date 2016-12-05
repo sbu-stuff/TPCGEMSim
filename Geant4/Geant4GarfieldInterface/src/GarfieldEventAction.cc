@@ -36,6 +36,7 @@
 
 #include "G4RunManager.hh"
 #include "G4Event.hh"
+#include "G4Run.hh"
 #include "G4UnitsTable.hh"
 
 #include "Randomize.hh"
@@ -54,16 +55,49 @@ GarfieldEventAction::~GarfieldEventAction() {
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void GarfieldEventAction::BeginOfEventAction(const G4Event* /*event*/) {
+void GarfieldEventAction::BeginOfEventAction(const G4Event* event) {
 	// initialisation per event
 	fEnergyAbs = 0;
 	fEnergyGas = 0;
 	fTrackLAbs = 0;
 	fAvalancheSize = 0;
 	fGain = 0;
+	/*
+	// G4Run run = G4Run::
+	std::string eventID = std::to_string(event->GetEventID());
+	int runID = run->GetRunID();
+	*/
+	G4cout << "EVENTTTTTTTTTTTTTTTTTTTTTTTTTTT" << G4endl;
+	G4cout << "EventID: " << std::to_string(event->GetEventID());
+        G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+
+	
+        //int particleNum = analysisManager->GetNofNtuples();
+
+	//std::string particleId =  "Particle_" + std::to_string(particleNum);
+	std::string eventId = "Event_"+std::to_string(event->GetEventID()+1);
+        analysisManager->CreateNtuple(eventId, eventId);
+	analysisManager->CreateNtupleDColumn("xpos");
+	analysisManager->CreateNtupleDColumn("ypos");
+        analysisManager->CreateNtupleDColumn("zpos");
+        analysisManager->FinishNtuple();
+	
+	// New root file
+	/*
+        G4AnalysisManager* analysisManager2 = G4AnalysisManager::Instance();
+        G4String fileName2 = "Particle"+std::to_string(particleNum);
+        analysisManager2->OpenFile(fileName2);
+        analysisManager2->CreateNtuple(fileName2,"Track positions");
+	analysisManager2->CreateNtupleDColumn("xe");
+	analysisManager2->CreateNtupleDColumn("ye");
+        analysisManager2->CreateNtupleDColumn("ze");
+        analysisManager2->FinishNtuple();
+	*/
+
 
 	GarfieldPhysics* garfieldPhysics = GarfieldPhysics::GetInstance();
 	garfieldPhysics->Clear();
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -75,6 +109,7 @@ void GarfieldEventAction::EndOfEventAction(const G4Event* event) {
 
 	// get analysis manager
 	G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+	// G4AnalysisManager* analysisManager2 = G4AnalysisManager::Instance();
 	//fEnergyGas += garfieldPhysics->GetEnergyDeposit_MeV();
 	fAvalancheSize = garfieldPhysics->GetAvalancheSize();
 	fGain = garfieldPhysics->GetGain();
@@ -93,10 +128,17 @@ void GarfieldEventAction::EndOfEventAction(const G4Event* event) {
 	// fill ntuple
 	// analysisManager->FillNtupleDColumn(0, fEnergyAbs);
 	// analysisManager->FillNtupleDColumn(1, fTrackLAbs);
-	analysisManager->FillNtupleDColumn(0, fEnergyGas);
-	analysisManager->FillNtupleDColumn(1, fAvalancheSize);
-	analysisManager->FillNtupleDColumn(2, fGain);
-	analysisManager->AddNtupleRow();
+
+	/*
+	analysisManager->FillNtupleDColumn(0,0, fEnergyGas);
+	analysisManager->FillNtupleDColumn(0,1, fAvalancheSize);
+	analysisManager->FillNtupleDColumn(0,2, fGain);
+	analysisManager->AddNtupleRow(0);
+	*/
+
+	// Close new rooot file
+        // analysisManager2->Write();
+        // analysisManager2->CloseFile();
 	
 	// Print per event (modulo n)
 	//

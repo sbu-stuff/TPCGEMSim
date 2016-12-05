@@ -34,6 +34,8 @@
 #include "G4UserEventAction.hh"
 #include "globals.hh"
 
+class G4Run;
+
 /// Event action class
 ///
 /// It defines data members to hold the energy deposit and track lengths
@@ -46,9 +48,9 @@ class GarfieldEventAction: public G4UserEventAction {
 public:
 	GarfieldEventAction();
 	virtual ~GarfieldEventAction();
-
-	virtual void BeginOfEventAction(const G4Event* event);
-	virtual void EndOfEventAction(const G4Event* event);
+  
+  virtual void BeginOfEventAction(const G4Event* event);
+  virtual void EndOfEventAction(const G4Event* event);
 
 	void AddAbs(G4double de, G4double dl);
 	void AddGas(G4double de);

@@ -26,6 +26,10 @@
 /gun/direction 1 1 1
 /gun/position 21 21 0 cm
 /gun/energy 4 GeV
+/run/beamOn 2
+
+/gun/particle pi-
+/gun/direction 1 1 4
+/gun/position 30 40 0 cm
+/gun/energy 4 GeV
 /run/beamOn 1
-
-
