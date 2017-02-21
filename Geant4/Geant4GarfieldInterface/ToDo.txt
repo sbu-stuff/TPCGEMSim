@@ -1,0 +1,14 @@
+To Do:
+1. GarfieldPhysics.cc : set xc,yc,zc (initial position of cluster) to be variables, will be input from Monte Carlo. Undertand these, xc, yc, zc
+
+2. GarfieldRunAction.cc : Stop changing files. Open only one.
+
+3. GarfieldEventAction.cc : Use global variable that increments for Event_ instead of ID.
+
+4. 
+Goal:
+1. we want GEANT4 to take on ionization, then pass the output to HEED(Garfield) for drifting
+
+5. Get rid of wire (HEED)
+
+6. Give electron start and end positions
