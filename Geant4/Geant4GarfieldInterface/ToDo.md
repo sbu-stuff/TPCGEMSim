@@ -5,7 +5,6 @@
 - [ ] Document the logical flow of the code
 
 # Done
-- Instead of using global variable that increments Event_ name has been changed to Particle_id#. Can be changed to 'Event' if desired in GarfieldEventAction by replacing 'Particle_' with 'Event_'.
 
 # Goal
 - [ ] we want GEANT4 to take on ionization, then pass the output to HEED(Garfield) for drifting
