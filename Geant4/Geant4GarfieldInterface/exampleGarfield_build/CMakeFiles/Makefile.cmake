@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
-  "../ar_70_co2_30_1000mbar.gas"
   "CMakeFiles/3.4.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.4.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.4.1/CMakeSystem.cmake"
@@ -17,6 +16,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../gui.mac"
   "../icons.mac"
   "../init_vis.mac"
+  "../ne_95_cf4_5_1000mbar.gas"
   "../physics.mac"
   "../run.mac"
   "../vis.mac"
@@ -126,7 +126,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "init_vis.mac"
   "run.mac"
   "vis.mac"
-  "ar_70_co2_30_1000mbar.gas"
+  "ne_95_cf4_5_1000mbar.gas"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
