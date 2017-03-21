@@ -6,4 +6,10 @@
 - The program can also be run with visualization, for that type >./exampleGarfield, and then press the "run" button.
 
 ### run.mac
-- Set absorber material
+- Set absorber material: /exampleGarfield/absorber/setMat
+- Execute physic.mac
+  ### physics.mac
+  - Set Ionization model: /exampleGarfield/physics/setIonizationModel PAI false
+- Initialize
+  ### GarfieldDetectorConstruction.cc
+  - 
