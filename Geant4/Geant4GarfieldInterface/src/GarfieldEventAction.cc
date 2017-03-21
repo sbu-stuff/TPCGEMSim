@@ -54,7 +54,6 @@ GarfieldEventAction::~GarfieldEventAction() {
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
 void GarfieldEventAction::BeginOfEventAction(const G4Event* event) {
 	// initialisation per event
 	fEnergyAbs = 0;
@@ -62,21 +61,22 @@ void GarfieldEventAction::BeginOfEventAction(const G4Event* event) {
 	fTrackLAbs = 0;
 	fAvalancheSize = 0;
 	fGain = 0;
-	/*
-	// G4Run run = G4Run::
-	std::string eventID = std::to_string(event->GetEventID());
-	int runID = run->GetRunID();
-	*/
+	
+        //G4Run run = G4Run::
+	  //std::string eventID = std::to_string(event->GetEventID());
+	  //int runID = run->GetRunID();
+	
 	G4cout << "EVENTTTTTTTTTTTTTTTTTTTTTTTTTTT" << G4endl;
-	G4cout << "EventID: " << std::to_string(event->GetEventID());
+	//G4cout << "EventID: " << runID;
         G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
 
 	
-        //int particleNum = analysisManager->GetNofNtuples();
+        int particleNum = analysisManager->GetNofNtuples();
 
-	//std::string particleId =  "Particle_" + std::to_string(particleNum);
-	std::string eventId = "Event_"+std::to_string(event->GetEventID()+1);
-        analysisManager->CreateNtuple(eventId, eventId);
+	std::string particleId =  "Particle_" + std::to_string(particleNum);
+	std::string eventId = "Event_"+std::to_string(event->GetEventID());
+	G4cout << "Paticle id: " << particleId;
+        analysisManager->CreateNtuple(particleId, eventId);
 	analysisManager->CreateNtupleDColumn("xpos");
 	analysisManager->CreateNtupleDColumn("ypos");
         analysisManager->CreateNtupleDColumn("zpos");

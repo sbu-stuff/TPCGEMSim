@@ -9,7 +9,7 @@ CMakeFiles/exampleGarfield.dir/exampleGarfield.cc.o
  ../include/GarfieldPrimaryGeneratorAction.hh
  ../include/GarfieldRunAction.hh
  ../include/GarfieldSteppingAction.hh
- /home/sphenix/work/garfield/Examples/Geant4GarfieldInterface/exampleGarfield.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/exampleGarfield.cc
  /home/sphenix/work/garfield/Include/AvalancheMC.hh
  /home/sphenix/work/garfield/Include/AvalancheMicroscopic.hh
  /home/sphenix/work/garfield/Include/ComponentAnalyticField.hh
@@ -457,7 +457,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldDetectorConstruction.cc.o
  ../include/GarfieldG4FastSimulationModel.hh
  ../include/GarfieldMessenger.hh
  ../include/GarfieldPhysics.hh
- /home/sphenix/work/garfield/Examples/Geant4GarfieldInterface/src/GarfieldDetectorConstruction.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldDetectorConstruction.cc
  /home/sphenix/work/garfield/Include/AvalancheMC.hh
  /home/sphenix/work/garfield/Include/AvalancheMicroscopic.hh
  /home/sphenix/work/garfield/Include/ComponentAnalyticField.hh
@@ -853,7 +853,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldEventAction.cc.o
  ../include/GarfieldEventAction.hh
  ../include/GarfieldPhysics.hh
  ../include/GarfieldRunAction.hh
- /home/sphenix/work/garfield/Examples/Geant4GarfieldInterface/src/GarfieldEventAction.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldEventAction.cc
  /home/sphenix/work/garfield/Include/AvalancheMC.hh
  /home/sphenix/work/garfield/Include/AvalancheMicroscopic.hh
  /home/sphenix/work/garfield/Include/ComponentAnalyticField.hh
@@ -1051,6 +1051,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldEventAction.cc.o
  /opt/sphenix/core/geant4/include/Geant4/G4RootNtupleManager.hh
  /opt/sphenix/core/geant4/include/Geant4/G4RootRNtupleManager.hh
  /opt/sphenix/core/geant4/include/Geant4/G4RotationMatrix.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4Run.hh
  /opt/sphenix/core/geant4/include/Geant4/G4RunManager.hh
  /opt/sphenix/core/geant4/include/Geant4/G4RunManagerKernel.hh
  /opt/sphenix/core/geant4/include/Geant4/G4SandiaTable.hh
@@ -1326,9 +1327,10 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldEventAction.cc.o
  /opt/sphenix/core/root-6.06.02/include/snprintf.h
  /opt/sphenix/core/root-6.06.02/include/strlcpy.h
 CMakeFiles/exampleGarfield.dir/src/GarfieldG4FastSimulationModel.cc.o
+ ../include/GarfieldAnalysis.hh
  ../include/GarfieldG4FastSimulationModel.hh
  ../include/GarfieldPhysics.hh
- /home/sphenix/work/garfield/Examples/Geant4GarfieldInterface/src/GarfieldG4FastSimulationModel.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldG4FastSimulationModel.cc
  /home/sphenix/work/garfield/Include/AvalancheMC.hh
  /home/sphenix/work/garfield/Include/AvalancheMicroscopic.hh
  /home/sphenix/work/garfield/Include/ComponentAnalyticField.hh
@@ -1379,10 +1381,16 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldG4FastSimulationModel.cc.o
  /opt/sphenix/core/geant4/include/Geant4/G4AffineTransform.icc
  /opt/sphenix/core/geant4/include/Geant4/G4Allocator.hh
  /opt/sphenix/core/geant4/include/Geant4/G4AllocatorPool.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4AnalysisManagerState.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4AnalysisUtilities.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4AnalysisVerbose.hh
  /opt/sphenix/core/geant4/include/Geant4/G4ApplicationState.hh
  /opt/sphenix/core/geant4/include/Geant4/G4AutoLock.hh
  /opt/sphenix/core/geant4/include/Geant4/G4AuxiliaryNavServices.hh
  /opt/sphenix/core/geant4/include/Geant4/G4AuxiliaryNavServices.icc
+ /opt/sphenix/core/geant4/include/Geant4/G4BaseAnalysisManager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4BaseFileManager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4BinScheme.hh
  /opt/sphenix/core/geant4/include/Geant4/G4BlockingList.hh
  /opt/sphenix/core/geant4/include/Geant4/G4BlockingList.icc
  /opt/sphenix/core/geant4/include/Geant4/G4Box.hh
@@ -1410,6 +1418,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldG4FastSimulationModel.cc.o
  /opt/sphenix/core/geant4/include/Geant4/G4FastStep.icc
  /opt/sphenix/core/geant4/include/Geant4/G4FastTrack.hh
  /opt/sphenix/core/geant4/include/Geant4/G4FastVector.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4Fcn.hh
  /opt/sphenix/core/geant4/include/Geant4/G4GDMLAuxStructType.hh
  /opt/sphenix/core/geant4/include/Geant4/G4GDMLEvaluator.hh
  /opt/sphenix/core/geant4/include/Geant4/G4GDMLMessenger.hh
@@ -1436,6 +1445,11 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldG4FastSimulationModel.cc.o
  /opt/sphenix/core/geant4/include/Geant4/G4GRSVolume.icc
  /opt/sphenix/core/geant4/include/Geant4/G4Gamma.hh
  /opt/sphenix/core/geant4/include/Geant4/G4GeomSplitter.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4H1ToolsManager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4H2ToolsManager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4H3ToolsManager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4HnInformation.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4HnManager.hh
  /opt/sphenix/core/geant4/include/Geant4/G4Hype.hh
  /opt/sphenix/core/geant4/include/Geant4/G4Hype.icc
  /opt/sphenix/core/geant4/include/Geant4/G4IonisParamElm.hh
@@ -1468,6 +1482,8 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldG4FastSimulationModel.cc.o
  /opt/sphenix/core/geant4/include/Geant4/G4Orb.hh
  /opt/sphenix/core/geant4/include/Geant4/G4Orb.icc
  /opt/sphenix/core/geant4/include/Geant4/G4OrderedTable.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4P1ToolsManager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4P2ToolsManager.hh
  /opt/sphenix/core/geant4/include/Geant4/G4PDefSplitter.hh
  /opt/sphenix/core/geant4/include/Geant4/G4Para.hh
  /opt/sphenix/core/geant4/include/Geant4/G4Para.icc
@@ -1498,6 +1514,13 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldG4FastSimulationModel.cc.o
  /opt/sphenix/core/geant4/include/Geant4/G4RegularNavigation.hh
  /opt/sphenix/core/geant4/include/Geant4/G4ReplicaNavigation.hh
  /opt/sphenix/core/geant4/include/Geant4/G4ReplicaNavigation.icc
+ /opt/sphenix/core/geant4/include/Geant4/G4RootAnalysisManager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4RootAnalysisManager.icc
+ /opt/sphenix/core/geant4/include/Geant4/G4RootAnalysisReader.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4RootAnalysisReader.icc
+ /opt/sphenix/core/geant4/include/Geant4/G4RootFileManager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4RootNtupleManager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4RootRNtupleManager.hh
  /opt/sphenix/core/geant4/include/Geant4/G4RotationMatrix.hh
  /opt/sphenix/core/geant4/include/Geant4/G4STRead.hh
  /opt/sphenix/core/geant4/include/Geant4/G4SafetyHelper.hh
@@ -1522,9 +1545,18 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldG4FastSimulationModel.cc.o
  /opt/sphenix/core/geant4/include/Geant4/G4SurfaceVoxelizer.hh
  /opt/sphenix/core/geant4/include/Geant4/G4SurfaceVoxelizer.icc
  /opt/sphenix/core/geant4/include/Geant4/G4SystemOfUnits.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4THnManager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4THnManager.icc
+ /opt/sphenix/core/geant4/include/Geant4/G4TNtupleDescription.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4TNtupleManager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4TNtupleManager.icc
  /opt/sphenix/core/geant4/include/Geant4/G4TessellatedSolid.hh
  /opt/sphenix/core/geant4/include/Geant4/G4Threading.hh
  /opt/sphenix/core/geant4/include/Geant4/G4ThreeVector.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4ToolsAnalysisManager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4ToolsAnalysisManager.icc
+ /opt/sphenix/core/geant4/include/Geant4/G4ToolsAnalysisReader.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4ToolsAnalysisReader.icc
  /opt/sphenix/core/geant4/include/Geant4/G4Torus.hh
  /opt/sphenix/core/geant4/include/Geant4/G4Torus.icc
  /opt/sphenix/core/geant4/include/Geant4/G4TouchableHandle.hh
@@ -1565,15 +1597,27 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldG4FastSimulationModel.cc.o
  /opt/sphenix/core/geant4/include/Geant4/G4UTrap.hh
  /opt/sphenix/core/geant4/include/Geant4/G4UTrd.hh
  /opt/sphenix/core/geant4/include/Geant4/G4UTubs.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4VAnalysisManager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4VAnalysisManager.icc
+ /opt/sphenix/core/geant4/include/Geant4/G4VAnalysisReader.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4VAnalysisReader.icc
  /opt/sphenix/core/geant4/include/Geant4/G4VCSGface.hh
  /opt/sphenix/core/geant4/include/Geant4/G4VCSGfaceted.hh
  /opt/sphenix/core/geant4/include/Geant4/G4VFacet.hh
  /opt/sphenix/core/geant4/include/Geant4/G4VFastSimulationModel.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4VFileManager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4VH1Manager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4VH2Manager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4VH3Manager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4VNtupleManager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4VP1Manager.hh
+ /opt/sphenix/core/geant4/include/Geant4/G4VP2Manager.hh
  /opt/sphenix/core/geant4/include/Geant4/G4VPVParameterisation.hh
  /opt/sphenix/core/geant4/include/Geant4/G4VParticleChange.hh
  /opt/sphenix/core/geant4/include/Geant4/G4VParticleChange.icc
  /opt/sphenix/core/geant4/include/Geant4/G4VPhysicalVolume.hh
  /opt/sphenix/core/geant4/include/Geant4/G4VPhysicalVolume.icc
+ /opt/sphenix/core/geant4/include/Geant4/G4VRNtupleManager.hh
  /opt/sphenix/core/geant4/include/Geant4/G4VSolid.hh
  /opt/sphenix/core/geant4/include/Geant4/G4VSolid.icc
  /opt/sphenix/core/geant4/include/Geant4/G4VTouchable.hh
@@ -1587,12 +1631,99 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldG4FastSimulationModel.cc.o
  /opt/sphenix/core/geant4/include/Geant4/G4ios.hh
  /opt/sphenix/core/geant4/include/Geant4/HepPolyhedron.h
  /opt/sphenix/core/geant4/include/Geant4/HepPolyhedronProcessor.h
+ /opt/sphenix/core/geant4/include/Geant4/g4root.hh
+ /opt/sphenix/core/geant4/include/Geant4/g4root_defs.hh
  /opt/sphenix/core/geant4/include/Geant4/geomdefs.hh
  /opt/sphenix/core/geant4/include/Geant4/geomwdefs.hh
  /opt/sphenix/core/geant4/include/Geant4/globals.hh
  /opt/sphenix/core/geant4/include/Geant4/pwdefs.hh
  /opt/sphenix/core/geant4/include/Geant4/templates.hh
  /opt/sphenix/core/geant4/include/Geant4/tls.hh
+ /opt/sphenix/core/geant4/include/Geant4/tools/S_STRING
+ /opt/sphenix/core/geant4/include/Geant4/tools/charp_out
+ /opt/sphenix/core/geant4/include/Geant4/tools/cid
+ /opt/sphenix/core/geant4/include/Geant4/tools/cids
+ /opt/sphenix/core/geant4/include/Geant4/tools/forit
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/axes
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/axis
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/b1
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/b2
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/b3
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/base_histo
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/h1
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/h1d
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/h1df
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/h2
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/h2d
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/h2df
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/h3
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/h3d
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/h3df
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/histo_data
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/hmpi
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/p1
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/p1d
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/p2
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/p2d
+ /opt/sphenix/core/geant4/include/Geant4/tools/histo/profile_data
+ /opt/sphenix/core/geant4/include/Geant4/tools/long_out
+ /opt/sphenix/core/geant4/include/Geant4/tools/mem
+ /opt/sphenix/core/geant4/include/Geant4/tools/ntuple_binding
+ /opt/sphenix/core/geant4/include/Geant4/tools/ntuple_booking
+ /opt/sphenix/core/geant4/include/Geant4/tools/num2s
+ /opt/sphenix/core/geant4/include/Geant4/tools/path
+ /opt/sphenix/core/geant4/include/Geant4/tools/platform
+ /opt/sphenix/core/geant4/include/Geant4/tools/press_func
+ /opt/sphenix/core/geant4/include/Geant4/tools/rcmp
+ /opt/sphenix/core/geant4/include/Geant4/tools/rntuple
+ /opt/sphenix/core/geant4/include/Geant4/tools/rroot/base_leaf
+ /opt/sphenix/core/geant4/include/Geant4/tools/rroot/buffer
+ /opt/sphenix/core/geant4/include/Geant4/tools/rroot/ifac
+ /opt/sphenix/core/geant4/include/Geant4/tools/rroot/iro
+ /opt/sphenix/core/geant4/include/Geant4/tools/rroot/leaf
+ /opt/sphenix/core/geant4/include/Geant4/tools/rroot/named
+ /opt/sphenix/core/geant4/include/Geant4/tools/rroot/ntuple
+ /opt/sphenix/core/geant4/include/Geant4/tools/rroot/rbuf
+ /opt/sphenix/core/geant4/include/Geant4/tools/rroot/stl_vector
+ /opt/sphenix/core/geant4/include/Geant4/tools/safe_cast
+ /opt/sphenix/core/geant4/include/Geant4/tools/scast
+ /opt/sphenix/core/geant4/include/Geant4/tools/snpf
+ /opt/sphenix/core/geant4/include/Geant4/tools/sout
+ /opt/sphenix/core/geant4/include/Geant4/tools/sprintf
+ /opt/sphenix/core/geant4/include/Geant4/tools/sto
+ /opt/sphenix/core/geant4/include/Geant4/tools/store/iobj_const_visitor
+ /opt/sphenix/core/geant4/include/Geant4/tools/store/iobj_visitor
+ /opt/sphenix/core/geant4/include/Geant4/tools/store/osc_streamers
+ /opt/sphenix/core/geant4/include/Geant4/tools/strip
+ /opt/sphenix/core/geant4/include/Geant4/tools/stype
+ /opt/sphenix/core/geant4/include/Geant4/tools/typedefs
+ /opt/sphenix/core/geant4/include/Geant4/tools/vdata
+ /opt/sphenix/core/geant4/include/Geant4/tools/vfind
+ /opt/sphenix/core/geant4/include/Geant4/tools/vmanip
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/basket
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/branch
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/branch_element
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/bufobj
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/date
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/directory
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/element
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/file
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/free_seg
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/ibo
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/idir
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/ifile
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/info
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/infos
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/iobject
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/itree
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/key
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/member_writer
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/ntuple
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/seek
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/streamers
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/to
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/tree
+ /opt/sphenix/core/geant4/include/Geant4/tools/wroot/wbuf
  /opt/sphenix/core/geant4/include/Geant4/trkdefs.hh
  /opt/sphenix/core/geant4/include/Geant4/windefs.hh
  /opt/sphenix/core/include/xercesc/dom/DOM.hpp
@@ -1825,7 +1956,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldMessenger.cc.o
  ../include/GarfieldDetectorConstruction.hh
  ../include/GarfieldMessenger.hh
  ../include/GarfieldPhysics.hh
- /home/sphenix/work/garfield/Examples/Geant4GarfieldInterface/src/GarfieldMessenger.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldMessenger.cc
  /home/sphenix/work/garfield/Include/AvalancheMC.hh
  /home/sphenix/work/garfield/Include/AvalancheMicroscopic.hh
  /home/sphenix/work/garfield/Include/ComponentAnalyticField.hh
@@ -1956,7 +2087,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldMessenger.cc.o
 CMakeFiles/exampleGarfield.dir/src/GarfieldPhysics.cc.o
  ../include/GarfieldAnalysis.hh
  ../include/GarfieldPhysics.hh
- /home/sphenix/work/garfield/Examples/Geant4GarfieldInterface/src/GarfieldPhysics.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldPhysics.cc
  /home/sphenix/work/garfield/Include/AvalancheMC.hh
  /home/sphenix/work/garfield/Include/AvalancheMicroscopic.hh
  /home/sphenix/work/garfield/Include/ComponentAnalyticField.hh
@@ -2203,7 +2334,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPhysics.cc.o
 CMakeFiles/exampleGarfield.dir/src/GarfieldPhysicsList.cc.o
  ../include/GarfieldPhysics.hh
  ../include/GarfieldPhysicsList.hh
- /home/sphenix/work/garfield/Examples/Geant4GarfieldInterface/src/GarfieldPhysicsList.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldPhysicsList.cc
  /home/sphenix/work/garfield/Include/AvalancheMC.hh
  /home/sphenix/work/garfield/Include/AvalancheMicroscopic.hh
  /home/sphenix/work/garfield/Include/ComponentAnalyticField.hh
@@ -2973,7 +3104,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPhysicsList.cc.o
  /opt/sphenix/core/root-6.06.02/include/strlcpy.h
 CMakeFiles/exampleGarfield.dir/src/GarfieldPrimaryGeneratorAction.cc.o
  ../include/GarfieldPrimaryGeneratorAction.hh
- /home/sphenix/work/garfield/Examples/Geant4GarfieldInterface/src/GarfieldPrimaryGeneratorAction.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldPrimaryGeneratorAction.cc
  /opt/sphenix/core/geant4/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /opt/sphenix/core/geant4/include/Geant4/CLHEP/Geometry/Normal3D.h
  /opt/sphenix/core/geant4/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -3237,7 +3368,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPrimaryGeneratorAction.cc.o
 CMakeFiles/exampleGarfield.dir/src/GarfieldRunAction.cc.o
  ../include/GarfieldAnalysis.hh
  ../include/GarfieldRunAction.hh
- /home/sphenix/work/garfield/Examples/Geant4GarfieldInterface/src/GarfieldRunAction.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldRunAction.cc
  /opt/sphenix/core/geant4/include/Geant4/CLHEP/Random/DualRand.h
  /opt/sphenix/core/geant4/include/Geant4/CLHEP/Random/JamesRandom.h
  /opt/sphenix/core/geant4/include/Geant4/CLHEP/Random/MTwistEngine.h
@@ -3611,7 +3742,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldSteppingAction.cc.o
  ../include/GarfieldDetectorConstruction.hh
  ../include/GarfieldEventAction.hh
  ../include/GarfieldSteppingAction.hh
- /home/sphenix/work/garfield/Examples/Geant4GarfieldInterface/src/GarfieldSteppingAction.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldSteppingAction.cc
  /opt/sphenix/core/geant4/include/Geant4/CLHEP/Random/DualRand.h
  /opt/sphenix/core/geant4/include/Geant4/CLHEP/Random/JamesRandom.h
  /opt/sphenix/core/geant4/include/Geant4/CLHEP/Random/MTwistEngine.h

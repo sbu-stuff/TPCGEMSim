@@ -1,4 +1,4 @@
-# Install script for directory: /home/sphenix/work/garfield/Examples/Geant4GarfieldInterface
+# Install script for directory: /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/exampleGarfield"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/sphenix/work/garfield/Examples/Geant4GarfieldInterface/exampleGarfield_build/exampleGarfield")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/exampleGarfield_build/exampleGarfield")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/exampleGarfield" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/exampleGarfield")
     file(RPATH_REMOVE
@@ -58,5 +58,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/sphenix/work/garfield/Examples/Geant4GarfieldInterface/exampleGarfield_build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/exampleGarfield_build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
