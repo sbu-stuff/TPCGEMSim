@@ -4,7 +4,8 @@
 # When useDefaults is set to false, the particle types and energy ranges
 # have to be set by hand
 
-/exampleGarfield/physics/setIonizationModel PAI false
+#/exampleGarfield/physics/setIonizationModel PAI false
+/exampleGarfield/physics/setIonizationModel PAI true
 
 # Here are the Geant4 particle types and energies that are set by useDefaults = true
 /exampleGarfield/physics/setGeant4ParticleTypeAndEnergy e- 0 1e+8 MeV 

@@ -38,6 +38,7 @@
 #include "Sensor.hh"
 #include "AvalancheMC.hh"
 #include "AvalancheMicroscopic.hh"
+#include "ComponentConstant.hh"
 #include "ComponentAnalyticField.hh"
 #include "TrackHeed.hh"
 #include "TrackSimple.hh"
@@ -117,8 +118,10 @@ private:
 	Garfield::TrackHeed* fTrackHeed;
 	Garfield::GeometryRoot* fGeometryRoot;
 	Garfield::GeometrySimple* fGeometrySimple;
+        Garfield::ComponentConstant* componentConstant;
 	Garfield::ComponentAnalyticField* fComponentAnalyticField;
 	Garfield::SolidTube* fTube;
+
 
 	std::vector<GarfieldParticle*>* fSecondaryParticles;
 

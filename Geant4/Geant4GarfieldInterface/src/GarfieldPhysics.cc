@@ -57,6 +57,7 @@ GarfieldPhysics::GarfieldPhysics() {
 	fSensor = 0;
 	fAvalanche = 0;
 	fDrift = 0;
+	componentConstant = 0;
 	fComponentAnalyticField = 0;
 	fTrackHeed = 0;
 	fGeoManager = 0;
@@ -76,6 +77,7 @@ GarfieldPhysics::~GarfieldPhysics() {
 	delete fSensor;
 	delete fAvalanche;
 	delete fDrift;
+	delete componentConstant;
 	delete fComponentAnalyticField;
 	delete fTrackHeed;
 	delete fGeometryRoot;
@@ -283,7 +285,7 @@ void GarfieldPhysics::InitializePhysics() {
 
 void GarfieldPhysics::CreateGeometry() {
 // Wire radius [cm]
-	const double rWire = 25.e-4;
+  //const double rWire = 25.e-4;
 // Outer radius of the tube [cm]
 	const double rTube = 80;
 //	const double rTube = 1.451;
@@ -293,16 +295,23 @@ void GarfieldPhysics::CreateGeometry() {
 
 	fGeometrySimple = new Garfield::GeometrySimple();
 // Make a tube (centered at the origin, inner radius: 0, outer radius: rTube).
-	fTube = new Garfield::SolidTube(0., 0., 0, rWire, rTube, lTube);
+	fTube = new Garfield::SolidTube(0., 0., 0, 0, rTube, lTube);
 // Add the solid to the geometry, together with the medium inside.
 	fGeometrySimple->AddSolid(fTube, fMediumMagboltz);
-	fComponentAnalyticField->SetGeometry(fGeometrySimple);
+      	fComponentAnalyticField->SetGeometry(fGeometrySimple);
+
+	componentConstant = new Garfield::ComponentConstant();
+       	componentConstant->SetElectricField(0, 0, 400);
+	//componentConstant->SetGeometry(fGeometrySimple);
+	fSensor->AddComponent(componentConstant);
+	//fComponentAnalyticField->ElectricField
 
 // Voltages
-	const double vWire = 1000.;
+	//const double vWire = 1000.;
+	//const double vWire = 1000.;
 	const double vTube = 0.;
 // Add the wire in the center.
-	fComponentAnalyticField->AddWire(0., 0., 2 * rWire, vWire, "w");
+	//fComponentAnalyticField->AddWire(0., 0., 2 * rWire, vWire, "w");
 // Add the tube.
 	fComponentAnalyticField->AddTube(rTube, vTube, 0, "t");
 
@@ -357,7 +366,7 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 					dx, dy, dz, nc);
 			fEnergyDeposit = eKin_eV;
 		}
-
+		G4cout << "Collisional output " << nc << G4endl; 
 		for (int cl = 0; cl < nc; cl++) {
 			double xe, ye, ze, te;
 			double ee, dxe, dye, dze;
@@ -371,6 +380,7 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 				// analysisManager->FillH3(1, ze * 10, xe * 10, ye * 10);
 				// analysisManager->FillH3(1, ze, xe, ye);
 				//G4cout << "Filling particleName/Num " << particleName << particleNum << " " << xe << " " << ye << " " << ze << " " << G4endl;
+				G4cout << "cl,xe,ye,ze,te,ee,dxe" << " " << cl <<" " << xe <<" " << ye <<" " << ze <<" " << te <<" " << ee <<" " << dxe << G4endl;
 				analysisManager->FillNtupleDColumn(particleNum,0,xe);
 				analysisManager->FillNtupleDColumn(particleNum,1,ye);
 				analysisManager->FillNtupleDColumn(particleNum,2,ze);				

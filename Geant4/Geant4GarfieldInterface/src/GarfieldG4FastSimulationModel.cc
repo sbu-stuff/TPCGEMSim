@@ -116,7 +116,7 @@ void GarfieldG4FastSimulationModel::DoIt(const G4FastTrack& fastTrack,
 		particleName = "anti-proton";
 	}
 
-	//G4cout << "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE" << G4endl;
+	// G4cout << "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE" << G4endl;
 	fGarfieldPhysics->DoIt(particleName, ekin_MeV, globalTime,
 			localPosition.x() / CLHEP::cm, localPosition.y() / CLHEP::cm,
 			localPosition.z() / CLHEP::cm, localdir.x(), localdir.y(),
