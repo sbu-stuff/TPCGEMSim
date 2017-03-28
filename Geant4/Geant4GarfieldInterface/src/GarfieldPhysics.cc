@@ -286,36 +286,45 @@ void GarfieldPhysics::InitializePhysics() {
 void GarfieldPhysics::CreateGeometry() {
 // Wire radius [cm]
   //const double rWire = 25.e-4;
-// Outer radius of the tube [cm]
-	const double rTube = 80;
+// Radii of the tube [cm]
+	const double rOuterTube = 80;
+	const double rInnerTube = 20;
 //	const double rTube = 1.451;
 // Half-length of the tube [cm]
-	const double lTube = 50.;
+	const double lTube = 100.;
 //	const double lTube = 10.;
 
 	fGeometrySimple = new Garfield::GeometrySimple();
 // Make a tube (centered at the origin, inner radius: 0, outer radius: rTube).
-	fTube = new Garfield::SolidTube(0., 0., 0, 0, rTube, lTube);
+	fTube = new Garfield::SolidTube(0., 0., 0., rInnerTube, rOuterTube, lTube);
 // Add the solid to the geometry, together with the medium inside.
 	fGeometrySimple->AddSolid(fTube, fMediumMagboltz);
-      	fComponentAnalyticField->SetGeometry(fGeometrySimple);
 
 	componentConstant = new Garfield::ComponentConstant();
        	componentConstant->SetElectricField(0, 0, 400);
-	//componentConstant->SetGeometry(fGeometrySimple);
+       	componentConstant->SetMagneticField(0, 0, 1.5);
+
+	componentConstant->SetGeometry(fGeometrySimple);
+
 	fSensor->AddComponent(componentConstant);
 	//fComponentAnalyticField->ElectricField
 
 // Voltages
 	//const double vWire = 1000.;
 	//const double vWire = 1000.;
-	const double vTube = 0.;
+	//const double vTube = 0.;
 // Add the wire in the center.
 	//fComponentAnalyticField->AddWire(0., 0., 2 * rWire, vWire, "w");
 // Add the tube.
-	fComponentAnalyticField->AddTube(rTube, vTube, 0, "t");
+	//fComponentAnalyticField->AddTube(rTube, vTube, 0, "t");
+	//fComponentAnalyticField->AddTube(rInnerTube, 0, 0, "t");
 
+	/*
+      	fComponentAnalyticField->SetGeometry(fGeometrySimple);
+	fComponentAnalyticField->AddWire(0., 0., 2 * rInnerTube, 0, "w");
+	fComponentAnalyticField->AddTube(rOuterTube, 0, 0, "t");
 	fSensor->AddComponent(fComponentAnalyticField);
+	*/
 
 }
 
@@ -338,12 +347,13 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 	*/
 	G4cout << particleId << " " << particleName << " " << time << " " << x_cm << " " <<  dx << G4endl;
 // Wire radius [cm]
-	const double rWire = 25.e-4;
+	//const double rWire = 25.e-4;
 // Outer radius of the tube [cm]
-	const double rTube = 80;
+	const double rOuterTube = 80;
+	const double rInnerTube = 20;
 //	const double rTube = 1.451;
 // Half-length of the tube [cm]
-	const double lTube = 50.;
+	const double lTube = 100.;
 //	const double lTube = 10.;
 
 	double eKin_eV = ekin_MeV * 1e+6;
@@ -371,7 +381,7 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 			double xe, ye, ze, te;
 			double ee, dxe, dye, dze;
 			fTrackHeed->GetElectron(cl, xe, ye, ze, te, ee, dxe, dye, dze);
-			if (ze < lTube && ze > -lTube && sqrt(xe * xe + ye * ye) < rTube) {
+			if (ze < lTube && ze > -lTube && sqrt(xe * xe + ye * ye) < rOuterTube && sqrt(xe * xe + ye * ye) > rInnerTube) {
 				nsum++;
 				if (particleName == "gamma") {
 					fEnergyDeposit += fTrackHeed->GetW();
@@ -420,6 +430,19 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 				fDrift->GetElectronEndpoint(0, xe1, ye1, ze1, te1, xe2, ye2,
 						ze2, te2, status);
 
+				if (0 < xe2 && xe2 < rInnerTube) {
+					xe2 += 2 * rInnerTube;
+				}
+				if (0 > xe2 && xe2 > -rInnerTube) {
+					xe2 += -2 * rInnerTube;
+				}
+				if (0 < ye2 && ye2 < rInnerTube) {
+					ye2 += 2 * rInnerTube;
+				}
+				if (0 > ye2 && ye2 > -rInnerTube) {
+					ye2 += -2 * rInnerTube;
+				}
+				/*
 				if (0 < xe2 && xe2 < rWire) {
 					xe2 += 2 * rWire;
 				}
@@ -432,7 +455,7 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 				if (0 > ye2 && ye2 > -rWire) {
 					ye2 += -2 * rWire;
 				}
-
+				*/
 				double e2 = 0.1;
 				fAvalanche->AvalancheElectron(xe2, ye2, ze2, te2, e2, 0, 0, 0);
 
@@ -448,7 +471,7 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 		fTrackHeed->NewTrack(x_cm, y_cm, z_cm, time, dx, dy, dz);
 
 		while (fTrackHeed->GetCluster(xc, yc, zc, tc, nc, ec, extra)) {
-			if (zc < lTube && zc > -lTube && sqrt(xc * xc + yc * yc) < rTube) {
+			if (zc < lTube && zc > -lTube && sqrt(xc * xc + yc * yc) < rOuterTube && sqrt(xc * xc + yc * yc) > rInnerTube) {
 				nsum += nc;
 				fEnergyDeposit += ec;
 				for (int cl = 0; cl < nc; cl++) {
@@ -457,7 +480,7 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 					fTrackHeed->GetElectron(cl, xe, ye, ze, te, ee, dxe, dye,
 							dze);
 					if (ze < lTube && ze > -lTube
-							&& sqrt(xe * xe + ye * ye) < rTube) {
+							&& sqrt(xe * xe + ye * ye) < rOuterTube && sqrt(xe * xe + ye * ye) > rInnerTube) {
 					  G4cout << ">>>>>>>>H3 2nd input "<< ze << " " << xe << " " << ye << G4endl;
 					  // analysisManager->FillH3(1, ze * 10, xe * 10, ye * 10);
 						if (createSecondariesInGeant4) {
@@ -478,7 +501,7 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 						int status;
 						fDrift->GetElectronEndpoint(0, xe1, ye1, ze1, te1, xe2,
 								ye2, ze2, te2, status);
-
+						/*
 						if (0 < xe2 && xe2 < rWire) {
 							xe2 += 2 * rWire;
 						}
@@ -490,6 +513,19 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 						}
 						if (0 > ye2 && ye2 > -rWire) {
 							ye2 += -2 * rWire;
+						}
+						*/
+						if (0 < xe2 && xe2 < rInnerTube) {
+						  xe2 += 2 * rInnerTube;
+						}
+						if (0 > xe2 && xe2 > -rInnerTube) {
+						  xe2 += -2 * rInnerTube;
+						}
+						if (0 < ye2 && ye2 < rInnerTube) {
+						  ye2 += 2 * rInnerTube;
+						}
+						if (0 > ye2 && ye2 > -rInnerTube) {
+						  ye2 += -2 * rInnerTube;
 						}
 
 						double e2 = 0.1;

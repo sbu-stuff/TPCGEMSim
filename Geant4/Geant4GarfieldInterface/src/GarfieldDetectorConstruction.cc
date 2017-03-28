@@ -135,11 +135,11 @@ G4VPhysicalVolume* GarfieldDetectorConstruction::DefineVolumes() {
 	G4double worldSizeXYZ = 10 * m;
 	//G4double absorberThicknessZ = 10. * mm;
 	//G4double absorberThicknessXY = 100. * mm;
-	G4double wireRadius = 0.025 * mm;
+	//G4double wireRadius = 0.025 * mm;
 	//G4double innerTubeRadius = 20 * cm;
 	G4double tubeInnerRadius = 20 * cm;
 	G4double tubeRadius = 80 * cm;
-	G4double tubeHalfLength = .5 * m;
+	G4double tubeHalfLength = 1 * m;
 	G4double tubeThickness = 500 * um;
 
 	// Get materials
@@ -147,10 +147,11 @@ G4VPhysicalVolume* GarfieldDetectorConstruction::DefineVolumes() {
       
 	G4Material* gasMaterial = G4Material::GetMaterial("NeCF4_95_5");
 	G4Material* cathodeMaterial = G4Material::GetMaterial("G4_Al");
-	G4Material* wireMaterial = G4Material::GetMaterial("G4_W");
+	//G4Material* wireMaterial = G4Material::GetMaterial("G4_W");
 
 	if (!defaultMaterial || !gasMaterial
-			|| !cathodeMaterial || !wireMaterial) {
+			|| !cathodeMaterial) {
+	  // || !cathodeMaterial || !wireMaterial) {
 		G4ExceptionDescription msg;
 		msg << "Cannot retrieve materials already defined.";
 		G4Exception("GarfieldDetectorConstruction::DefineVolumes()",
@@ -258,6 +259,7 @@ G4VPhysicalVolume* GarfieldDetectorConstruction::DefineVolumes() {
 	//
 	// Wire
 	//
+	/*
 	G4VSolid* wireS = new G4Tubs("Wire",            // its name
 			0, wireRadius, tubeHalfLength, 0, 2 * pi); // its size
 
@@ -274,7 +276,7 @@ G4VPhysicalVolume* GarfieldDetectorConstruction::DefineVolumes() {
 			0,                // copy number
 			fCheckOverlaps);  // checking overlaps
 
-	//
+	*/
 	// Visualization attributes
 	//
 	worldLV->SetVisAttributes(G4VisAttributes::Invisible);
@@ -284,7 +286,7 @@ G4VPhysicalVolume* GarfieldDetectorConstruction::DefineVolumes() {
 	G4VisAttributes* VisAttRed = new G4VisAttributes(G4Colour(1.0, 0.0, 0.0));
 	G4VisAttributes* VisAttWhite = new G4VisAttributes(G4Colour(1.0, 1.0, 1.0));
 
-	wireLV->SetVisAttributes(VisAttRed);
+	//wireLV->SetVisAttributes(VisAttRed);
 	tubeLV->SetVisAttributes(VisAttGreen);
 	tubeLVO->SetVisAttributes(VisAttGreen);
 	gasLV->SetVisAttributes(VisAttWhite);
@@ -293,8 +295,8 @@ G4VPhysicalVolume* GarfieldDetectorConstruction::DefineVolumes() {
 	G4Region* regionGarfield = new G4Region("RegionGarfield");
 	regionGarfield->AddRootLogicalVolume(gasLV);
 
-	G4Region* regionWire = new G4Region("RegionWire");
-	regionWire->AddRootLogicalVolume(wireLV);
+	//G4Region* regionWire = new G4Region("RegionWire");
+	//regionWire->AddRootLogicalVolume(wireLV);
 
 	fGarfieldG4FastSimulationModel = new GarfieldG4FastSimulationModel(
 			"GarfieldG4FastSimulationModel", regionGarfield);

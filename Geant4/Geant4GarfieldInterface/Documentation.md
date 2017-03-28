@@ -5,6 +5,11 @@
 - The ionization model (PAIPhot or PAI model in Geant4, Heed in Garfield++) and the valid paticle types and energy ranges  can be set in the file physics.mac.
 - The program can also be run with visualization, for that type >./exampleGarfield, and then press the "run" button.
 
+### exampleGarfield.cc
+- Evaluate arguments
+- Load macros or define User Interface session if no macro provided
+- Set random engine
+
 ### run.mac
 - Set absorber material: /exampleGarfield/absorber/setMat
 - Execute physic.mac
@@ -54,10 +59,19 @@
 - Sensor, TrackHeed?
 - Particle_1 e- 2.02636 56.0615 0.894328
   ### FastSimulationModel:DoIt
-  - Kill primary track
-  - Switch to Garfield
+  - Get Track's momemtum direction, position, kinetic energy, global time, particle name
+  - Kill primary track and switch to Garfield
     ###GarfieldPhysics::DoIt
-    - 
+    - Set up geometry again, with E-field (and B-field) included
+    - fIonizationModel != Heed then xc, yc, tc don't matter
+    - particle != "gamma" then fTrackHeed->TransportDeltaElection that takes in positions and directions of cluster (x_cm, dx, ..., nc), to get nc, the number of electrons produced in a collision
+    - loop through cl=0 to cl=nc-1, fTrackHeed->GetElectron
+    - if electron is inside the tube then nsum++ (nsum is not defined anywhere)
+    - store electron positions
+    - check fore secondaries
+    - fDrift->DriftElectron(xe,ye,ze,te), then get endpoints, storing in xe1,...,xe2,...
+    - Move final positions out of innertube?
+    - Get avalanche size (+=ne)
 
 
 
