@@ -28,6 +28,10 @@
 /// \file exampleB4a.cc
 /// \brief Main program of the B4a example
 
+#include <TROOT.h>
+#include <TFile.h>
+
+#include "global.h"
 #include "GarfieldDetectorConstruction.hh"
 #include "GarfieldPhysics.hh"
 #include "GarfieldPhysicsList.hh"
@@ -48,6 +52,9 @@
 #include "Random.hh"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
+int particleNum = 0;
+
+
 namespace {
 void PrintUsage() {
 	G4cerr << " Usage: " << G4endl;
@@ -59,8 +66,10 @@ void PrintUsage() {
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 int main(int argc, char** argv) {
-
-
+  
+  TFile *f = new TFile("Garfield.root","RECREATE");
+  f->Write();
+  f->Close();
 	// Evaluate arguments
 	//
 	if (argc > 7) {

@@ -1,0 +1,19 @@
+GarfieldAnalysis.hh:// $Id: GarfieldAnalysis.hh 9999991 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldDetectorConstruction.hh:// $Id: GarfieldDetectorConstruction.hh 99992 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldEventAction.hh:// $Id: GarfieldEventAction.hh 9999993 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldEventAction.hh:/// - fEnergyAbs, fEnergyGap, fTrackLAbs, fTrackLGap
+GarfieldEventAction.hh:/// - AddAbs(), AddGap()
+GarfieldG4FastSimulationModel.hh:// $Id: GarfieldFastSimulationModel.hh 9999994 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldG4FastSimulationModel.hh:  //-------------------------
+GarfieldG4FastSimulationModel.hh:  //-------------------------
+GarfieldMessenger.hh:// $Id: GarfieldMessenger.hh 9999995 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldPhysics.hh:// $Id: GarfieldPhysics.hh 9999996 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldPhysicsList.hh:// $Id: GarfieldPhysicsList.hh 9999997 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldPrimaryGeneratorAction.hh:// $Id: GarfieldPrimaryGeneratorAction.hh 9999998 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldPrimaryGeneratorAction.hh:/// can be changed via the G4 build-in commands of G4ParticleGun class 
+GarfieldRunAction.hh:// $Id: GarfieldRunAction.hh 9999999 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldRunAction.hh:/// - Edep in absorber
+GarfieldRunAction.hh:/// - Edep in gap
+GarfieldRunAction.hh:/// - Track length in absorber
+GarfieldRunAction.hh:/// - Track length in gap
+GarfieldSteppingAction.hh:// $Id: GarfieldSteppingAction.hh 9999990 2015-12-11 14:47:43Z dpfeiffe $

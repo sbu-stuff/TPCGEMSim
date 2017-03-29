@@ -1,0 +1,378 @@
+GarfieldDetectorConstruction.cc:// $Id: GarfieldDetectorConstruction.cc 999992 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldDetectorConstruction.cc:	nistManager->FindOrBuildMaterial("G4_Pb");
+GarfieldDetectorConstruction.cc:	nistManager->FindOrBuildMaterial("G4_Cu");
+GarfieldDetectorConstruction.cc:	nistManager->FindOrBuildMaterial("G4_Al");
+GarfieldDetectorConstruction.cc:	nistManager->FindOrBuildMaterial("G4_Au");
+GarfieldDetectorConstruction.cc:        nistManager->FindOrBuildMaterial("G4_W");
+GarfieldDetectorConstruction.cc:	nistManager->FindOrBuildMaterial("G4_AIR");
+GarfieldDetectorConstruction.cc:	G4Element* H = nistManager->FindOrBuildElement("H", isotopes);
+GarfieldDetectorConstruction.cc:	G4Element* N = nistManager->FindOrBuildElement("N", isotopes);
+GarfieldDetectorConstruction.cc:	G4Element* C = nistManager->FindOrBuildElement("C", isotopes);
+GarfieldDetectorConstruction.cc:	G4Element* O = nistManager->FindOrBuildElement("O", isotopes);
+GarfieldDetectorConstruction.cc:	G4Element* Ne = nistManager->FindOrBuildElement("Ne", isotopes);
+GarfieldDetectorConstruction.cc:	G4Element* F = nistManager->FindOrBuildElement("F", isotopes);
+GarfieldDetectorConstruction.cc:	CF4->AddElement(C, natoms = 1);
+GarfieldDetectorConstruction.cc:	CF4->AddElement(F, natoms = 4);
+GarfieldDetectorConstruction.cc:	NeCF4_95_5->AddElement(Ne, fractionmass = 0.95);
+GarfieldDetectorConstruction.cc:	NeCF4_95_5->AddMaterial(CF4, fractionmass = 0.05);
+GarfieldDetectorConstruction.cc:	ArCO2_93_7->AddElement(Ar, fractionmass = 0.93);
+GarfieldDetectorConstruction.cc:	ArCO2_93_7->AddMaterial(CO2, fractionmass = 0.07);
+GarfieldDetectorConstruction.cc:	//			tubeRadius - tubeThickness, tubeRadius, tubeHalfLength + tubeThickness, 0, 2 * pi); // its size
+GarfieldDetectorConstruction.cc:	rotY->rotateY(90. * CLHEP::degree);
+GarfieldDetectorConstruction.cc:			tubeInnerRadius, tubeRadius - tubeThickness, tubeHalfLength, 0, 2 * pi); // its size
+GarfieldDetectorConstruction.cc:			tubeInnerRadius - tubeThickness, tubeInnerRadius, tubeHalfLength + tubeThickness, 0, 2 * pi); // its size
+GarfieldDetectorConstruction.cc:	worldLV->SetVisAttributes(G4VisAttributes::Invisible);
+GarfieldDetectorConstruction.cc:	wireLV->SetVisAttributes(VisAttRed);
+GarfieldDetectorConstruction.cc:	tubeLV->SetVisAttributes(VisAttGreen);
+GarfieldDetectorConstruction.cc:	tubeLVO->SetVisAttributes(VisAttGreen);
+GarfieldDetectorConstruction.cc:	gasLV->SetVisAttributes(VisAttWhite);
+GarfieldDetectorConstruction.cc:	//fAbsorberLV->SetVisAttributes(VisAttBlue);
+GarfieldDetectorConstruction.cc:	regionGarfield->AddRootLogicalVolume(gasLV);
+GarfieldDetectorConstruction.cc:	regionWire->AddRootLogicalVolume(wireLV);
+GarfieldDetectorConstruction.cc:	fGarfieldG4FastSimulationModel->WriteGeometryToGDML(fGasPV);
+GarfieldDetectorConstruction.cc:	element->AddIsotope(isotope, abundance = 100. * perCent);
+GarfieldDetectorConstruction.cc:	material->AddElement(element, massfraction = 100. * perCent);
+GarfieldDetectorConstruction.cc:	G4Material* newMaterial = G4NistManager::Instance()->FindOrBuildMaterial(
+GarfieldDetectorConstruction.cc:				fAbsorberLV->SetMaterial(fAbsorberMaterial);
+GarfieldDetectorConstruction.cc:			G4RunManager::GetRunManager()->PhysicsHasBeenModified();
+GarfieldDetectorConstruction.cc:				<< "\n--> warning from GarfieldDetectorConstruction::SetMaterial : "
+GarfieldEventAction.cc:// $Id: GarfieldEventAction.cc 999993 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldEventAction.cc:	  //std::string eventID = std::to_string(event->GetEventID());
+GarfieldEventAction.cc:	  //int runID = run->GetRunID();
+GarfieldEventAction.cc:	std::string eventId = "Event_"+std::to_string(event->GetEventID());
+GarfieldEventAction.cc:	f->Write();
+GarfieldEventAction.cc:	f->Close();
+GarfieldEventAction.cc:	garfieldPhysics->Clear();
+GarfieldEventAction.cc:	//fEnergyGas += garfieldPhysics->GetEnergyDeposit_MeV();
+GarfieldEventAction.cc:	fAvalancheSize = garfieldPhysics->GetAvalancheSize();
+GarfieldEventAction.cc:	fGain = garfieldPhysics->GetGain();
+GarfieldEventAction.cc:	analysisManager->FillH1(1, fEnergyAbs);
+GarfieldEventAction.cc:	analysisManager->FillH1(2, fTrackLAbs);
+GarfieldEventAction.cc:	analysisManager->FillH1(3, fEnergyGas);
+GarfieldEventAction.cc:	analysisManager->FillH1(4, fAvalancheSize);
+GarfieldEventAction.cc:	analysisManager->FillH1(5, fGain);
+GarfieldEventAction.cc:        // analysisManager2->Write();
+GarfieldEventAction.cc:        // analysisManager2->CloseFile();
+GarfieldEventAction.cc:	G4int eventID = event->GetEventID();
+GarfieldEventAction.cc:	G4int printModulo = G4RunManager::GetRunManager()->GetPrintProgress();
+GarfieldEventAction.cc:		G4cout << "---> End of event: " << eventID << G4endl;
+GarfieldG4FastSimulationModel.cc:// $Id: GarfieldG4FastSimulationModel.cc 999994 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldG4FastSimulationModel.cc:	fGarfieldPhysics->InitializePhysics();
+GarfieldG4FastSimulationModel.cc:	fGarfieldPhysics->InitializePhysics();
+GarfieldG4FastSimulationModel.cc:	parser->Write("garfieldGeometry.gdml", physicalVolume, false);
+GarfieldG4FastSimulationModel.cc:	if (fGarfieldPhysics->FindParticleName(particleName, "garfield")) {
+GarfieldG4FastSimulationModel.cc:	double ekin_MeV = fastTrack.GetPrimaryTrack()->GetKineticEnergy() / MeV;
+GarfieldG4FastSimulationModel.cc:			fastTrack.GetPrimaryTrack()->GetParticleDefinition()->GetParticleName();
+GarfieldG4FastSimulationModel.cc:	if (fGarfieldPhysics->FindParticleNameEnergy(particleName, ekin_MeV,
+GarfieldG4FastSimulationModel.cc:			fastTrack.GetPrimaryTrack()->GetTouchableHandle();
+GarfieldG4FastSimulationModel.cc:	G4String name = theTouchable->GetVolume()->GetName();
+GarfieldG4FastSimulationModel.cc:			fastTrack.GetPrimaryTrack()->GetMomentum().unit();
+GarfieldG4FastSimulationModel.cc:	G4ThreeVector worldPosition = fastTrack.GetPrimaryTrack()->GetPosition();
+GarfieldG4FastSimulationModel.cc:	double ekin_MeV = fastTrack.GetPrimaryTrack()->GetKineticEnergy() / MeV;
+GarfieldG4FastSimulationModel.cc:	G4double globalTime = fastTrack.GetPrimaryTrack()->GetGlobalTime();
+GarfieldG4FastSimulationModel.cc:			fastTrack.GetPrimaryTrack()->GetParticleDefinition()->GetParticleName();
+GarfieldG4FastSimulationModel.cc:	} else if (particleName == "kaon-") {
+GarfieldG4FastSimulationModel.cc:		particleName = "K-";
+GarfieldG4FastSimulationModel.cc:		particleName = "anti-proton";
+GarfieldG4FastSimulationModel.cc:	fGarfieldPhysics->DoIt(particleName, ekin_MeV, globalTime,
+GarfieldG4FastSimulationModel.cc:	fastStep.SetTotalEnergyDeposited(fGarfieldPhysics->GetEnergyDeposit_MeV());
+GarfieldG4FastSimulationModel.cc:	if (fGarfieldPhysics->GetCreateSecondariesInGeant4()) {
+GarfieldG4FastSimulationModel.cc:				fGarfieldPhysics->GetSecondaryParticles();
+GarfieldG4FastSimulationModel.cc:		if (secondaryParticles->size() > 0) {
+GarfieldG4FastSimulationModel.cc:			fastStep.SetNumberOfSecondaryTracks(secondaryParticles->size());
+GarfieldG4FastSimulationModel.cc:					secondaryParticles->begin();
+GarfieldG4FastSimulationModel.cc:					it != secondaryParticles->end(); ++it) {
+GarfieldG4FastSimulationModel.cc:				G4double x = (*it)->getX_mm();
+GarfieldG4FastSimulationModel.cc:				G4double y = (*it)->getY_mm();
+GarfieldG4FastSimulationModel.cc:				G4double z = (*it)->getZ_mm();
+GarfieldG4FastSimulationModel.cc:				G4double eKin_MeV = (*it)->getEkin_MeV();
+GarfieldG4FastSimulationModel.cc:				G4double dx = (*it)->getDX();
+GarfieldG4FastSimulationModel.cc:				G4double dy = (*it)->getDY();
+GarfieldG4FastSimulationModel.cc:				G4double dz = (*it)->getDZ();
+GarfieldG4FastSimulationModel.cc:				G4double time = (*it)->getTime();
+GarfieldG4FastSimulationModel.cc:				if ((*it)->getParticleName() == "e-") {
+GarfieldG4FastSimulationModel.cc:				} else if ((*it)->getParticleName() == "gamma") {
+GarfieldMessenger.cc:// $Id: GarfieldMessenger.cc 999995 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldMessenger.cc:	fExampleDir->SetGuidance("Commands specific to this example");
+GarfieldMessenger.cc:	fAbsorberDir->SetGuidance("Absorber construction commands");
+GarfieldMessenger.cc:	fGarfieldPhysicsDir->SetGuidance(
+GarfieldMessenger.cc:	fMaterialCmd->SetGuidance("Select material of the absorber:");
+GarfieldMessenger.cc:	fMaterialCmd->SetParameterName("choice", false);
+GarfieldMessenger.cc:	fMaterialCmd->AvailableForStates(G4State_PreInit, G4State_Idle);
+GarfieldMessenger.cc:	fIsotopeCmd->SetGuidance("Build and select a material with single isotope");
+GarfieldMessenger.cc:	fIsotopeCmd->SetGuidance("  symbol of isotope, Z, A, density of material");
+GarfieldMessenger.cc:	symbPrm->SetGuidance("isotope symbol");
+GarfieldMessenger.cc:	fIsotopeCmd->SetParameter(symbPrm);
+GarfieldMessenger.cc:	ZPrm->SetGuidance("Z");
+GarfieldMessenger.cc:	ZPrm->SetParameterRange("Z>0");
+GarfieldMessenger.cc:	fIsotopeCmd->SetParameter(ZPrm);
+GarfieldMessenger.cc:	APrm->SetGuidance("A");
+GarfieldMessenger.cc:	APrm->SetParameterRange("A>0");
+GarfieldMessenger.cc:	fIsotopeCmd->SetParameter(APrm);
+GarfieldMessenger.cc:	densityPrm->SetGuidance("density of material");
+GarfieldMessenger.cc:	densityPrm->SetParameterRange("density>0.");
+GarfieldMessenger.cc:	fIsotopeCmd->SetParameter(densityPrm);
+GarfieldMessenger.cc:	unitPrm->SetGuidance("unit of density");
+GarfieldMessenger.cc:	unitPrm->SetParameterCandidates(unitList);
+GarfieldMessenger.cc:	fIsotopeCmd->SetParameter(unitPrm);
+GarfieldMessenger.cc:	fIsotopeCmd->AvailableForStates(G4State_PreInit, G4State_Idle);
+GarfieldMessenger.cc:	fIonizationModelCmd->SetGuidance("Select ionization model for Garfield++");
+GarfieldMessenger.cc:	fIonizationModelCmd->SetGuidance(
+GarfieldMessenger.cc:	fIonizationModelCmd->SetGuidance("  and energy ranges for the chosen model");
+GarfieldMessenger.cc:	ionizationModelPrm->SetGuidance("ionization model (1. PAIPhot, 2. PAI or 3. Heed)");
+GarfieldMessenger.cc:	ionizationModelPrm->SetGuidance("  1. PAIPhot model in Geant4, delta electrons transported by Heed");
+GarfieldMessenger.cc:	ionizationModelPrm->SetGuidance("  2. PAI model in Geant4, delta electrons transported by Heed");
+GarfieldMessenger.cc:	ionizationModelPrm->SetGuidance("  3. Use directly Heed");
+GarfieldMessenger.cc:	fIonizationModelCmd->SetParameter(ionizationModelPrm);
+GarfieldMessenger.cc:	useDefaultsPrm->SetGuidance(
+GarfieldMessenger.cc:	fIonizationModelCmd->SetParameter(useDefaultsPrm);
+GarfieldMessenger.cc:	fIonizationModelCmd->AvailableForStates(G4State_PreInit);
+GarfieldMessenger.cc:	fGeant4ParticleCmd->SetGuidance(
+GarfieldMessenger.cc:	fGeant4ParticleCmd->SetGuidance("  in Geant4");
+GarfieldMessenger.cc:	particleGeant4Prm->SetGuidance(
+GarfieldMessenger.cc:			"Particle name (e-, e+, mu-, mu+, proton, pi-, pi+, alpha, He3, GenericIon)");
+GarfieldMessenger.cc:	fGeant4ParticleCmd->SetParameter(particleGeant4Prm);
+GarfieldMessenger.cc:	minEnergyGeant4Prm->SetGuidance("minimum energy");
+GarfieldMessenger.cc:	minEnergyGeant4Prm->SetParameterRange("minimumEnergyGeant4>=0");
+GarfieldMessenger.cc:	fGeant4ParticleCmd->SetParameter(minEnergyGeant4Prm);
+GarfieldMessenger.cc:	maxEnergyGeant4Prm->SetGuidance("maximum energy");
+GarfieldMessenger.cc:	maxEnergyGeant4Prm->SetParameterRange("maximumEnergyGeant4>=0");
+GarfieldMessenger.cc:	fGeant4ParticleCmd->SetParameter(maxEnergyGeant4Prm);
+GarfieldMessenger.cc:	unitGeant4Prm->SetGuidance("unit of energy");
+GarfieldMessenger.cc:	unitGeant4Prm->SetParameterCandidates(unitListGeant4);
+GarfieldMessenger.cc:	fGeant4ParticleCmd->SetParameter(unitGeant4Prm);
+GarfieldMessenger.cc:	fGeant4ParticleCmd->AvailableForStates(G4State_PreInit);
+GarfieldMessenger.cc:	fGarfieldParticleCmd->SetGuidance(
+GarfieldMessenger.cc:	fGarfieldParticleCmd->SetGuidance(
+GarfieldMessenger.cc:	fGarfieldParticleCmd->SetGuidance(
+GarfieldMessenger.cc:	particleGarfieldPrm->SetGuidance("Particle name (gamma, e-, e+, mu-, mu+, proton, anti_proton, pi-, pi+, kaon, kaon+, alpha, deuteron)");
+GarfieldMessenger.cc:	fGarfieldParticleCmd->SetParameter(particleGarfieldPrm);
+GarfieldMessenger.cc:	minEnergyGarfieldPrm->SetGuidance("minimum energy");
+GarfieldMessenger.cc:	minEnergyGarfieldPrm->SetParameterRange("minimumEnergyGarfield>=0");
+GarfieldMessenger.cc:	fGarfieldParticleCmd->SetParameter(minEnergyGarfieldPrm);
+GarfieldMessenger.cc:	maxEnergyGarfieldPrm->SetGuidance("maximum energy");
+GarfieldMessenger.cc:	maxEnergyGarfieldPrm->SetParameterRange("maximumEnergyGarfield>=0");
+GarfieldMessenger.cc:	fGarfieldParticleCmd->SetParameter(maxEnergyGarfieldPrm);
+GarfieldMessenger.cc:	unitGarfieldPrm->SetGuidance("unit of energy");
+GarfieldMessenger.cc:	unitGarfieldPrm->SetParameterCandidates(unitListGarfield);
+GarfieldMessenger.cc:	fGarfieldParticleCmd->SetParameter(unitGarfieldPrm);
+GarfieldMessenger.cc:	fGarfieldParticleCmd->AvailableForStates(G4State_PreInit);
+GarfieldMessenger.cc:		fDetector->SetAbsorberMaterial(newValue);
+GarfieldMessenger.cc:		fDetector->AbsorberMaterialWithSingleIsotope(name, name, dens, Z, A);
+GarfieldMessenger.cc:		fDetector->SetAbsorberMaterial(name);
+GarfieldMessenger.cc:		garfieldPhysics->SetIonizationModel(modelName, useDefaults);
+GarfieldMessenger.cc:		garfieldPhysics->AddParticleName(particleName, minEnergy, maxEnergy,
+GarfieldMessenger.cc:		garfieldPhysics->AddParticleName(particleName, minEnergy, maxEnergy,
+GarfieldPhysics.cc:// $Id: GarfieldPhysics.cc 999996 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldPhysics.cc:			this->AddParticleName("e-", 1e-6, 1e-3, "garfield");
+GarfieldPhysics.cc:			this->AddParticleName("gamma", 1e-6, 1e+8, "garfield");
+GarfieldPhysics.cc:			this->AddParticleName("e-", 0, 1e+8, "geant4");
+GarfieldPhysics.cc:			this->AddParticleName("e+", 0, 1e+8, "geant4");
+GarfieldPhysics.cc:			this->AddParticleName("mu-", 0, 1e+8, "geant4");
+GarfieldPhysics.cc:			this->AddParticleName("mu+", 0, 1e+8, "geant4");
+GarfieldPhysics.cc:			this->AddParticleName("proton", 0, 1e+8, "geant4");
+GarfieldPhysics.cc:			this->AddParticleName("pi+", 0, 1e+8, "geant4");
+GarfieldPhysics.cc:			this->AddParticleName("pi-", 0, 1e+8, "geant4");
+GarfieldPhysics.cc:			this->AddParticleName("alpha", 0, 1e+8, "geant4");
+GarfieldPhysics.cc:			this->AddParticleName("He3", 0, 1e+8, "geant4");
+GarfieldPhysics.cc:			this->AddParticleName("GenericIon", 0, 1e+8, "geant4");
+GarfieldPhysics.cc:			this->AddParticleName("gamma", 1e-6, 1e+8, "garfield");
+GarfieldPhysics.cc:			this->AddParticleName("e-", 6e-2, 1e+7, "garfield");
+GarfieldPhysics.cc:			this->AddParticleName("e+", 6e-2, 1e+7, "garfield");
+GarfieldPhysics.cc:			this->AddParticleName("mu-", 1e+1, 1e+8, "garfield");
+GarfieldPhysics.cc:			this->AddParticleName("mu+", 1e+1, 1e+8, "garfield");
+GarfieldPhysics.cc:			this->AddParticleName("pi-", 2e+1, 1e+8, "garfield");
+GarfieldPhysics.cc:			this->AddParticleName("pi+", 2e+1, 1e+8, "garfield");
+GarfieldPhysics.cc:			this->AddParticleName("kaon-", 1e+1, 1e+8, "garfield");
+GarfieldPhysics.cc:			this->AddParticleName("kaon+", 1e+1, 1e+8, "garfield");
+GarfieldPhysics.cc:			this->AddParticleName("proton", 9.e+1, 1e+8, "garfield");
+GarfieldPhysics.cc:			this->AddParticleName("anti_proton", 9.e+1, 1e+8, "garfield");
+GarfieldPhysics.cc:			this->AddParticleName("deuteron", 2.e+2, 1e+8, "garfield");
+GarfieldPhysics.cc:			this->AddParticleName("alpha", 4.e+2, 1e+8, "garfield");
+GarfieldPhysics.cc:		fMapParticlesEnergyGarfield->insert(
+GarfieldPhysics.cc:		fMapParticlesEnergyGeant4->insert(
+GarfieldPhysics.cc:		it = fMapParticlesEnergyGarfield->find(name);
+GarfieldPhysics.cc:		if (it != fMapParticlesEnergyGarfield->end()) {
+GarfieldPhysics.cc:		it = fMapParticlesEnergyGeant4->find(name);
+GarfieldPhysics.cc:		if (it != fMapParticlesEnergyGeant4->end()) {
+GarfieldPhysics.cc:		it = fMapParticlesEnergyGarfield->find(name);
+GarfieldPhysics.cc:		if (it != fMapParticlesEnergyGarfield->end()) {
+GarfieldPhysics.cc:			EnergyRange_MeV range = it->second;
+GarfieldPhysics.cc:		it = fMapParticlesEnergyGeant4->find(name);
+GarfieldPhysics.cc:		if (it != fMapParticlesEnergyGeant4->end()) {
+GarfieldPhysics.cc:			EnergyRange_MeV range = it->second;
+GarfieldPhysics.cc:		it = fMapParticlesEnergyGarfield->find(name);
+GarfieldPhysics.cc:		if (it != fMapParticlesEnergyGarfield->end()) {
+GarfieldPhysics.cc:			EnergyRange_MeV range = it->second;
+GarfieldPhysics.cc:		it = fMapParticlesEnergyGeant4->find(name);
+GarfieldPhysics.cc:		if (it != fMapParticlesEnergyGeant4->end()) {
+GarfieldPhysics.cc:			EnergyRange_MeV range = it->second;
+GarfieldPhysics.cc:	return -1;
+GarfieldPhysics.cc:		it = fMapParticlesEnergyGarfield->find(name);
+GarfieldPhysics.cc:		if (it != fMapParticlesEnergyGarfield->end()) {
+GarfieldPhysics.cc:			EnergyRange_MeV range = it->second;
+GarfieldPhysics.cc:		it = fMapParticlesEnergyGeant4->find(name);
+GarfieldPhysics.cc:		if (it != fMapParticlesEnergyGeant4->end()) {
+GarfieldPhysics.cc:			EnergyRange_MeV range = it->second;
+GarfieldPhysics.cc:	return -1;
+GarfieldPhysics.cc:	// fMediumMagboltz->SetComposition("ar", 70., "co2", 30.);
+GarfieldPhysics.cc:	fMediumMagboltz->SetComposition("ne", 95., "cf4", 5.);
+GarfieldPhysics.cc:	fMediumMagboltz->SetTemperature(293.15);
+GarfieldPhysics.cc:	fMediumMagboltz->SetPressure(760.);
+GarfieldPhysics.cc:	fMediumMagboltz->EnableDebugging();
+GarfieldPhysics.cc:	fMediumMagboltz->Initialise(true);
+GarfieldPhysics.cc:	fMediumMagboltz->DisableDebugging();
+GarfieldPhysics.cc:	fMediumMagboltz->EnablePenningTransfer(rPenning, lambdaPenning, "ne");
+GarfieldPhysics.cc:	fMediumMagboltz->LoadGasFile("ne_95_cf4_5_1000mbar.gas");
+GarfieldPhysics.cc:	fDrift->SetSensor(fSensor);
+GarfieldPhysics.cc:	fAvalanche->SetSensor(fSensor);
+GarfieldPhysics.cc:	fTrackHeed->EnableDebugging();
+GarfieldPhysics.cc:	fTrackHeed->SetSensor(fSensor);
+GarfieldPhysics.cc:	fTrackHeed->EnableDeltaElectronTransport();
+GarfieldPhysics.cc:  //const double rWire = 25.e-4;
+GarfieldPhysics.cc:// Half-length of the tube [cm]
+GarfieldPhysics.cc:	fGeometrySimple->AddSolid(fTube, fMediumMagboltz);
+GarfieldPhysics.cc:      	fComponentAnalyticField->SetGeometry(fGeometrySimple);
+GarfieldPhysics.cc:       	componentConstant->SetElectricField(0, 0, 400);
+GarfieldPhysics.cc:	//componentConstant->SetGeometry(fGeometrySimple);
+GarfieldPhysics.cc:	fSensor->AddComponent(componentConstant);
+GarfieldPhysics.cc:	//fComponentAnalyticField->ElectricField
+GarfieldPhysics.cc:	//fComponentAnalyticField->AddWire(0., 0., 2 * rWire, vWire, "w");
+GarfieldPhysics.cc:	fComponentAnalyticField->AddTube(rTube, vTube, 0, "t");
+GarfieldPhysics.cc:	fSensor->AddComponent(fComponentAnalyticField);
+GarfieldPhysics.cc:	int particleNum = analysisManager->GetNofNtuples()-1; // NtupleId starts with 0
+GarfieldPhysics.cc:	TNtuple *ntuple = new TNtuple()f->Get(particleId);
+GarfieldPhysics.cc:	const double rWire = 25.e-4;
+GarfieldPhysics.cc:// Half-length of the tube [cm]
+GarfieldPhysics.cc:			fTrackHeed->TransportPhoton(x_cm, y_cm, z_cm, time, eKin_eV, dx, dy,
+GarfieldPhysics.cc:			fTrackHeed->TransportDeltaElectron(x_cm, y_cm, z_cm, time, eKin_eV,
+GarfieldPhysics.cc:			fTrackHeed->GetElectron(cl, xe, ye, ze, te, ee, dxe, dye, dze);
+GarfieldPhysics.cc:			if (ze < lTube && ze > -lTube && sqrt(xe * xe + ye * ye) < rTube) {
+GarfieldPhysics.cc:					fEnergyDeposit += fTrackHeed->GetW();
+GarfieldPhysics.cc:				ntuple->Fill(xe,ye,ze);
+GarfieldPhysics.cc:					fSecondaryParticles->push_back(
+GarfieldPhysics.cc:							new GarfieldParticle("e-",ee, newTime, xe, ye, ze, dxe,
+GarfieldPhysics.cc:				fDrift->DriftElectron(xe, ye, ze, te);
+GarfieldPhysics.cc:				fDrift->GetElectronEndpoint(0, xe1, ye1, ze1, te1, xe2, ye2,
+GarfieldPhysics.cc:				if (0 > xe2 && xe2 > -rWire) {
+GarfieldPhysics.cc:					xe2 += -2 * rWire;
+GarfieldPhysics.cc:				if (0 > ye2 && ye2 > -rWire) {
+GarfieldPhysics.cc:					ye2 += -2 * rWire;
+GarfieldPhysics.cc:				fAvalanche->AvalancheElectron(xe2, ye2, ze2, te2, e2, 0, 0, 0);
+GarfieldPhysics.cc:				fAvalanche->GetAvalancheSize(ne, ni);
+GarfieldPhysics.cc:		fTrackHeed->SetParticle(particleName);
+GarfieldPhysics.cc:		fTrackHeed->SetKineticEnergy(eKin_eV);
+GarfieldPhysics.cc:		fTrackHeed->NewTrack(x_cm, y_cm, z_cm, time, dx, dy, dz);
+GarfieldPhysics.cc:		while (fTrackHeed->GetCluster(xc, yc, zc, tc, nc, ec, extra)) {
+GarfieldPhysics.cc:			if (zc < lTube && zc > -lTube && sqrt(xc * xc + yc * yc) < rTube) {
+GarfieldPhysics.cc:					fTrackHeed->GetElectron(cl, xe, ye, ze, te, ee, dxe, dye,
+GarfieldPhysics.cc:					if (ze < lTube && ze > -lTube
+GarfieldPhysics.cc:							fSecondaryParticles->push_back(
+GarfieldPhysics.cc:									new GarfieldParticle("e-", ee, newTime, xe, ye,
+GarfieldPhysics.cc:						fDrift->DriftElectron(xe, ye, ze, te);
+GarfieldPhysics.cc:						fDrift->GetElectronEndpoint(0, xe1, ye1, ze1, te1, xe2,
+GarfieldPhysics.cc:						if (0 > xe2 && xe2 > -rWire) {
+GarfieldPhysics.cc:							xe2 += -2 * rWire;
+GarfieldPhysics.cc:						if (0 > ye2 && ye2 > -rWire) {
+GarfieldPhysics.cc:							ye2 += -2 * rWire;
+GarfieldPhysics.cc:						fAvalanche->AvalancheElectron(xe2, ye2, ze2, te2, e2, 0,
+GarfieldPhysics.cc:						fAvalanche->GetAvalancheSize(ne, ni);
+GarfieldPhysics.cc:	f->Write();
+GarfieldPhysics.cc:	f->Close();
+GarfieldPhysics.cc:	if (!fSecondaryParticles->empty()) {
+GarfieldPhysics.cc:		fSecondaryParticles->erase(fSecondaryParticles->begin(),
+GarfieldPhysics.cc:				fSecondaryParticles->end());
+GarfieldPhysicsList.cc:// $Id: GarfieldPhysicsList.cc 999997 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldPhysicsList.cc:				const_cast<G4VPhysicsConstructor*>(physicsList->GetPhysics(i));
+GarfieldPhysicsList.cc:		G4cout << "RegisterPhysics: " << elem->GetPhysicsName() << G4endl;
+GarfieldPhysicsList.cc:	std::string ionizationModel = garfieldPhysics->GetIonizationModel();
+GarfieldPhysicsList.cc:	theParticleIterator->reset();
+GarfieldPhysicsList.cc:		G4ParticleDefinition* particle = theParticleIterator->value();
+GarfieldPhysicsList.cc:		G4ProcessManager* pmanager = particle->GetProcessManager();
+GarfieldPhysicsList.cc:				G4LossTableManager::Instance()->EmConfigurator();
+GarfieldPhysicsList.cc:		G4LossTableManager::Instance()->SetVerbose(1);
+GarfieldPhysicsList.cc:		if (garfieldPhysics->FindParticleName(particle->GetParticleName(),
+GarfieldPhysicsList.cc:			pmanager->AddDiscreteProcess(fastSimProcess_garfield);
+GarfieldPhysicsList.cc:		if (garfieldPhysics->FindParticleName(particle->GetParticleName(),
+GarfieldPhysicsList.cc:			double minEnergy_MeV = garfieldPhysics->GetMinEnergyMeVParticle(
+GarfieldPhysicsList.cc:					particle->GetParticleName(), "geant4");
+GarfieldPhysicsList.cc:			double maxEnergy_MeV = garfieldPhysics->GetMaxEnergyMeVParticle(
+GarfieldPhysicsList.cc:					particle->GetParticleName(), "geant4");
+GarfieldPhysicsList.cc:				if (particle->GetParticleName() == "e-"
+GarfieldPhysicsList.cc:						|| particle->GetParticleName() == "e+") {
+GarfieldPhysicsList.cc:					config->SetExtraEmModel(particle->GetParticleName(),
+GarfieldPhysicsList.cc:				} else if (particle->GetParticleName() == "mu-"
+GarfieldPhysicsList.cc:						|| particle->GetParticleName() == "mu+") {
+GarfieldPhysicsList.cc:					config->SetExtraEmModel(particle->GetParticleName(),
+GarfieldPhysicsList.cc:				} else if (particle->GetParticleName() == "proton"
+GarfieldPhysicsList.cc:						|| particle->GetParticleName() == "pi+"
+GarfieldPhysicsList.cc:						|| particle->GetParticleName() == "pi-") {
+GarfieldPhysicsList.cc:					config->SetExtraEmModel(particle->GetParticleName(),
+GarfieldPhysicsList.cc:				} else if (particle->GetParticleName() == "alpha"
+GarfieldPhysicsList.cc:						|| particle->GetParticleName() == "He3"
+GarfieldPhysicsList.cc:						|| particle->GetParticleName() == "GenericIon") {
+GarfieldPhysicsList.cc:					config->SetExtraEmModel(particle->GetParticleName(),
+GarfieldPhysicsList.cc:				if (particle->GetParticleName() == "e-"
+GarfieldPhysicsList.cc:						|| particle->GetParticleName() == "e+") {
+GarfieldPhysicsList.cc:					config->SetExtraEmModel(particle->GetParticleName(),
+GarfieldPhysicsList.cc:				} else if (particle->GetParticleName() == "mu-"
+GarfieldPhysicsList.cc:						|| particle->GetParticleName() == "mu+") {
+GarfieldPhysicsList.cc:					config->SetExtraEmModel(particle->GetParticleName(),
+GarfieldPhysicsList.cc:				} else if (particle->GetParticleName() == "proton"
+GarfieldPhysicsList.cc:						|| particle->GetParticleName() == "pi+"
+GarfieldPhysicsList.cc:						|| particle->GetParticleName() == "pi-") {
+GarfieldPhysicsList.cc:					config->SetExtraEmModel(particle->GetParticleName(),
+GarfieldPhysicsList.cc:				} else if (particle->GetParticleName() == "alpha"
+GarfieldPhysicsList.cc:						|| particle->GetParticleName() == "He3"
+GarfieldPhysicsList.cc:						|| particle->GetParticleName() == "GenericIon") {
+GarfieldPhysicsList.cc:					config->SetExtraEmModel(particle->GetParticleName(),
+GarfieldPhysicsList.cc:	G4ProductionCutsTable::GetProductionCutsTable()->SetEnergyRange(100. * eV,
+GarfieldPhysicsList.cc:	G4Region *region = G4RegionStore::GetInstance()->GetRegion(
+GarfieldPhysicsList.cc:	cuts->SetProductionCut(1 * um, G4ProductionCuts::GetIndex("gamma"));
+GarfieldPhysicsList.cc:	cuts->SetProductionCut(1 * um, G4ProductionCuts::GetIndex("e-"));
+GarfieldPhysicsList.cc:	cuts->SetProductionCut(1 * um, G4ProductionCuts::GetIndex("e+"));
+GarfieldPhysicsList.cc:		region->SetProductionCuts(cuts);
+GarfieldPrimaryGeneratorAction.cc:// $Id: GarfieldPrimaryGeneratorAction.cc 999998 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldPrimaryGeneratorAction.cc:    = G4ParticleTable::GetParticleTable()->FindParticle("e-");
+GarfieldPrimaryGeneratorAction.cc:  fParticleGun->SetParticleDefinition(particleDefinition);
+GarfieldPrimaryGeneratorAction.cc:  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
+GarfieldPrimaryGeneratorAction.cc:  fParticleGun->SetParticleEnergy(50.*MeV);
+GarfieldPrimaryGeneratorAction.cc:    = G4LogicalVolumeStore::GetInstance()->GetVolume("World");
+GarfieldPrimaryGeneratorAction.cc:  if ( worlLV) worldBox = dynamic_cast< G4Box*>(worlLV->GetSolid()); 
+GarfieldPrimaryGeneratorAction.cc:    worldZHalfLength = worldBox->GetZHalfLength();  
+GarfieldPrimaryGeneratorAction.cc:    ->SetParticlePosition(G4ThreeVector(0., 0., -worldZHalfLength));
+GarfieldPrimaryGeneratorAction.cc:  fParticleGun->GeneratePrimaryVertex(anEvent);
+GarfieldRunAction.cc:// $Id: GarfieldRunAction.cc 999999 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldRunAction.cc:	G4RunManager::GetRunManager()->SetPrintProgress(1);
+GarfieldRunAction.cc:	//G4cout << "Using " << analysisManager->GetType() << G4endl;
+GarfieldRunAction.cc:	//analysisManager->SetHistoDirectoryName("histograms");
+GarfieldRunAction.cc:	//analysisManager->SetNtupleDirectoryName("ntuple");
+GarfieldRunAction.cc:	//analysisManager->SetVerboseLevel(1);
+GarfieldRunAction.cc:	//analysisManager->SetFirstHistoId(1);
+GarfieldRunAction.cc:	TH3F* h6 = new TH3F("hist6", "Track position",200, -10*cm, 10*cm, 29, -1.45*cm, 1.45*cm, 29,-1.45*cm, 1.45*cm);
+GarfieldRunAction.cc:	f->Write();
+GarfieldRunAction.cc:	f->Close();
+GarfieldRunAction.cc:	//G4RunManager::GetRunManager()->SetRandomNumberStore(true);
+GarfieldRunAction.cc:	if ((TH1F*)f->Get("hist1")) {
+GarfieldRunAction.cc:		G4cout << G4endl << " ----> print histograms statistic ";
+GarfieldRunAction.cc:		       << G4BestUnit(((TH1F*) f->Get("hist1"))->mean(), "Energy")
+GarfieldRunAction.cc:		       << G4BestUnit(((TH1F*)f->Get("his1"))->rms(), "Energy")
+GarfieldRunAction.cc:		       << G4BestUnit(((TH1F*)f->Get("hist2"))->mean(), "Length")
+GarfieldRunAction.cc:		       << G4BestUnit(((TH1F*)f->GetH1("hist2"))->rms(), "Length")
+GarfieldRunAction.cc:		       << G4BestUnit(((TH1F*)f->Get("hist3"))->mean(), "Energy")
+GarfieldRunAction.cc:		       << G4BestUnit(((TH1F*)f->Get("hist3"))->rms(), "Energy")
+GarfieldRunAction.cc:		       << ((TH1F*)f->Get("hist4"))->mean()
+GarfieldRunAction.cc:		       << ((TH1F*)f->Get("hist4"))->rms()
+GarfieldRunAction.cc:		       << ((TH1F*)f->Get("hist5"))->mean()
+GarfieldRunAction.cc:		       << ((TH1F*)f->Get("hist5"))->rms()
+GarfieldRunAction.cc:	f->Write();
+GarfieldRunAction.cc:	f->CloseFile();
+GarfieldSteppingAction.cc:// $Id: GarfieldSteppingAction.cc 999990 2015-12-11 14:47:43Z dpfeiffe $
+GarfieldSteppingAction.cc:			step->GetPreStepPoint()->GetTouchableHandle()->GetVolume();
+GarfieldSteppingAction.cc:	G4double edep = step->GetTotalEnergyDeposit();
+GarfieldSteppingAction.cc:	if (step->GetTrack()->GetDefinition()->GetPDGCharge() != 0.) {
+GarfieldSteppingAction.cc:		stepLength = step->GetStepLength();
+GarfieldSteppingAction.cc:	if (volume == fDetConstruction->GetAbsorberPV()) {
+GarfieldSteppingAction.cc:		fEventAction->AddAbs(edep, stepLength);
+GarfieldSteppingAction.cc:	if (volume == fDetConstruction->GetGasPV()) {
+GarfieldSteppingAction.cc:		fEventAction->AddGas(edep);
