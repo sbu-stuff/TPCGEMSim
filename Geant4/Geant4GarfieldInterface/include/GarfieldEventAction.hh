@@ -59,8 +59,8 @@ private:
 	G4double fEnergyAbs;
 	G4double fEnergyGas;
 	G4double fTrackLAbs;
-	G4double fAvalancheSize;
-	G4double fGain;
+  //	G4double fAvalancheSize;
+  //	G4double fGain;
 
 
 };

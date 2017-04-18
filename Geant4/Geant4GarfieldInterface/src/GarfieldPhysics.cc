@@ -33,6 +33,14 @@
 #include "TGeoBBox.h"
 
 #include "GarfieldAnalysis.hh"
+/*
+namespace Garfield {
+
+  namespace HeedInterface {
+
+    Medium* medium;  }
+}
+*/
 
 GarfieldPhysics* GarfieldPhysics::fGarfieldPhysics = 0;
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
@@ -55,7 +63,7 @@ GarfieldPhysics::GarfieldPhysics() {
 	fSecondaryParticles = new std::vector<GarfieldParticle*>();
 	fMediumMagboltz = 0;
 	fSensor = 0;
-	fAvalanche = 0;
+	//fAvalanche = 0;
 	fDrift = 0;
 	componentConstant = 0;
 	fComponentAnalyticField = 0;
@@ -75,7 +83,7 @@ GarfieldPhysics::~GarfieldPhysics() {
 	delete fSecondaryParticles;
 	delete fMediumMagboltz;
 	delete fSensor;
-	delete fAvalanche;
+	//delete fAvalanche;
 	delete fDrift;
 	delete componentConstant;
 	delete fComponentAnalyticField;
@@ -268,13 +276,13 @@ void GarfieldPhysics::InitializePhysics() {
 
 	fSensor = new Garfield::Sensor();
 	fDrift = new Garfield::AvalancheMC();
-	fAvalanche = new Garfield::AvalancheMicroscopic();
+	//fAvalanche = new Garfield::AvalancheMicroscopic();
 	fComponentAnalyticField = new Garfield::ComponentAnalyticField();
 
 	CreateGeometry();
 
 	fDrift->SetSensor(fSensor);
-	fAvalanche->SetSensor(fSensor);
+	//fAvalanche->SetSensor(fSensor);
 
 	fTrackHeed = new Garfield::TrackHeed();
 	fTrackHeed->EnableDebugging();
@@ -301,8 +309,9 @@ void GarfieldPhysics::CreateGeometry() {
 	fGeometrySimple->AddSolid(fTube, fMediumMagboltz);
 
 	componentConstant = new Garfield::ComponentConstant();
-       	componentConstant->SetElectricField(0, 0, 400);
-       	componentConstant->SetMagneticField(0, 0, 1.5);
+       	//componentConstant->SetElectricField(0, 0, 400);
+       	componentConstant->SetElectricField(0, 400, 400);
+       	//componentConstant->SetMagneticField(0, 0, 1.5);
 
 	componentConstant->SetGeometry(fGeometrySimple);
 
@@ -377,6 +386,18 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 			fEnergyDeposit = eKin_eV;
 		}
 		G4cout << "Collisional output " << nc << G4endl; 
+		Garfield::Medium* medium = NULL;
+		/*
+		for (int x=-80;x<81;x+=5){
+		  for (int y=-80;y<81;y+=5){
+		    for (int z=-100;z<101;z+=5){
+		      if (fSensor->GetMedium(x, y, z, medium)) {
+			std::cerr << "    Medium at "<< x << " " <<y << " " <<z<< "\n";		
+		      }
+		    }
+		  }
+		}
+		*/ 
 		for (int cl = 0; cl < nc; cl++) {
 			double xe, ye, ze, te;
 			double ee, dxe, dye, dze;
@@ -390,18 +411,18 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 				// analysisManager->FillH3(1, ze * 10, xe * 10, ye * 10);
 				// analysisManager->FillH3(1, ze, xe, ye);
 				//G4cout << "Filling particleName/Num " << particleName << particleNum << " " << xe << " " << ye << " " << ze << " " << G4endl;
-				G4cout << "cl,xe,ye,ze,te,ee,dxe" << " " << cl <<" " << xe <<" " << ye <<" " << ze <<" " << te <<" " << ee <<" " << dxe << G4endl;
+				//G4cout << "cl,xe,ye,ze,te,ee,dxe" << " " << cl <<" " << xe <<" " << ye <<" " << ze <<" " << te <<" " << ee <<" " << dxe << G4endl;
 				analysisManager->FillNtupleDColumn(particleNum,0,xe);
 				analysisManager->FillNtupleDColumn(particleNum,1,ye);
 				analysisManager->FillNtupleDColumn(particleNum,2,ze);				
 				analysisManager->AddNtupleRow(particleNum);
 				// G4cout << "Filled particleNum" << G4endl;
-				
+				/*
 				analysisManager->FillNtupleDColumn(0,3,xe);
 				analysisManager->FillNtupleDColumn(0,4,ye);
 				analysisManager->FillNtupleDColumn(0,5,ze);
 				analysisManager->AddNtupleRow(0);
-				
+				*/
 				// G4cout << "Filled Garfield" << G4endl;
 				/*
 				// Fill new root file
@@ -457,12 +478,24 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 				}
 				*/
 				double e2 = 0.1;
+				/*
+				Garfield::Medium* medium = NULL;
+				if (fSensor->GetMedium(xe1, ye1, ze1, medium)) {
+				  std::cerr << "    Medium at "<< xe1 << " " <<ye1 << " " <<ze1<< "\n";		}
+				
+				if (!fSensor->GetMedium(xe2, ye2, ze2, medium)) {
+				  std::cerr << "    No medium at "<< xe2 << " " <<ye2 << " " <<ze2<< "\n";		}
+				
+				if (fSensor->GetMedium(xe2+1., ye2-1., (ze2-1.), medium)) {
+				  std::cerr << "    Medium at varied "<< xe2+1. << " " <<ye2 -1.<< " " <<(ze2-1.)<< "\n";		}
+				else {std::cerr << "    No medium at varied "<< xe2+1. << " " <<ye2 -1.<< " " <<(ze2-1.)<< "\n";}
+				
 				fAvalanche->AvalancheElectron(xe2, ye2, ze2, te2, e2, 0, 0, 0);
 
 				int ne = 0, ni = 0;
 				fAvalanche->GetAvalancheSize(ne, ni);
 				fAvalancheSize += ne;
-
+				*/
 			}
 		}
 	} else {
@@ -529,20 +562,20 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 						}
 
 						double e2 = 0.1;
-						fAvalanche->AvalancheElectron(xe2, ye2, ze2, te2, e2, 0,
+						/*fAvalanche->AvalancheElectron(xe2, ye2, ze2, te2, e2, 0,
 								0, 0);
 
 						int ne = 0, ni = 0;
 						fAvalanche->GetAvalancheSize(ne, ni);
 						fAvalancheSize += ne;
-
+						*/
 					}
 				}
 
 			}
 		}
 	}
-	fGain = fAvalancheSize / nsum;
+	//fGain = fAvalancheSize / nsum;
 
 }
 

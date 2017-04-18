@@ -61,7 +61,6 @@
   ### FastSimulationModel:DoIt
   - Get Track's momemtum direction, position, kinetic energy, global time, particle name
   - Kill primary track and switch to Garfield
-
     ###GarfieldPhysics::DoIt
     - Set up geometry again, with E-field (and B-field) included
     - fIonizationModel != Heed then xc, yc, tc don't matter

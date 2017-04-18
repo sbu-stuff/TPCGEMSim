@@ -59,8 +59,8 @@ void GarfieldEventAction::BeginOfEventAction(const G4Event* event) {
 	fEnergyAbs = 0;
 	fEnergyGas = 0;
 	fTrackLAbs = 0;
-	fAvalancheSize = 0;
-	fGain = 0;
+	//fAvalancheSize = 0;
+	//fGain = 0;
 	
         //G4Run run = G4Run::
 	  //std::string eventID = std::to_string(event->GetEventID());
@@ -111,8 +111,8 @@ void GarfieldEventAction::EndOfEventAction(const G4Event* event) {
 	G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
 	// G4AnalysisManager* analysisManager2 = G4AnalysisManager::Instance();
 	//fEnergyGas += garfieldPhysics->GetEnergyDeposit_MeV();
-	fAvalancheSize = garfieldPhysics->GetAvalancheSize();
-	fGain = garfieldPhysics->GetGain();
+	//fAvalancheSize = garfieldPhysics->GetAvalancheSize();
+	//fGain = garfieldPhysics->GetGain();
 
 	// std::cout << "LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK" << fEnergyAbs << fGain << "\n" ;
 	// fill histograms
@@ -120,8 +120,8 @@ void GarfieldEventAction::EndOfEventAction(const G4Event* event) {
 	analysisManager->FillH1(1, fEnergyAbs);
 	analysisManager->FillH1(2, fTrackLAbs);
 	analysisManager->FillH1(3, fEnergyGas);
-	analysisManager->FillH1(4, fAvalancheSize);
-	analysisManager->FillH1(5, fGain);
+	//analysisManager->FillH1(4, fAvalancheSize);
+	//analysisManager->FillH1(5, fGain);
 
 	// fill ntuple
 	// analysisManager->FillNtupleDColumn(0, fEnergyAbs);
@@ -151,7 +151,8 @@ void GarfieldEventAction::EndOfEventAction(const G4Event* event) {
 				<< G4BestUnit(fTrackLAbs, "Length") << G4endl;
 
 		G4cout << "        Gas: total energy: " << std::setw(7)
-				<< G4BestUnit(fEnergyGas, "Energy") <<  "       avalanche size: " << fAvalancheSize <<  "       gain: " << fGain << G4endl;
+				<< G4BestUnit(fEnergyGas, "Energy")  << G4endl;
+		//				<< G4BestUnit(fEnergyGas, "Energy") <<  "       avalanche size: " << fAvalancheSize <<  "       gain: " << fGain << G4endl;
 
 
 	}

@@ -65,8 +65,8 @@ GarfieldRunAction::GarfieldRunAction() :
 	analysisManager->CreateH1("hist2", "trackL in absorber", 100, 0., 1 * m);
 	analysisManager->CreateH1("hist3", "Edep in gas", 1000, 0., 100 * keV);
 
-	analysisManager->CreateH1("hist4", "Avalanche size in gas", 10000,0, 10000);
-	analysisManager->CreateH1("hist5", "gain", 1000, 0., 100);
+	//analysisManager->CreateH1("hist4", "Avalanche size in gas", 10000,0, 10000);
+	//analysisManager->CreateH1("hist5", "gain", 1000, 0., 100);
 	analysisManager->CreateH3("hist6", "Track position",200, -10*cm, 10*cm, 29, -1.45*cm, 1.45*cm, 29,-1.45*cm, 1.45*cm);
 	
 	// Creating ntuple
@@ -74,8 +74,8 @@ GarfieldRunAction::GarfieldRunAction() :
 	
 	analysisManager->CreateNtuple("Garfield", "Edep and TrackL");
 	analysisManager->CreateNtupleDColumn("Egas");
-	analysisManager->CreateNtupleDColumn("AvalancheSize");
-	analysisManager->CreateNtupleDColumn("Gain");
+	//analysisManager->CreateNtupleDColumn("AvalancheSize");
+	//analysisManager->CreateNtupleDColumn("Gain");
 	analysisManager->CreateNtupleDColumn("xe");
 	analysisManager->CreateNtupleDColumn("ye");
 	analysisManager->CreateNtupleDColumn("ze");
@@ -137,7 +137,7 @@ void GarfieldRunAction::EndOfRunAction(const G4Run* /*run*/) {
 				<< " rms = "
 				<< G4BestUnit(analysisManager->GetH1(3)->rms(), "Energy")
 				<< G4endl;
-
+		/*
 		G4cout << " Avalanche size : mean = "
 						<< analysisManager->GetH1(4)->mean()
 						<< " rms = "
@@ -149,7 +149,7 @@ void GarfieldRunAction::EndOfRunAction(const G4Run* /*run*/) {
 						<< " rms = "
 						<< analysisManager->GetH1(5)->rms()
 						<< G4endl;
-	}
+		*/}
 
 	// save histograms & ntuple
 	//

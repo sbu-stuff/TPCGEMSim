@@ -46,7 +46,19 @@
 #include "GeometryRoot.hh"
 #include "GeometrySimple.hh"
 #include "SolidTube.hh"
+/*
+namespace Garfield {
 
+  namespace HeedInterface {
+
+    Sensor* sensor;
+    Medium* medium;
+
+    bool useEfield;
+    bool useBfield;
+  }
+}
+*/
 typedef std::pair<double, double> EnergyRange_MeV;
 typedef std::map< const std::string, EnergyRange_MeV> MapParticlesEnergy;
 
@@ -97,9 +109,10 @@ public:
 	inline void EnableCreateSecondariesInGeant4(bool flag) {createSecondariesInGeant4 = flag;};
 	inline bool GetCreateSecondariesInGeant4() {return createSecondariesInGeant4;};
 	inline double GetEnergyDeposit_MeV() {return fEnergyDeposit/1000000;};
-	inline double GetAvalancheSize() {return fAvalancheSize;};
-	inline double GetGain() {return fGain;};
-	inline void Clear() {fEnergyDeposit=0;fAvalancheSize=0;fGain=0;nsum=0;}
+  //inline double GetAvalancheSize() {return fAvalancheSize;};
+  //inline double GetGain() {return fGain;};
+  //inline void Clear() {fEnergyDeposit=0;fAvalancheSize=0;fGain=0;nsum=0;}
+	inline void Clear() {fEnergyDeposit=0;nsum=0;}
 
 private:
 	GarfieldPhysics();
@@ -114,21 +127,22 @@ private:
 	Garfield::MediumMagboltz* fMediumMagboltz;
 	Garfield::Sensor* fSensor;
 	Garfield::AvalancheMC* fDrift;
-	Garfield::AvalancheMicroscopic* fAvalanche;
+  //Garfield::AvalancheMicroscopic* fAvalanche;
 	Garfield::TrackHeed* fTrackHeed;
 	Garfield::GeometryRoot* fGeometryRoot;
 	Garfield::GeometrySimple* fGeometrySimple;
         Garfield::ComponentConstant* componentConstant;
 	Garfield::ComponentAnalyticField* fComponentAnalyticField;
 	Garfield::SolidTube* fTube;
-
+  //Medium* medium;
+  
 
 	std::vector<GarfieldParticle*>* fSecondaryParticles;
 
 	bool createSecondariesInGeant4;
 	double fEnergyDeposit;
-	double fAvalancheSize;
-	double fGain;
+  //double fAvalancheSize;
+  //double fGain;
 	int nsum;
 
 
