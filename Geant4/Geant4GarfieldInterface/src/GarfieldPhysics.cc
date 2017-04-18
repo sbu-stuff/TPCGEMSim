@@ -311,7 +311,7 @@ void GarfieldPhysics::CreateGeometry() {
 	componentConstant = new Garfield::ComponentConstant();
        	//componentConstant->SetElectricField(0, 0, 400);
        	componentConstant->SetElectricField(0, 400, 400);
-       	//componentConstant->SetMagneticField(0, 0, 1.5);
+       	componentConstant->SetMagneticField(0, 0, 1.5);
 
 	componentConstant->SetGeometry(fGeometrySimple);
 
