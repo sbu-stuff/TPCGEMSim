@@ -332,10 +332,16 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 	fEnergyDeposit = 0;
 	DeleteSecondaryParticles();
 	
-	std::string particleId =  "Particle_" + std::to_string(particleNum);
+	std::string particleId =  "Particle_" + particleName + "_" +  std::to_string(particleNum);
+	std::string eventId = "Event_" + std::to_string(particleNum);
 	G4cout<<particleId<<"\n";
-	TNtuple *ntuple = (TNtuple*) f->Get(particleId.c_str());
-	
+	TNtuple *ntuple;
+	if ((ntuple = (TNtuple*) f->Get(particleId.c_str())) == NULL)
+	  {
+	    G4cout << "New TNtuple";
+	    ntuple = new TNtuple(particleId.c_str(), eventId.c_str(), "xpos:ypos:zpos:nc");
+	  }
+
 	//G4cout << particleId << " " << particleName << " " << time << " " << x_cm << " " <<  dx << G4endl;
 // Wire radius [cm]
 	const double rWire = 25.e-4;
@@ -376,8 +382,8 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 				if (particleName == "gamma") {
 					fEnergyDeposit += fTrackHeed->GetW();
 				}
-				G4cout << "cl,xe,ye,ze,te,ee,dxe" << " " << cl <<" " << xe <<" " << ye <<" " << ze <<" " << te <<" " << ee <<" " << dxe << G4endl;
-				ntuple->Fill(xe,ye,ze);
+				//G4cout << "cl,xe,ye,ze,te,ee,dxe" << " " << cl <<" " << xe <<" " << ye <<" " << ze <<" " << te <<" " << ee <<" " << dxe << G4endl;
+				ntuple->Fill(xe,ye,ze,nc);
 				if (createSecondariesInGeant4) {
 					double newTime = te;
 					if (newTime < time) {
@@ -483,7 +489,8 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 		}
 	}
 	fGain = fAvalancheSize / nsum;
-	f->Write();
+	//ntuple->Write();
+	f->Write("", TObject::kOverwrite);
 	f->Close();
 	//particleNum++;
 }

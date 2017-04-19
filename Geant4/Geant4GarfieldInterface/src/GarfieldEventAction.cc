@@ -74,16 +74,17 @@ void GarfieldEventAction::BeginOfEventAction(const G4Event* event) {
 	
 	G4cout << "EVENTTTTTTTTTTTTTTTTTTTTTTTTTTT" << G4endl;
 	//G4cout << "EventID: " << runID;
-	TFile *f =  new TFile("Garfield.root","UPDATE");
+	//TFile *f =  new TFile("Garfield.root","UPDATE");
 
-	std::string particleId =  "Particle_" + std::to_string(particleNum);
+	/*std::string particleId =  "Particle_" + std::to_string(particleNum);
 	std::string eventId = "Event_"+std::to_string(event->GetEventID());
 	//G4cout << "Paticle id: " << particleId;
 	TNtuple* ntuple = new TNtuple(particleId.c_str(), eventId.c_str(), "xpos:ypos:zpos");
    
-	f->Write();
-	f->Close();
-
+	G4cout << "Creating: " << particleId << "\n";*/
+	//f->Write();
+	//f->Close();
+	particleNum++;
 	GarfieldPhysics* garfieldPhysics = GarfieldPhysics::GetInstance();
 	garfieldPhysics->Clear();
 
@@ -95,14 +96,14 @@ void GarfieldEventAction::EndOfEventAction(const G4Event* event) {
 	// Accumulate statistics
 	//
 	GarfieldPhysics* garfieldPhysics = GarfieldPhysics::GetInstance();
-
+	G4cout<<"ended event action\n";
 	// get analysis manager
-       	TFile *f =  new TFile("Gardield.root","UPDATE");
-	TH1F* h1 = (TH1F*)f->Get("hist1");
-	TH1F* h2 = (TH1F*)f->Get("hist2");
-	TH1F* h3 = (TH1F*)f->Get("hist3");
-	TH1F* h4 = (TH1F*)f->Get("hist4");
-	TH1F* h5 = (TH1F*)f->Get("hist5");
+       	//TFile *f =  new TFile("Gardield.root","UPDATE");
+	//TH1F* h1 = (TH1F*)f->Get("hist1");
+	//TH1F* h2 = (TH1F*)f->Get("hist2");
+	//TH1F* h3 = (TH1F*)f->Get("hist3");
+	//TH1F* h4 = (TH1F*)f->Get("hist4");
+	//TH1F* h5 = (TH1F*)f->Get("hist5");
 
 	//fEnergyGas += garfieldPhysics->GetEnergyDeposit_MeV();
 	fAvalancheSize = garfieldPhysics->GetAvalancheSize();
@@ -111,16 +112,14 @@ void GarfieldEventAction::EndOfEventAction(const G4Event* event) {
 	// std::cout << "LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK" << fEnergyAbs << fGain << "\n" ;
 	// fill histograms
 	
-	h1->Fill(fEnergyAbs);
-	h2->Fill(fTrackLAbs);
-	h3->Fill(fEnergyGas);
-	h4->Fill(fAvalancheSize);
-	h5->Fill(fGain);
+	//h1->Fill(fEnergyAbs);
+	//h2->Fill(fTrackLAbs);
+	//h3->Fill(fEnergyGas);
+	//h4->Fill(fAvalancheSize);
+	//h5->Fill(fGain);
 
 
 	// Close new rooot file
-        // analysisManager2->Write();
-        // analysisManager2->CloseFile();
 	
 	// Print per event (modulo n)
 	//

@@ -43,7 +43,6 @@ GarfieldG4FastSimulationModel::GarfieldG4FastSimulationModel(G4String modelName,
 		G4VFastSimulationModel(modelName, envelope) {
 	fGarfieldPhysics = GarfieldPhysics::GetInstance();
 	fGarfieldPhysics->InitializePhysics();
-
 }
 
 GarfieldG4FastSimulationModel::GarfieldG4FastSimulationModel(G4String modelName) :
@@ -117,10 +116,14 @@ void GarfieldG4FastSimulationModel::DoIt(const G4FastTrack& fastTrack,
 	}
 
 	// G4cout << "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE" << G4endl;
+
+
+
 	fGarfieldPhysics->DoIt(particleName, ekin_MeV, globalTime,
 			localPosition.x() / CLHEP::cm, localPosition.y() / CLHEP::cm,
 			localPosition.z() / CLHEP::cm, localdir.x(), localdir.y(),
 			localdir.z());
+
 
 	fastStep.SetTotalEnergyDeposited(fGarfieldPhysics->GetEnergyDeposit_MeV());
 

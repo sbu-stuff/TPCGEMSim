@@ -62,20 +62,22 @@ GarfieldRunAction::GarfieldRunAction() :
 	// Creating histograms
 	
 	
-	TH1F* h1 = new TH1F("hist1", "Edep in absorber", 100, 0., 800 * MeV);
-	TH1F* h2 = new TH1F("hist2", "trackL in absorber", 100, 0., 1 * m);
-	TH1F* h3 = new TH1F("hist3", "Edep in gas", 1000, 0., 100 * keV);
+	//TH1F* h1 = new TH1F("hist1", "Edep in absorber", 100, 0., 800 * MeV);
+	//TH1F* h2 = new TH1F("hist2", "trackL in absorber", 100, 0., 1 * m);
+	//TH1F* h3 = new TH1F("hist3", "Edep in gas", 1000, 0., 100 * keV);
 
-	TH1F* h4 = new TH1F("hist4", "Avalanche size in gas", 10000,0, 10000);
-	TH1F* h5 = new TH1F("hist5", "gain", 1000, 0., 100);
-	TH3F* h6 = new TH3F("hist6", "Track position",200, -10*cm, 10*cm, 29, -1.45*cm, 1.45*cm, 29,-1.45*cm, 1.45*cm);
+	//TH1F* h4 = new TH1F("hist4", "Avalanche size in gas", 10000,0, 10000);
+	//TH1F* h5 = new TH1F("hist5", "gain", 1000, 0., 100);
+	//TH3F* h6 = new TH3F("hist6", "Track position",200, -10*cm, 10*cm, 29, -1.45*cm, 1.45*cm, 29,-1.45*cm, 1.45*cm);
 	
 	// Creating ntuple
 	//
 	TNtuple *ntuple = new TNtuple("Garfield","Edep and TrackL","Egas:AvalancheSize:Gain:xe:ye:ze");
+
 	f->Write();
 	f->Close();
-	
+	//particleNum++;
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -95,7 +97,7 @@ void GarfieldRunAction::EndOfRunAction(const G4Run* /*run*/) {
 	// print histogram statistics
 	//
 
-        TFile *f =  new TFile("Garfield.root","UPDATE");
+        //TFile *f =  new TFile("Garfield.root","UPDATE");
 	/*if ((TH1F*)f->Get("hist1")) {
 		G4cout << G4endl << " ----> print histograms statistic ";
 		if (isMaster) {
@@ -137,9 +139,8 @@ void GarfieldRunAction::EndOfRunAction(const G4Run* /*run*/) {
 
 	// save histograms & ntuple
 	//
-	f->Write();
-	f->Close();
-	particleNum++;
+	//f->Write();
+	//f->Close();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define/>
+
+  <materials>
+    <isotope N="20" Z="10" name="Ne20">
+      <atom unit="g/mole" value="19.9924"/>
+    </isotope>
+    <isotope N="21" Z="10" name="Ne21">
+      <atom unit="g/mole" value="20.9938"/>
+    </isotope>
+    <isotope N="22" Z="10" name="Ne22">
+      <atom unit="g/mole" value="21.9914"/>
+    </isotope>
+    <element name="Ne">
+      <fraction n="0.9048" ref="Ne20"/>
+      <fraction n="0.0027" ref="Ne21"/>
+      <fraction n="0.0925" ref="Ne22"/>
+    </element>
+    <isotope N="12" Z="6" name="C12">
+      <atom unit="g/mole" value="12"/>
+    </isotope>
+    <isotope N="13" Z="6" name="C13">
+      <atom unit="g/mole" value="13.0034"/>
+    </isotope>
+    <element name="C">
+      <fraction n="0.9893" ref="C12"/>
+      <fraction n="0.0107" ref="C13"/>
+    </element>
+    <isotope N="19" Z="9" name="F19">
+      <atom unit="g/mole" value="18.9984"/>
+    </isotope>
+    <element name="F">
+      <fraction n="1" ref="F19"/>
+    </element>
+    <material name="NeCF4_95_5" state="gas">
+      <T unit="K" value="293.15"/>
+      <MEE unit="eV" value="135.520165752592"/>
+      <D unit="g/cm3" value="0.001041"/>
+      <fraction n="0.95" ref="Ne"/>
+      <fraction n="0.00682394577020501" ref="C"/>
+      <fraction n="0.043176054229795" ref="F"/>
+    </material>
+  </materials>
+
+  <solids>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="Gas" rmax="799.5" rmin="200" startphi="0" z="1000"/>
+  </solids>
+
+  <structure>
+    <volume name="Gas">
+      <materialref ref="NeCF4_95_5"/>
+      <solidref ref="Gas"/>
+    </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="Gas"/>
+  </setup>
+
+</gdml>
