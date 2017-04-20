@@ -89,7 +89,9 @@ void GarfieldPhysicsList::AddParameterisation() {
 
 		if (garfieldPhysics->FindParticleName(particle->GetParticleName(),
 				"garfield")) {
+
 			pmanager->AddDiscreteProcess(fastSimProcess_garfield);
+
 		}
 
 		if (garfieldPhysics->FindParticleName(particle->GetParticleName(),

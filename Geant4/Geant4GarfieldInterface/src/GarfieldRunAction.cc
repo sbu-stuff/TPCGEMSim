@@ -28,9 +28,15 @@
 /// \file GarfieldRunAction.cc
 /// \brief Implementation of the GarfieldRunAction class
 
+#include <TFile.h>
+#include <TNtuple.h>
+#include <TROOT.h>
+#include <TH1F.h>
+#include <TH3F.h>
 
 #include "GarfieldRunAction.hh"
 #include "GarfieldAnalysis.hh"
+#include "global.h"
 
 #include "G4Run.hh"
 #include "G4RunManager.hh"
@@ -47,40 +53,32 @@ GarfieldRunAction::GarfieldRunAction() :
 	// Create analysis manager
 	// The choice of analysis technology is done via selectin of a namespace
 	// in Garfieldnalysis.hh
-	G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-	G4cout << "Using " << analysisManager->GetType() << G4endl;
-
-	// Create directories
-	//analysisManager->SetHistoDirectoryName("histograms");
-	//analysisManager->SetNtupleDirectoryName("ntuple");
-	analysisManager->SetVerboseLevel(1);
-	analysisManager->SetFirstHistoId(1);
+	TFile *f =  new TFile("Garfield.root","UPDATE");
+	//G4cout << "Using " << analysisManager->GetType() << G4endl;
 
 	// Book histograms, ntuple
 	//
 
 	// Creating histograms
 	
-	analysisManager->CreateH1("hist1", "Edep in absorber", 100, 0., 800 * MeV);
-	analysisManager->CreateH1("hist2", "trackL in absorber", 100, 0., 1 * m);
-	analysisManager->CreateH1("hist3", "Edep in gas", 1000, 0., 100 * keV);
+	
+	//TH1F* h1 = new TH1F("hist1", "Edep in absorber", 100, 0., 800 * MeV);
+	//TH1F* h2 = new TH1F("hist2", "trackL in absorber", 100, 0., 1 * m);
+	//TH1F* h3 = new TH1F("hist3", "Edep in gas", 1000, 0., 100 * keV);
 
-	//analysisManager->CreateH1("hist4", "Avalanche size in gas", 10000,0, 10000);
-	//analysisManager->CreateH1("hist5", "gain", 1000, 0., 100);
-	analysisManager->CreateH3("hist6", "Track position",200, -10*cm, 10*cm, 29, -1.45*cm, 1.45*cm, 29,-1.45*cm, 1.45*cm);
+	//TH1F* h4 = new TH1F("hist4", "Avalanche size in gas", 10000,0, 10000);
+	//TH1F* h5 = new TH1F("hist5", "gain", 1000, 0., 100);
+	//TH3F* h6 = new TH3F("hist6", "Track position",200, -10*cm, 10*cm, 29, -1.45*cm, 1.45*cm, 29,-1.45*cm, 1.45*cm);
 	
 	// Creating ntuple
 	//
-	
-	analysisManager->CreateNtuple("Garfield", "Edep and TrackL");
-	analysisManager->CreateNtupleDColumn("Egas");
-	//analysisManager->CreateNtupleDColumn("AvalancheSize");
-	//analysisManager->CreateNtupleDColumn("Gain");
-	analysisManager->CreateNtupleDColumn("xe");
-	analysisManager->CreateNtupleDColumn("ye");
-	analysisManager->CreateNtupleDColumn("ze");
-	analysisManager->FinishNtuple();
-	
+	TNtuple *ntuple = new TNtuple("Garfield","Edep and TrackL","Egas:AvalancheSize:Gain:xe:ye:ze");
+
+	f->Write();
+	f->Close();
+	//particleNum++;
+
+>>>>>>> TPC/RootFile
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -91,28 +89,17 @@ GarfieldRunAction::~GarfieldRunAction() {
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void GarfieldRunAction::BeginOfRunAction(const G4Run* run) {
-	//inform the runManager to save random number seed
-	//G4RunManager::GetRunManager()->SetRandomNumberStore(true);
-
-	// Get analysis manager
-	G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-
-	// Open an output file
-	//
-	G4String fileName = "Garfield"+std::to_string(run->GetRunID());
-	analysisManager->OpenFile(fileName);
-	G4cout << "OOOOOpening file " << fileName << G4endl;
-
-}
+void GarfieldRunAction::BeginOfRunAction(const G4Run* run) {	
+} 
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void GarfieldRunAction::EndOfRunAction(const G4Run* /*run*/) {
 	// print histogram statistics
 	//
-	G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-	if (analysisManager->GetH1(1)) {
+
+        //TFile *f =  new TFile("Garfield.root","UPDATE");
+	/*if ((TH1F*)f->Get("hist1")) {
 		G4cout << G4endl << " ----> print histograms statistic ";
 		if (isMaster) {
 			G4cout << "for the entire run " << G4endl << G4endl;
@@ -121,16 +108,16 @@ void GarfieldRunAction::EndOfRunAction(const G4Run* /*run*/) {
 		}
 
 		G4cout << " EAbs : mean = "
-				<< G4BestUnit(analysisManager->GetH1(1)->mean(), "Energy")
-				<< " rms = "
-				<< G4BestUnit(analysisManager->GetH1(1)->rms(), "Energy")
-				<< G4endl;
+		       << G4BestUnit(((TH1F*) f->Get("hist1"))->mean(), "Energy")
+		       << " rms = "
+		       << G4BestUnit(((TH1F*)f->Get("his1"))->rms(), "Energy")
+		       << G4endl;
 
 		G4cout << " LAbs : mean = "
-				<< G4BestUnit(analysisManager->GetH1(2)->mean(), "Length")
-				<< " rms = "
-				<< G4BestUnit(analysisManager->GetH1(2)->rms(), "Length")
-				<< G4endl;
+		       << G4BestUnit(((TH1F*)f->Get("hist2"))->mean(), "Length")
+		       << " rms = "
+		       << G4BestUnit(((TH1F*)f->GetH1("hist2"))->rms(), "Length")
+		       << G4endl;
 
 		G4cout << " EGas : mean = "
 				<< G4BestUnit(analysisManager->GetH1(3)->mean(), "Energy")
@@ -138,11 +125,16 @@ void GarfieldRunAction::EndOfRunAction(const G4Run* /*run*/) {
 				<< G4BestUnit(analysisManager->GetH1(3)->rms(), "Energy")
 				<< G4endl;
 		/*
+		       << G4BestUnit(((TH1F*)f->Get("hist3"))->mean(), "Energy")
+		       << " rms = "
+		       << G4BestUnit(((TH1F*)f->Get("hist3"))->rms(), "Energy")
+		       << G4endl;
+
 		G4cout << " Avalanche size : mean = "
-						<< analysisManager->GetH1(4)->mean()
-						<< " rms = "
-						<< analysisManager->GetH1(4)->rms()
-						<< G4endl;
+		       << ((TH1F*)f->Get("hist4"))->mean()
+		       << " rms = "
+		       << ((TH1F*)f->Get("hist4"))->rms()
+		       << G4endl;
 
 		G4cout << " Gain : mean = "
 						<< analysisManager->GetH1(5)->mean()
@@ -153,9 +145,8 @@ void GarfieldRunAction::EndOfRunAction(const G4Run* /*run*/) {
 
 	// save histograms & ntuple
 	//
-	analysisManager->Write();
-	analysisManager->CloseFile();
-
+	//f->Write();
+	//f->Close();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

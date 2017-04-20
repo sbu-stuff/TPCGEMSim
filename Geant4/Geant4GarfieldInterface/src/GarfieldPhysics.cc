@@ -27,7 +27,12 @@
 //
 /// \file GarfieldPhysics.cc
 /// \brief Implementation of the GarfieldPhysics class
+#include <TFile.h>
+#include <TNtuple.h>
+#include <TROOT.h>
+
 #include "GarfieldPhysics.hh"
+#include "global.h"
 
 #include "TGeoManager.h"
 #include "TGeoBBox.h"
@@ -63,7 +68,7 @@ GarfieldPhysics::GarfieldPhysics() {
 	fSecondaryParticles = new std::vector<GarfieldParticle*>();
 	fMediumMagboltz = 0;
 	fSensor = 0;
-	//fAvalanche = 0;
+	fAvalanche = 0;
 	fDrift = 0;
 	componentConstant = 0;
 	fComponentAnalyticField = 0;
@@ -83,7 +88,7 @@ GarfieldPhysics::~GarfieldPhysics() {
 	delete fSecondaryParticles;
 	delete fMediumMagboltz;
 	delete fSensor;
-	//delete fAvalanche;
+	delete fAvalanche;
 	delete fDrift;
 	delete componentConstant;
 	delete fComponentAnalyticField;
@@ -271,7 +276,6 @@ void GarfieldPhysics::InitializePhysics() {
 	const double rPenning = 0.57;
 	const double lambdaPenning = 0.;
 	fMediumMagboltz->EnablePenningTransfer(rPenning, lambdaPenning, "ne");
-	// fMediumMagboltz->LoadGasFile("ar_70_co2_30_1000mbar.gas");
 	fMediumMagboltz->LoadGasFile("ne_95_cf4_5_1000mbar.gas");
 
 	fSensor = new Garfield::Sensor();
@@ -341,20 +345,22 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 		double time, double x_cm, double y_cm, double z_cm, double dx,
 		double dy, double dz) {
 
-	G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+	TFile *f =  new TFile("Garfield.root","UPDATE");
+	
 	fEnergyDeposit = 0;
 	DeleteSecondaryParticles();
 	
-	int particleNum = analysisManager->GetNofNtuples()-1; // NtupleId starts with 0
-	std::string particleId =  "Particle_" + std::to_string(particleNum);
-	/*
-	analysisManager->CreateNtuple(particleId, particleName);
-	analysisManager->CreateNtupleDColumn(particleNum,"xe");
-        analysisManager->CreateNtupleDColumn(particleNum,"ye");
-        analysisManager->CreateNtupleDColumn(particleNum,"ze");
-	analysisManager->FinishNtuple(particleNum);
-	*/
-	G4cout << particleId << " " << particleName << " " << time << " " << x_cm << " " <<  dx << G4endl;
+	std::string particleId =  "Particle_" + particleName + "_" +  std::to_string(particleNum);
+	std::string eventId = "Event_" + std::to_string(particleNum);
+	G4cout<<particleId<<"\n";
+	TNtuple *ntuple;
+	if ((ntuple = (TNtuple*) f->Get(particleId.c_str())) == NULL)
+	  {
+	    G4cout << "New TNtuple";
+	    ntuple = new TNtuple(particleId.c_str(), eventId.c_str(), "xpos:ypos:zpos:nc");
+	  }
+
+	//G4cout << particleId << " " << particleName << " " << time << " " << x_cm << " " <<  dx << G4endl;
 // Wire radius [cm]
 	//const double rWire = 25.e-4;
 // Outer radius of the tube [cm]
@@ -407,31 +413,8 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 				if (particleName == "gamma") {
 					fEnergyDeposit += fTrackHeed->GetW();
 				}
-				// std::cout << ">>>>>>>>H3 input "<< ze << " " << xe << " " << ye << std::endl;
-				// analysisManager->FillH3(1, ze * 10, xe * 10, ye * 10);
-				// analysisManager->FillH3(1, ze, xe, ye);
-				//G4cout << "Filling particleName/Num " << particleName << particleNum << " " << xe << " " << ye << " " << ze << " " << G4endl;
 				//G4cout << "cl,xe,ye,ze,te,ee,dxe" << " " << cl <<" " << xe <<" " << ye <<" " << ze <<" " << te <<" " << ee <<" " << dxe << G4endl;
-				analysisManager->FillNtupleDColumn(particleNum,0,xe);
-				analysisManager->FillNtupleDColumn(particleNum,1,ye);
-				analysisManager->FillNtupleDColumn(particleNum,2,ze);				
-				analysisManager->AddNtupleRow(particleNum);
-				// G4cout << "Filled particleNum" << G4endl;
-				/*
-				analysisManager->FillNtupleDColumn(0,3,xe);
-				analysisManager->FillNtupleDColumn(0,4,ye);
-				analysisManager->FillNtupleDColumn(0,5,ze);
-				analysisManager->AddNtupleRow(0);
-				*/
-				// G4cout << "Filled Garfield" << G4endl;
-				/*
-				// Fill new root file
-				analysisManager2->FillNtupleDColumn(0,xe);
-				analysisManager2->FillNtupleDColumn(1,ye);
-				analysisManager2->FillNtupleDColumn(2,ze);				
-				analysisManager2->AddNtupleRow();
-				G4cout << "Filled new root file" << G4endl; 
-				*/
+				ntuple->Fill(xe,ye,ze,nc);
 				if (createSecondariesInGeant4) {
 					double newTime = te;
 					if (newTime < time) {
@@ -515,7 +498,6 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 					if (ze < lTube && ze > -lTube
 							&& sqrt(xe * xe + ye * ye) < rOuterTube && sqrt(xe * xe + ye * ye) > rInnerTube) {
 					  G4cout << ">>>>>>>>H3 2nd input "<< ze << " " << xe << " " << ye << G4endl;
-					  // analysisManager->FillH3(1, ze * 10, xe * 10, ye * 10);
 						if (createSecondariesInGeant4) {
 							double newTime = te;
 							if (newTime < time) {
@@ -577,6 +559,10 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 	}
 	//fGain = fAvalancheSize / nsum;
 
+	fGain = fAvalancheSize / nsum;
+	//ntuple->Write();
+	f->Write("", TObject::kOverwrite);
+	f->Close();
 }
 
 std::vector<GarfieldParticle*>* GarfieldPhysics::GetSecondaryParticles() {
