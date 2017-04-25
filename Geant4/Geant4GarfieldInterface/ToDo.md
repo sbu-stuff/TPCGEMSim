@@ -11,7 +11,8 @@
 - [ ] Try to get the energy/direction of delta electrons (if statement to identify electrons that are too off-track) 
 - [ ] Store xe2,ye2,... and also nc to see if it matches the # of entries.
 - [ ] Check to see if collisions end up in different end points.
-- [ ] Make magnetic field in G4 to work. GlobalField
+- [ ] Make magnetic field in G4 to work. GlobalField. Look into example B4
+- [ ] Compare with Membrane1.C, modify setElectricField in GarfieldPhysics.cc
 # Done
 - [x] GarfieldPhysics.cc : set xc,yc,zc (initial position of cluster) to be variables, understand them
 - [x] GarfieldEventAction.cc : Use global variable that increments for Event_ instead of ID.
