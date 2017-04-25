@@ -68,7 +68,7 @@ GarfieldPhysics::GarfieldPhysics() {
 	fSecondaryParticles = new std::vector<GarfieldParticle*>();
 	fMediumMagboltz = 0;
 	fSensor = 0;
-	fAvalanche = 0;
+	//fAvalanche = 0;
 	fDrift = 0;
 	componentConstant = 0;
 	fComponentAnalyticField = 0;
@@ -88,7 +88,7 @@ GarfieldPhysics::~GarfieldPhysics() {
 	delete fSecondaryParticles;
 	delete fMediumMagboltz;
 	delete fSensor;
-	delete fAvalanche;
+	//delete fAvalanche;
 	delete fDrift;
 	delete componentConstant;
 	delete fComponentAnalyticField;
@@ -559,8 +559,7 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 	}
 	//fGain = fAvalancheSize / nsum;
 
-	fGain = fAvalancheSize / nsum;
-	//ntuple->Write();
+       	//ntuple->Write();
 	f->Write("", TObject::kOverwrite);
 	f->Close();
 }

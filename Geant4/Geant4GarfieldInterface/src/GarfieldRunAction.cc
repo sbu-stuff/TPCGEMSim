@@ -78,8 +78,7 @@ GarfieldRunAction::GarfieldRunAction() :
 	f->Close();
 	//particleNum++;
 
->>>>>>> TPC/RootFile
-}
+	}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -141,7 +140,7 @@ void GarfieldRunAction::EndOfRunAction(const G4Run* /*run*/) {
 						<< " rms = "
 						<< analysisManager->GetH1(5)->rms()
 						<< G4endl;
-		*/}
+		}*/
 
 	// save histograms & ntuple
 	//
