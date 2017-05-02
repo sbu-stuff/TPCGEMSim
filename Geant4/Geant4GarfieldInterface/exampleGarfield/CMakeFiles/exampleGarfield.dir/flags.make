@@ -6,5 +6,5 @@ CXX_FLAGS =  -W -Wall -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-str
 
 CXX_DEFINES = -DG4INTY_USE_QT -DG4INTY_USE_XT -DG4UI_USE -DG4UI_USE_QT -DG4UI_USE_TCSH -DG4UI_USE_XM -DG4VERBOSE -DG4VIS_USE -DG4VIS_USE_OPENGL -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLX -DG4VIS_USE_OPENGLXM -DG4VIS_USE_RAYTRACERX -DG4_STORE_TRAJECTORY
 
-CXX_INCLUDES = -isystem /opt/sphenix/core/geant4.10.02/include/Geant4 -isystem /opt/sphenix/core/include -isystem /usr/include/QtCore -isystem /usr/include/QtGui -isystem /usr/include/QtOpenGL -I/home/sphenix/Desktop/Geant4/Geant4GarfieldInterface/include -I/home/sphenix/work/garfield/Include -I/opt/sphenix/core/root-6.06.02/include 
+CXX_INCLUDES = -isystem /opt/sphenix/core/geant4.10.02/include/Geant4 -isystem /opt/sphenix/core/include -isystem /usr/include/QtCore -isystem /usr/include/QtGui -isystem /usr/include/QtOpenGL -I/home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/include -I/home/sphenix/work/garfield/Include -I/opt/sphenix/core/root-6.06.02/include 
 

@@ -10,12 +10,15 @@ CMakeFiles/exampleGarfield.dir/exampleGarfield.cc.o
  ../include/GarfieldRunAction.hh
  ../include/GarfieldSteppingAction.hh
  ../include/global.h
- /home/sphenix/Desktop/Geant4/Geant4GarfieldInterface/exampleGarfield.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/exampleGarfield.cc
  /home/sphenix/work/garfield/Include/AvalancheMC.hh
  /home/sphenix/work/garfield/Include/AvalancheMicroscopic.hh
  /home/sphenix/work/garfield/Include/ComponentAnalyticField.hh
+ /home/sphenix/work/garfield/Include/ComponentAnsys121.hh
  /home/sphenix/work/garfield/Include/ComponentBase.hh
+ /home/sphenix/work/garfield/Include/ComponentCST.hh
  /home/sphenix/work/garfield/Include/ComponentConstant.hh
+ /home/sphenix/work/garfield/Include/ComponentFieldMap.hh
  /home/sphenix/work/garfield/Include/FundamentalConstants.hh
  /home/sphenix/work/garfield/Include/GeometryBase.hh
  /home/sphenix/work/garfield/Include/GeometryRoot.hh
@@ -23,16 +26,24 @@ CMakeFiles/exampleGarfield.dir/exampleGarfield.cc.o
  /home/sphenix/work/garfield/Include/Medium.hh
  /home/sphenix/work/garfield/Include/MediumGas.hh
  /home/sphenix/work/garfield/Include/MediumMagboltz.hh
+ /home/sphenix/work/garfield/Include/Plotting.hh
+ /home/sphenix/work/garfield/Include/PlottingEngine.hh
+ /home/sphenix/work/garfield/Include/PlottingEngineRoot.hh
  /home/sphenix/work/garfield/Include/Random.hh
  /home/sphenix/work/garfield/Include/RandomEngine.hh
  /home/sphenix/work/garfield/Include/RandomEngineRoot.hh
  /home/sphenix/work/garfield/Include/Sensor.hh
  /home/sphenix/work/garfield/Include/Solid.hh
  /home/sphenix/work/garfield/Include/SolidTube.hh
+ /home/sphenix/work/garfield/Include/TetrahedralTree.hh
  /home/sphenix/work/garfield/Include/Track.hh
  /home/sphenix/work/garfield/Include/TrackHeed.hh
  /home/sphenix/work/garfield/Include/TrackSimple.hh
  /home/sphenix/work/garfield/Include/ViewDrift.hh
+ /home/sphenix/work/garfield/Include/ViewFEMesh.hh
+ /home/sphenix/work/garfield/Include/ViewField.hh
+ /home/sphenix/work/garfield/Include/ViewMedium.hh
+ /home/sphenix/work/garfield/Include/ViewSignal.hh
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Geometry/Normal3D.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Geometry/Plane3D.h
@@ -372,6 +383,7 @@ CMakeFiles/exampleGarfield.dir/exampleGarfield.cc.o
  /opt/sphenix/core/root-6.06.02/include/ESTLType.h
  /opt/sphenix/core/root-6.06.02/include/Foption.h
  /opt/sphenix/core/root-6.06.02/include/GuiTypes.h
+ /opt/sphenix/core/root-6.06.02/include/Math/ParamFunctor.h
  /opt/sphenix/core/root-6.06.02/include/RConfig.h
  /opt/sphenix/core/root-6.06.02/include/RConfigure.h
  /opt/sphenix/core/root-6.06.02/include/RStringView.h
@@ -381,6 +393,8 @@ CMakeFiles/exampleGarfield.dir/exampleGarfield.cc.o
  /opt/sphenix/core/root-6.06.02/include/Rtypeinfo.h
  /opt/sphenix/core/root-6.06.02/include/Rtypes.h
  /opt/sphenix/core/root-6.06.02/include/RtypesCore.h
+ /opt/sphenix/core/root-6.06.02/include/TApplication.h
+ /opt/sphenix/core/root-6.06.02/include/TApplicationImp.h
  /opt/sphenix/core/root-6.06.02/include/TArray.h
  /opt/sphenix/core/root-6.06.02/include/TArrayC.h
  /opt/sphenix/core/root-6.06.02/include/TArrayD.h
@@ -397,21 +411,33 @@ CMakeFiles/exampleGarfield.dir/exampleGarfield.cc.o
  /opt/sphenix/core/root-6.06.02/include/TAttPad.h
  /opt/sphenix/core/root-6.06.02/include/TAttText.h
  /opt/sphenix/core/root-6.06.02/include/TAxis.h
+ /opt/sphenix/core/root-6.06.02/include/TBits.h
+ /opt/sphenix/core/root-6.06.02/include/TBranch.h
  /opt/sphenix/core/root-6.06.02/include/TBuffer.h
  /opt/sphenix/core/root-6.06.02/include/TCanvas.h
  /opt/sphenix/core/root-6.06.02/include/TCanvasImp.h
  /opt/sphenix/core/root-6.06.02/include/TClass.h
  /opt/sphenix/core/root-6.06.02/include/TCollection.h
+ /opt/sphenix/core/root-6.06.02/include/TColor.h
+ /opt/sphenix/core/root-6.06.02/include/TDataType.h
  /opt/sphenix/core/root-6.06.02/include/TDatime.h
  /opt/sphenix/core/root-6.06.02/include/TDictionary.h
  /opt/sphenix/core/root-6.06.02/include/TDirectory.h
  /opt/sphenix/core/root-6.06.02/include/TDirectoryFile.h
+ /opt/sphenix/core/root-6.06.02/include/TError.h
+ /opt/sphenix/core/root-6.06.02/include/TF1.h
+ /opt/sphenix/core/root-6.06.02/include/TF2.h
  /opt/sphenix/core/root-6.06.02/include/TFile.h
  /opt/sphenix/core/root-6.06.02/include/TFitResultPtr.h
+ /opt/sphenix/core/root-6.06.02/include/TFormula.h
+ /opt/sphenix/core/root-6.06.02/include/TGaxis.h
  /opt/sphenix/core/root-6.06.02/include/TGenericClassInfo.h
  /opt/sphenix/core/root-6.06.02/include/TGeoAtt.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoBBox.h
  /opt/sphenix/core/root-6.06.02/include/TGeoCache.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoCompositeShape.h
  /opt/sphenix/core/root-6.06.02/include/TGeoElement.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoHalfSpace.h
  /opt/sphenix/core/root-6.06.02/include/TGeoManager.h
  /opt/sphenix/core/root-6.06.02/include/TGeoMaterial.h
  /opt/sphenix/core/root-6.06.02/include/TGeoMatrix.h
@@ -419,23 +445,45 @@ CMakeFiles/exampleGarfield.dir/exampleGarfield.cc.o
  /opt/sphenix/core/root-6.06.02/include/TGeoNavigator.h
  /opt/sphenix/core/root-6.06.02/include/TGeoNode.h
  /opt/sphenix/core/root-6.06.02/include/TGeoPatternFinder.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoPcon.h
  /opt/sphenix/core/root-6.06.02/include/TGeoShape.h
  /opt/sphenix/core/root-6.06.02/include/TGeoStateInfo.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoTube.h
  /opt/sphenix/core/root-6.06.02/include/TGeoVolume.h
  /opt/sphenix/core/root-6.06.02/include/TGraph.h
  /opt/sphenix/core/root-6.06.02/include/TH1.h
+ /opt/sphenix/core/root-6.06.02/include/TH1D.h
+ /opt/sphenix/core/root-6.06.02/include/TH2.h
+ /opt/sphenix/core/root-6.06.02/include/TH2D.h
  /opt/sphenix/core/root-6.06.02/include/THashTable.h
  /opt/sphenix/core/root-6.06.02/include/TInterpreter.h
  /opt/sphenix/core/root-6.06.02/include/TIterator.h
+ /opt/sphenix/core/root-6.06.02/include/TLine.h
  /opt/sphenix/core/root-6.06.02/include/TList.h
  /opt/sphenix/core/root-6.06.02/include/TMap.h
  /opt/sphenix/core/root-6.06.02/include/TMathBase.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixD.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDBasefwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDUtilsfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixF.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFBasefwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFUtilsfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixT.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixTBase.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixTUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMethodCall.h
  /opt/sphenix/core/root-6.06.02/include/TNamed.h
+ /opt/sphenix/core/root-6.06.02/include/TNtuple.h
  /opt/sphenix/core/root-6.06.02/include/TObjArray.h
  /opt/sphenix/core/root-6.06.02/include/TObjString.h
  /opt/sphenix/core/root-6.06.02/include/TObject.h
  /opt/sphenix/core/root-6.06.02/include/TPad.h
  /opt/sphenix/core/root-6.06.02/include/TPoint.h
+ /opt/sphenix/core/root-6.06.02/include/TPolyLine.h
  /opt/sphenix/core/root-6.06.02/include/TPolyLine3D.h
  /opt/sphenix/core/root-6.06.02/include/TPolyMarker3D.h
  /opt/sphenix/core/root-6.06.02/include/TQClass.h
@@ -449,6 +497,8 @@ CMakeFiles/exampleGarfield.dir/exampleGarfield.cc.o
  /opt/sphenix/core/root-6.06.02/include/TSeqCollection.h
  /opt/sphenix/core/root-6.06.02/include/TStorage.h
  /opt/sphenix/core/root-6.06.02/include/TString.h
+ /opt/sphenix/core/root-6.06.02/include/TStyle.h
+ /opt/sphenix/core/root-6.06.02/include/TTree.h
  /opt/sphenix/core/root-6.06.02/include/TUUID.h
  /opt/sphenix/core/root-6.06.02/include/TUrl.h
  /opt/sphenix/core/root-6.06.02/include/TVectorDfwd.h
@@ -457,6 +507,7 @@ CMakeFiles/exampleGarfield.dir/exampleGarfield.cc.o
  /opt/sphenix/core/root-6.06.02/include/TView.h
  /opt/sphenix/core/root-6.06.02/include/TVirtualMutex.h
  /opt/sphenix/core/root-6.06.02/include/TVirtualPad.h
+ /opt/sphenix/core/root-6.06.02/include/TVirtualTreePlayer.h
  /opt/sphenix/core/root-6.06.02/include/TVirtualX.h
  /opt/sphenix/core/root-6.06.02/include/ThreadLocalStorage.h
  /opt/sphenix/core/root-6.06.02/include/Varargs.h
@@ -468,12 +519,15 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldDetectorConstruction.cc.o
  ../include/GarfieldG4FastSimulationModel.hh
  ../include/GarfieldMessenger.hh
  ../include/GarfieldPhysics.hh
- /home/sphenix/Desktop/Geant4/Geant4GarfieldInterface/src/GarfieldDetectorConstruction.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldDetectorConstruction.cc
  /home/sphenix/work/garfield/Include/AvalancheMC.hh
  /home/sphenix/work/garfield/Include/AvalancheMicroscopic.hh
  /home/sphenix/work/garfield/Include/ComponentAnalyticField.hh
+ /home/sphenix/work/garfield/Include/ComponentAnsys121.hh
  /home/sphenix/work/garfield/Include/ComponentBase.hh
+ /home/sphenix/work/garfield/Include/ComponentCST.hh
  /home/sphenix/work/garfield/Include/ComponentConstant.hh
+ /home/sphenix/work/garfield/Include/ComponentFieldMap.hh
  /home/sphenix/work/garfield/Include/FundamentalConstants.hh
  /home/sphenix/work/garfield/Include/GeometryBase.hh
  /home/sphenix/work/garfield/Include/GeometryRoot.hh
@@ -481,13 +535,24 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldDetectorConstruction.cc.o
  /home/sphenix/work/garfield/Include/Medium.hh
  /home/sphenix/work/garfield/Include/MediumGas.hh
  /home/sphenix/work/garfield/Include/MediumMagboltz.hh
+ /home/sphenix/work/garfield/Include/Plotting.hh
+ /home/sphenix/work/garfield/Include/PlottingEngine.hh
+ /home/sphenix/work/garfield/Include/PlottingEngineRoot.hh
+ /home/sphenix/work/garfield/Include/Random.hh
+ /home/sphenix/work/garfield/Include/RandomEngine.hh
+ /home/sphenix/work/garfield/Include/RandomEngineRoot.hh
  /home/sphenix/work/garfield/Include/Sensor.hh
  /home/sphenix/work/garfield/Include/Solid.hh
  /home/sphenix/work/garfield/Include/SolidTube.hh
+ /home/sphenix/work/garfield/Include/TetrahedralTree.hh
  /home/sphenix/work/garfield/Include/Track.hh
  /home/sphenix/work/garfield/Include/TrackHeed.hh
  /home/sphenix/work/garfield/Include/TrackSimple.hh
  /home/sphenix/work/garfield/Include/ViewDrift.hh
+ /home/sphenix/work/garfield/Include/ViewFEMesh.hh
+ /home/sphenix/work/garfield/Include/ViewField.hh
+ /home/sphenix/work/garfield/Include/ViewMedium.hh
+ /home/sphenix/work/garfield/Include/ViewSignal.hh
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Geometry/Normal3D.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -780,6 +845,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldDetectorConstruction.cc.o
  /opt/sphenix/core/root-6.06.02/include/ESTLType.h
  /opt/sphenix/core/root-6.06.02/include/Foption.h
  /opt/sphenix/core/root-6.06.02/include/GuiTypes.h
+ /opt/sphenix/core/root-6.06.02/include/Math/ParamFunctor.h
  /opt/sphenix/core/root-6.06.02/include/RConfig.h
  /opt/sphenix/core/root-6.06.02/include/RConfigure.h
  /opt/sphenix/core/root-6.06.02/include/RStringView.h
@@ -789,6 +855,8 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldDetectorConstruction.cc.o
  /opt/sphenix/core/root-6.06.02/include/Rtypeinfo.h
  /opt/sphenix/core/root-6.06.02/include/Rtypes.h
  /opt/sphenix/core/root-6.06.02/include/RtypesCore.h
+ /opt/sphenix/core/root-6.06.02/include/TApplication.h
+ /opt/sphenix/core/root-6.06.02/include/TApplicationImp.h
  /opt/sphenix/core/root-6.06.02/include/TArray.h
  /opt/sphenix/core/root-6.06.02/include/TArrayC.h
  /opt/sphenix/core/root-6.06.02/include/TArrayD.h
@@ -805,17 +873,33 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldDetectorConstruction.cc.o
  /opt/sphenix/core/root-6.06.02/include/TAttPad.h
  /opt/sphenix/core/root-6.06.02/include/TAttText.h
  /opt/sphenix/core/root-6.06.02/include/TAxis.h
+ /opt/sphenix/core/root-6.06.02/include/TBits.h
+ /opt/sphenix/core/root-6.06.02/include/TBranch.h
  /opt/sphenix/core/root-6.06.02/include/TBuffer.h
  /opt/sphenix/core/root-6.06.02/include/TCanvas.h
  /opt/sphenix/core/root-6.06.02/include/TCanvasImp.h
  /opt/sphenix/core/root-6.06.02/include/TClass.h
  /opt/sphenix/core/root-6.06.02/include/TCollection.h
+ /opt/sphenix/core/root-6.06.02/include/TColor.h
+ /opt/sphenix/core/root-6.06.02/include/TDataType.h
+ /opt/sphenix/core/root-6.06.02/include/TDatime.h
  /opt/sphenix/core/root-6.06.02/include/TDictionary.h
+ /opt/sphenix/core/root-6.06.02/include/TDirectory.h
+ /opt/sphenix/core/root-6.06.02/include/TDirectoryFile.h
+ /opt/sphenix/core/root-6.06.02/include/TError.h
+ /opt/sphenix/core/root-6.06.02/include/TF1.h
+ /opt/sphenix/core/root-6.06.02/include/TF2.h
+ /opt/sphenix/core/root-6.06.02/include/TFile.h
  /opt/sphenix/core/root-6.06.02/include/TFitResultPtr.h
+ /opt/sphenix/core/root-6.06.02/include/TFormula.h
+ /opt/sphenix/core/root-6.06.02/include/TGaxis.h
  /opt/sphenix/core/root-6.06.02/include/TGenericClassInfo.h
  /opt/sphenix/core/root-6.06.02/include/TGeoAtt.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoBBox.h
  /opt/sphenix/core/root-6.06.02/include/TGeoCache.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoCompositeShape.h
  /opt/sphenix/core/root-6.06.02/include/TGeoElement.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoHalfSpace.h
  /opt/sphenix/core/root-6.06.02/include/TGeoManager.h
  /opt/sphenix/core/root-6.06.02/include/TGeoMaterial.h
  /opt/sphenix/core/root-6.06.02/include/TGeoMatrix.h
@@ -823,37 +907,69 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldDetectorConstruction.cc.o
  /opt/sphenix/core/root-6.06.02/include/TGeoNavigator.h
  /opt/sphenix/core/root-6.06.02/include/TGeoNode.h
  /opt/sphenix/core/root-6.06.02/include/TGeoPatternFinder.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoPcon.h
  /opt/sphenix/core/root-6.06.02/include/TGeoShape.h
  /opt/sphenix/core/root-6.06.02/include/TGeoStateInfo.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoTube.h
  /opt/sphenix/core/root-6.06.02/include/TGeoVolume.h
  /opt/sphenix/core/root-6.06.02/include/TGraph.h
  /opt/sphenix/core/root-6.06.02/include/TH1.h
+ /opt/sphenix/core/root-6.06.02/include/TH1D.h
+ /opt/sphenix/core/root-6.06.02/include/TH2.h
+ /opt/sphenix/core/root-6.06.02/include/TH2D.h
+ /opt/sphenix/core/root-6.06.02/include/THashTable.h
  /opt/sphenix/core/root-6.06.02/include/TInterpreter.h
  /opt/sphenix/core/root-6.06.02/include/TIterator.h
+ /opt/sphenix/core/root-6.06.02/include/TLine.h
  /opt/sphenix/core/root-6.06.02/include/TList.h
+ /opt/sphenix/core/root-6.06.02/include/TMap.h
  /opt/sphenix/core/root-6.06.02/include/TMathBase.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixD.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDBasefwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDUtilsfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixF.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFBasefwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFUtilsfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixT.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixTBase.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixTUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMethodCall.h
  /opt/sphenix/core/root-6.06.02/include/TNamed.h
+ /opt/sphenix/core/root-6.06.02/include/TNtuple.h
  /opt/sphenix/core/root-6.06.02/include/TObjArray.h
  /opt/sphenix/core/root-6.06.02/include/TObjString.h
  /opt/sphenix/core/root-6.06.02/include/TObject.h
  /opt/sphenix/core/root-6.06.02/include/TPad.h
  /opt/sphenix/core/root-6.06.02/include/TPoint.h
+ /opt/sphenix/core/root-6.06.02/include/TPolyLine.h
  /opt/sphenix/core/root-6.06.02/include/TPolyLine3D.h
  /opt/sphenix/core/root-6.06.02/include/TPolyMarker3D.h
  /opt/sphenix/core/root-6.06.02/include/TQClass.h
  /opt/sphenix/core/root-6.06.02/include/TQConnection.h
  /opt/sphenix/core/root-6.06.02/include/TQObject.h
  /opt/sphenix/core/root-6.06.02/include/TQObjectEmitVA.h
+ /opt/sphenix/core/root-6.06.02/include/TROOT.h
+ /opt/sphenix/core/root-6.06.02/include/TRandom.h
+ /opt/sphenix/core/root-6.06.02/include/TRandom3.h
  /opt/sphenix/core/root-6.06.02/include/TSchemaHelper.h
  /opt/sphenix/core/root-6.06.02/include/TSeqCollection.h
  /opt/sphenix/core/root-6.06.02/include/TStorage.h
  /opt/sphenix/core/root-6.06.02/include/TString.h
+ /opt/sphenix/core/root-6.06.02/include/TStyle.h
+ /opt/sphenix/core/root-6.06.02/include/TTree.h
+ /opt/sphenix/core/root-6.06.02/include/TUUID.h
+ /opt/sphenix/core/root-6.06.02/include/TUrl.h
  /opt/sphenix/core/root-6.06.02/include/TVectorDfwd.h
  /opt/sphenix/core/root-6.06.02/include/TVectorFfwd.h
  /opt/sphenix/core/root-6.06.02/include/TVersionCheck.h
  /opt/sphenix/core/root-6.06.02/include/TView.h
  /opt/sphenix/core/root-6.06.02/include/TVirtualMutex.h
  /opt/sphenix/core/root-6.06.02/include/TVirtualPad.h
+ /opt/sphenix/core/root-6.06.02/include/TVirtualTreePlayer.h
  /opt/sphenix/core/root-6.06.02/include/TVirtualX.h
  /opt/sphenix/core/root-6.06.02/include/ThreadLocalStorage.h
  /opt/sphenix/core/root-6.06.02/include/Varargs.h
@@ -866,12 +982,15 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldEventAction.cc.o
  ../include/GarfieldPhysics.hh
  ../include/GarfieldRunAction.hh
  ../include/global.h
- /home/sphenix/Desktop/Geant4/Geant4GarfieldInterface/src/GarfieldEventAction.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldEventAction.cc
  /home/sphenix/work/garfield/Include/AvalancheMC.hh
  /home/sphenix/work/garfield/Include/AvalancheMicroscopic.hh
  /home/sphenix/work/garfield/Include/ComponentAnalyticField.hh
+ /home/sphenix/work/garfield/Include/ComponentAnsys121.hh
  /home/sphenix/work/garfield/Include/ComponentBase.hh
+ /home/sphenix/work/garfield/Include/ComponentCST.hh
  /home/sphenix/work/garfield/Include/ComponentConstant.hh
+ /home/sphenix/work/garfield/Include/ComponentFieldMap.hh
  /home/sphenix/work/garfield/Include/FundamentalConstants.hh
  /home/sphenix/work/garfield/Include/GeometryBase.hh
  /home/sphenix/work/garfield/Include/GeometryRoot.hh
@@ -879,13 +998,24 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldEventAction.cc.o
  /home/sphenix/work/garfield/Include/Medium.hh
  /home/sphenix/work/garfield/Include/MediumGas.hh
  /home/sphenix/work/garfield/Include/MediumMagboltz.hh
+ /home/sphenix/work/garfield/Include/Plotting.hh
+ /home/sphenix/work/garfield/Include/PlottingEngine.hh
+ /home/sphenix/work/garfield/Include/PlottingEngineRoot.hh
+ /home/sphenix/work/garfield/Include/Random.hh
+ /home/sphenix/work/garfield/Include/RandomEngine.hh
+ /home/sphenix/work/garfield/Include/RandomEngineRoot.hh
  /home/sphenix/work/garfield/Include/Sensor.hh
  /home/sphenix/work/garfield/Include/Solid.hh
  /home/sphenix/work/garfield/Include/SolidTube.hh
+ /home/sphenix/work/garfield/Include/TetrahedralTree.hh
  /home/sphenix/work/garfield/Include/Track.hh
  /home/sphenix/work/garfield/Include/TrackHeed.hh
  /home/sphenix/work/garfield/Include/TrackSimple.hh
  /home/sphenix/work/garfield/Include/ViewDrift.hh
+ /home/sphenix/work/garfield/Include/ViewFEMesh.hh
+ /home/sphenix/work/garfield/Include/ViewField.hh
+ /home/sphenix/work/garfield/Include/ViewMedium.hh
+ /home/sphenix/work/garfield/Include/ViewSignal.hh
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Random/DualRand.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Random/JamesRandom.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Random/MTwistEngine.h
@@ -1260,6 +1390,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldEventAction.cc.o
  /opt/sphenix/core/root-6.06.02/include/ESTLType.h
  /opt/sphenix/core/root-6.06.02/include/Foption.h
  /opt/sphenix/core/root-6.06.02/include/GuiTypes.h
+ /opt/sphenix/core/root-6.06.02/include/Math/ParamFunctor.h
  /opt/sphenix/core/root-6.06.02/include/RConfig.h
  /opt/sphenix/core/root-6.06.02/include/RConfigure.h
  /opt/sphenix/core/root-6.06.02/include/RStringView.h
@@ -1269,6 +1400,8 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldEventAction.cc.o
  /opt/sphenix/core/root-6.06.02/include/Rtypeinfo.h
  /opt/sphenix/core/root-6.06.02/include/Rtypes.h
  /opt/sphenix/core/root-6.06.02/include/RtypesCore.h
+ /opt/sphenix/core/root-6.06.02/include/TApplication.h
+ /opt/sphenix/core/root-6.06.02/include/TApplicationImp.h
  /opt/sphenix/core/root-6.06.02/include/TArray.h
  /opt/sphenix/core/root-6.06.02/include/TArrayC.h
  /opt/sphenix/core/root-6.06.02/include/TArrayD.h
@@ -1285,23 +1418,33 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldEventAction.cc.o
  /opt/sphenix/core/root-6.06.02/include/TAttPad.h
  /opt/sphenix/core/root-6.06.02/include/TAttText.h
  /opt/sphenix/core/root-6.06.02/include/TAxis.h
+ /opt/sphenix/core/root-6.06.02/include/TBits.h
  /opt/sphenix/core/root-6.06.02/include/TBranch.h
  /opt/sphenix/core/root-6.06.02/include/TBuffer.h
  /opt/sphenix/core/root-6.06.02/include/TCanvas.h
  /opt/sphenix/core/root-6.06.02/include/TCanvasImp.h
  /opt/sphenix/core/root-6.06.02/include/TClass.h
  /opt/sphenix/core/root-6.06.02/include/TCollection.h
+ /opt/sphenix/core/root-6.06.02/include/TColor.h
  /opt/sphenix/core/root-6.06.02/include/TDataType.h
  /opt/sphenix/core/root-6.06.02/include/TDatime.h
  /opt/sphenix/core/root-6.06.02/include/TDictionary.h
  /opt/sphenix/core/root-6.06.02/include/TDirectory.h
  /opt/sphenix/core/root-6.06.02/include/TDirectoryFile.h
+ /opt/sphenix/core/root-6.06.02/include/TError.h
+ /opt/sphenix/core/root-6.06.02/include/TF1.h
+ /opt/sphenix/core/root-6.06.02/include/TF2.h
  /opt/sphenix/core/root-6.06.02/include/TFile.h
  /opt/sphenix/core/root-6.06.02/include/TFitResultPtr.h
+ /opt/sphenix/core/root-6.06.02/include/TFormula.h
+ /opt/sphenix/core/root-6.06.02/include/TGaxis.h
  /opt/sphenix/core/root-6.06.02/include/TGenericClassInfo.h
  /opt/sphenix/core/root-6.06.02/include/TGeoAtt.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoBBox.h
  /opt/sphenix/core/root-6.06.02/include/TGeoCache.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoCompositeShape.h
  /opt/sphenix/core/root-6.06.02/include/TGeoElement.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoHalfSpace.h
  /opt/sphenix/core/root-6.06.02/include/TGeoManager.h
  /opt/sphenix/core/root-6.06.02/include/TGeoMaterial.h
  /opt/sphenix/core/root-6.06.02/include/TGeoMatrix.h
@@ -1309,20 +1452,40 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldEventAction.cc.o
  /opt/sphenix/core/root-6.06.02/include/TGeoNavigator.h
  /opt/sphenix/core/root-6.06.02/include/TGeoNode.h
  /opt/sphenix/core/root-6.06.02/include/TGeoPatternFinder.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoPcon.h
  /opt/sphenix/core/root-6.06.02/include/TGeoShape.h
  /opt/sphenix/core/root-6.06.02/include/TGeoStateInfo.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoTube.h
  /opt/sphenix/core/root-6.06.02/include/TGeoVolume.h
  /opt/sphenix/core/root-6.06.02/include/TGraph.h
  /opt/sphenix/core/root-6.06.02/include/TH1.h
+ /opt/sphenix/core/root-6.06.02/include/TH1D.h
  /opt/sphenix/core/root-6.06.02/include/TH1F.h
+ /opt/sphenix/core/root-6.06.02/include/TH2.h
+ /opt/sphenix/core/root-6.06.02/include/TH2D.h
  /opt/sphenix/core/root-6.06.02/include/TH3.h
  /opt/sphenix/core/root-6.06.02/include/TH3F.h
  /opt/sphenix/core/root-6.06.02/include/THashTable.h
  /opt/sphenix/core/root-6.06.02/include/TInterpreter.h
  /opt/sphenix/core/root-6.06.02/include/TIterator.h
+ /opt/sphenix/core/root-6.06.02/include/TLine.h
  /opt/sphenix/core/root-6.06.02/include/TList.h
  /opt/sphenix/core/root-6.06.02/include/TMap.h
  /opt/sphenix/core/root-6.06.02/include/TMathBase.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixD.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDBasefwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDUtilsfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixF.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFBasefwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFUtilsfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixT.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixTBase.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixTUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMethodCall.h
  /opt/sphenix/core/root-6.06.02/include/TNamed.h
  /opt/sphenix/core/root-6.06.02/include/TNtuple.h
  /opt/sphenix/core/root-6.06.02/include/TObjArray.h
@@ -1330,6 +1493,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldEventAction.cc.o
  /opt/sphenix/core/root-6.06.02/include/TObject.h
  /opt/sphenix/core/root-6.06.02/include/TPad.h
  /opt/sphenix/core/root-6.06.02/include/TPoint.h
+ /opt/sphenix/core/root-6.06.02/include/TPolyLine.h
  /opt/sphenix/core/root-6.06.02/include/TPolyLine3D.h
  /opt/sphenix/core/root-6.06.02/include/TPolyMarker3D.h
  /opt/sphenix/core/root-6.06.02/include/TQClass.h
@@ -1337,10 +1501,13 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldEventAction.cc.o
  /opt/sphenix/core/root-6.06.02/include/TQObject.h
  /opt/sphenix/core/root-6.06.02/include/TQObjectEmitVA.h
  /opt/sphenix/core/root-6.06.02/include/TROOT.h
+ /opt/sphenix/core/root-6.06.02/include/TRandom.h
+ /opt/sphenix/core/root-6.06.02/include/TRandom3.h
  /opt/sphenix/core/root-6.06.02/include/TSchemaHelper.h
  /opt/sphenix/core/root-6.06.02/include/TSeqCollection.h
  /opt/sphenix/core/root-6.06.02/include/TStorage.h
  /opt/sphenix/core/root-6.06.02/include/TString.h
+ /opt/sphenix/core/root-6.06.02/include/TStyle.h
  /opt/sphenix/core/root-6.06.02/include/TTree.h
  /opt/sphenix/core/root-6.06.02/include/TUUID.h
  /opt/sphenix/core/root-6.06.02/include/TUrl.h
@@ -1361,12 +1528,15 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldG4FastSimulationModel.cc.o
  ../include/GarfieldAnalysis.hh
  ../include/GarfieldG4FastSimulationModel.hh
  ../include/GarfieldPhysics.hh
- /home/sphenix/Desktop/Geant4/Geant4GarfieldInterface/src/GarfieldG4FastSimulationModel.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldG4FastSimulationModel.cc
  /home/sphenix/work/garfield/Include/AvalancheMC.hh
  /home/sphenix/work/garfield/Include/AvalancheMicroscopic.hh
  /home/sphenix/work/garfield/Include/ComponentAnalyticField.hh
+ /home/sphenix/work/garfield/Include/ComponentAnsys121.hh
  /home/sphenix/work/garfield/Include/ComponentBase.hh
+ /home/sphenix/work/garfield/Include/ComponentCST.hh
  /home/sphenix/work/garfield/Include/ComponentConstant.hh
+ /home/sphenix/work/garfield/Include/ComponentFieldMap.hh
  /home/sphenix/work/garfield/Include/FundamentalConstants.hh
  /home/sphenix/work/garfield/Include/GeometryBase.hh
  /home/sphenix/work/garfield/Include/GeometryRoot.hh
@@ -1374,13 +1544,24 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldG4FastSimulationModel.cc.o
  /home/sphenix/work/garfield/Include/Medium.hh
  /home/sphenix/work/garfield/Include/MediumGas.hh
  /home/sphenix/work/garfield/Include/MediumMagboltz.hh
+ /home/sphenix/work/garfield/Include/Plotting.hh
+ /home/sphenix/work/garfield/Include/PlottingEngine.hh
+ /home/sphenix/work/garfield/Include/PlottingEngineRoot.hh
+ /home/sphenix/work/garfield/Include/Random.hh
+ /home/sphenix/work/garfield/Include/RandomEngine.hh
+ /home/sphenix/work/garfield/Include/RandomEngineRoot.hh
  /home/sphenix/work/garfield/Include/Sensor.hh
  /home/sphenix/work/garfield/Include/Solid.hh
  /home/sphenix/work/garfield/Include/SolidTube.hh
+ /home/sphenix/work/garfield/Include/TetrahedralTree.hh
  /home/sphenix/work/garfield/Include/Track.hh
  /home/sphenix/work/garfield/Include/TrackHeed.hh
  /home/sphenix/work/garfield/Include/TrackSimple.hh
  /home/sphenix/work/garfield/Include/ViewDrift.hh
+ /home/sphenix/work/garfield/Include/ViewFEMesh.hh
+ /home/sphenix/work/garfield/Include/ViewField.hh
+ /home/sphenix/work/garfield/Include/ViewMedium.hh
+ /home/sphenix/work/garfield/Include/ViewSignal.hh
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Evaluator/Evaluator.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Geometry/Normal3D.h
@@ -1904,6 +2085,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldG4FastSimulationModel.cc.o
  /opt/sphenix/core/root-6.06.02/include/ESTLType.h
  /opt/sphenix/core/root-6.06.02/include/Foption.h
  /opt/sphenix/core/root-6.06.02/include/GuiTypes.h
+ /opt/sphenix/core/root-6.06.02/include/Math/ParamFunctor.h
  /opt/sphenix/core/root-6.06.02/include/RConfig.h
  /opt/sphenix/core/root-6.06.02/include/RConfigure.h
  /opt/sphenix/core/root-6.06.02/include/RStringView.h
@@ -1913,6 +2095,8 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldG4FastSimulationModel.cc.o
  /opt/sphenix/core/root-6.06.02/include/Rtypeinfo.h
  /opt/sphenix/core/root-6.06.02/include/Rtypes.h
  /opt/sphenix/core/root-6.06.02/include/RtypesCore.h
+ /opt/sphenix/core/root-6.06.02/include/TApplication.h
+ /opt/sphenix/core/root-6.06.02/include/TApplicationImp.h
  /opt/sphenix/core/root-6.06.02/include/TArray.h
  /opt/sphenix/core/root-6.06.02/include/TArrayC.h
  /opt/sphenix/core/root-6.06.02/include/TArrayD.h
@@ -1929,17 +2113,33 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldG4FastSimulationModel.cc.o
  /opt/sphenix/core/root-6.06.02/include/TAttPad.h
  /opt/sphenix/core/root-6.06.02/include/TAttText.h
  /opt/sphenix/core/root-6.06.02/include/TAxis.h
+ /opt/sphenix/core/root-6.06.02/include/TBits.h
+ /opt/sphenix/core/root-6.06.02/include/TBranch.h
  /opt/sphenix/core/root-6.06.02/include/TBuffer.h
  /opt/sphenix/core/root-6.06.02/include/TCanvas.h
  /opt/sphenix/core/root-6.06.02/include/TCanvasImp.h
  /opt/sphenix/core/root-6.06.02/include/TClass.h
  /opt/sphenix/core/root-6.06.02/include/TCollection.h
+ /opt/sphenix/core/root-6.06.02/include/TColor.h
+ /opt/sphenix/core/root-6.06.02/include/TDataType.h
+ /opt/sphenix/core/root-6.06.02/include/TDatime.h
  /opt/sphenix/core/root-6.06.02/include/TDictionary.h
+ /opt/sphenix/core/root-6.06.02/include/TDirectory.h
+ /opt/sphenix/core/root-6.06.02/include/TDirectoryFile.h
+ /opt/sphenix/core/root-6.06.02/include/TError.h
+ /opt/sphenix/core/root-6.06.02/include/TF1.h
+ /opt/sphenix/core/root-6.06.02/include/TF2.h
+ /opt/sphenix/core/root-6.06.02/include/TFile.h
  /opt/sphenix/core/root-6.06.02/include/TFitResultPtr.h
+ /opt/sphenix/core/root-6.06.02/include/TFormula.h
+ /opt/sphenix/core/root-6.06.02/include/TGaxis.h
  /opt/sphenix/core/root-6.06.02/include/TGenericClassInfo.h
  /opt/sphenix/core/root-6.06.02/include/TGeoAtt.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoBBox.h
  /opt/sphenix/core/root-6.06.02/include/TGeoCache.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoCompositeShape.h
  /opt/sphenix/core/root-6.06.02/include/TGeoElement.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoHalfSpace.h
  /opt/sphenix/core/root-6.06.02/include/TGeoManager.h
  /opt/sphenix/core/root-6.06.02/include/TGeoMaterial.h
  /opt/sphenix/core/root-6.06.02/include/TGeoMatrix.h
@@ -1947,37 +2147,69 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldG4FastSimulationModel.cc.o
  /opt/sphenix/core/root-6.06.02/include/TGeoNavigator.h
  /opt/sphenix/core/root-6.06.02/include/TGeoNode.h
  /opt/sphenix/core/root-6.06.02/include/TGeoPatternFinder.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoPcon.h
  /opt/sphenix/core/root-6.06.02/include/TGeoShape.h
  /opt/sphenix/core/root-6.06.02/include/TGeoStateInfo.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoTube.h
  /opt/sphenix/core/root-6.06.02/include/TGeoVolume.h
  /opt/sphenix/core/root-6.06.02/include/TGraph.h
  /opt/sphenix/core/root-6.06.02/include/TH1.h
+ /opt/sphenix/core/root-6.06.02/include/TH1D.h
+ /opt/sphenix/core/root-6.06.02/include/TH2.h
+ /opt/sphenix/core/root-6.06.02/include/TH2D.h
+ /opt/sphenix/core/root-6.06.02/include/THashTable.h
  /opt/sphenix/core/root-6.06.02/include/TInterpreter.h
  /opt/sphenix/core/root-6.06.02/include/TIterator.h
+ /opt/sphenix/core/root-6.06.02/include/TLine.h
  /opt/sphenix/core/root-6.06.02/include/TList.h
+ /opt/sphenix/core/root-6.06.02/include/TMap.h
  /opt/sphenix/core/root-6.06.02/include/TMathBase.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixD.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDBasefwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDUtilsfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixF.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFBasefwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFUtilsfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixT.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixTBase.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixTUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMethodCall.h
  /opt/sphenix/core/root-6.06.02/include/TNamed.h
+ /opt/sphenix/core/root-6.06.02/include/TNtuple.h
  /opt/sphenix/core/root-6.06.02/include/TObjArray.h
  /opt/sphenix/core/root-6.06.02/include/TObjString.h
  /opt/sphenix/core/root-6.06.02/include/TObject.h
  /opt/sphenix/core/root-6.06.02/include/TPad.h
  /opt/sphenix/core/root-6.06.02/include/TPoint.h
+ /opt/sphenix/core/root-6.06.02/include/TPolyLine.h
  /opt/sphenix/core/root-6.06.02/include/TPolyLine3D.h
  /opt/sphenix/core/root-6.06.02/include/TPolyMarker3D.h
  /opt/sphenix/core/root-6.06.02/include/TQClass.h
  /opt/sphenix/core/root-6.06.02/include/TQConnection.h
  /opt/sphenix/core/root-6.06.02/include/TQObject.h
  /opt/sphenix/core/root-6.06.02/include/TQObjectEmitVA.h
+ /opt/sphenix/core/root-6.06.02/include/TROOT.h
+ /opt/sphenix/core/root-6.06.02/include/TRandom.h
+ /opt/sphenix/core/root-6.06.02/include/TRandom3.h
  /opt/sphenix/core/root-6.06.02/include/TSchemaHelper.h
  /opt/sphenix/core/root-6.06.02/include/TSeqCollection.h
  /opt/sphenix/core/root-6.06.02/include/TStorage.h
  /opt/sphenix/core/root-6.06.02/include/TString.h
+ /opt/sphenix/core/root-6.06.02/include/TStyle.h
+ /opt/sphenix/core/root-6.06.02/include/TTree.h
+ /opt/sphenix/core/root-6.06.02/include/TUUID.h
+ /opt/sphenix/core/root-6.06.02/include/TUrl.h
  /opt/sphenix/core/root-6.06.02/include/TVectorDfwd.h
  /opt/sphenix/core/root-6.06.02/include/TVectorFfwd.h
  /opt/sphenix/core/root-6.06.02/include/TVersionCheck.h
  /opt/sphenix/core/root-6.06.02/include/TView.h
  /opt/sphenix/core/root-6.06.02/include/TVirtualMutex.h
  /opt/sphenix/core/root-6.06.02/include/TVirtualPad.h
+ /opt/sphenix/core/root-6.06.02/include/TVirtualTreePlayer.h
  /opt/sphenix/core/root-6.06.02/include/TVirtualX.h
  /opt/sphenix/core/root-6.06.02/include/ThreadLocalStorage.h
  /opt/sphenix/core/root-6.06.02/include/Varargs.h
@@ -1988,12 +2220,15 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldMessenger.cc.o
  ../include/GarfieldDetectorConstruction.hh
  ../include/GarfieldMessenger.hh
  ../include/GarfieldPhysics.hh
- /home/sphenix/Desktop/Geant4/Geant4GarfieldInterface/src/GarfieldMessenger.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldMessenger.cc
  /home/sphenix/work/garfield/Include/AvalancheMC.hh
  /home/sphenix/work/garfield/Include/AvalancheMicroscopic.hh
  /home/sphenix/work/garfield/Include/ComponentAnalyticField.hh
+ /home/sphenix/work/garfield/Include/ComponentAnsys121.hh
  /home/sphenix/work/garfield/Include/ComponentBase.hh
+ /home/sphenix/work/garfield/Include/ComponentCST.hh
  /home/sphenix/work/garfield/Include/ComponentConstant.hh
+ /home/sphenix/work/garfield/Include/ComponentFieldMap.hh
  /home/sphenix/work/garfield/Include/FundamentalConstants.hh
  /home/sphenix/work/garfield/Include/GeometryBase.hh
  /home/sphenix/work/garfield/Include/GeometryRoot.hh
@@ -2001,13 +2236,24 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldMessenger.cc.o
  /home/sphenix/work/garfield/Include/Medium.hh
  /home/sphenix/work/garfield/Include/MediumGas.hh
  /home/sphenix/work/garfield/Include/MediumMagboltz.hh
+ /home/sphenix/work/garfield/Include/Plotting.hh
+ /home/sphenix/work/garfield/Include/PlottingEngine.hh
+ /home/sphenix/work/garfield/Include/PlottingEngineRoot.hh
+ /home/sphenix/work/garfield/Include/Random.hh
+ /home/sphenix/work/garfield/Include/RandomEngine.hh
+ /home/sphenix/work/garfield/Include/RandomEngineRoot.hh
  /home/sphenix/work/garfield/Include/Sensor.hh
  /home/sphenix/work/garfield/Include/Solid.hh
  /home/sphenix/work/garfield/Include/SolidTube.hh
+ /home/sphenix/work/garfield/Include/TetrahedralTree.hh
  /home/sphenix/work/garfield/Include/Track.hh
  /home/sphenix/work/garfield/Include/TrackHeed.hh
  /home/sphenix/work/garfield/Include/TrackSimple.hh
  /home/sphenix/work/garfield/Include/ViewDrift.hh
+ /home/sphenix/work/garfield/Include/ViewFEMesh.hh
+ /home/sphenix/work/garfield/Include/ViewField.hh
+ /home/sphenix/work/garfield/Include/ViewMedium.hh
+ /home/sphenix/work/garfield/Include/ViewSignal.hh
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Utility/defs.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Vector/ThreeVector.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Vector/ThreeVector.icc
@@ -2037,6 +2283,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldMessenger.cc.o
  /opt/sphenix/core/root-6.06.02/include/ESTLType.h
  /opt/sphenix/core/root-6.06.02/include/Foption.h
  /opt/sphenix/core/root-6.06.02/include/GuiTypes.h
+ /opt/sphenix/core/root-6.06.02/include/Math/ParamFunctor.h
  /opt/sphenix/core/root-6.06.02/include/RConfig.h
  /opt/sphenix/core/root-6.06.02/include/RConfigure.h
  /opt/sphenix/core/root-6.06.02/include/RStringView.h
@@ -2046,6 +2293,8 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldMessenger.cc.o
  /opt/sphenix/core/root-6.06.02/include/Rtypeinfo.h
  /opt/sphenix/core/root-6.06.02/include/Rtypes.h
  /opt/sphenix/core/root-6.06.02/include/RtypesCore.h
+ /opt/sphenix/core/root-6.06.02/include/TApplication.h
+ /opt/sphenix/core/root-6.06.02/include/TApplicationImp.h
  /opt/sphenix/core/root-6.06.02/include/TArray.h
  /opt/sphenix/core/root-6.06.02/include/TArrayC.h
  /opt/sphenix/core/root-6.06.02/include/TArrayD.h
@@ -2062,17 +2311,33 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldMessenger.cc.o
  /opt/sphenix/core/root-6.06.02/include/TAttPad.h
  /opt/sphenix/core/root-6.06.02/include/TAttText.h
  /opt/sphenix/core/root-6.06.02/include/TAxis.h
+ /opt/sphenix/core/root-6.06.02/include/TBits.h
+ /opt/sphenix/core/root-6.06.02/include/TBranch.h
  /opt/sphenix/core/root-6.06.02/include/TBuffer.h
  /opt/sphenix/core/root-6.06.02/include/TCanvas.h
  /opt/sphenix/core/root-6.06.02/include/TCanvasImp.h
  /opt/sphenix/core/root-6.06.02/include/TClass.h
  /opt/sphenix/core/root-6.06.02/include/TCollection.h
+ /opt/sphenix/core/root-6.06.02/include/TColor.h
+ /opt/sphenix/core/root-6.06.02/include/TDataType.h
+ /opt/sphenix/core/root-6.06.02/include/TDatime.h
  /opt/sphenix/core/root-6.06.02/include/TDictionary.h
+ /opt/sphenix/core/root-6.06.02/include/TDirectory.h
+ /opt/sphenix/core/root-6.06.02/include/TDirectoryFile.h
+ /opt/sphenix/core/root-6.06.02/include/TError.h
+ /opt/sphenix/core/root-6.06.02/include/TF1.h
+ /opt/sphenix/core/root-6.06.02/include/TF2.h
+ /opt/sphenix/core/root-6.06.02/include/TFile.h
  /opt/sphenix/core/root-6.06.02/include/TFitResultPtr.h
+ /opt/sphenix/core/root-6.06.02/include/TFormula.h
+ /opt/sphenix/core/root-6.06.02/include/TGaxis.h
  /opt/sphenix/core/root-6.06.02/include/TGenericClassInfo.h
  /opt/sphenix/core/root-6.06.02/include/TGeoAtt.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoBBox.h
  /opt/sphenix/core/root-6.06.02/include/TGeoCache.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoCompositeShape.h
  /opt/sphenix/core/root-6.06.02/include/TGeoElement.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoHalfSpace.h
  /opt/sphenix/core/root-6.06.02/include/TGeoManager.h
  /opt/sphenix/core/root-6.06.02/include/TGeoMaterial.h
  /opt/sphenix/core/root-6.06.02/include/TGeoMatrix.h
@@ -2080,37 +2345,69 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldMessenger.cc.o
  /opt/sphenix/core/root-6.06.02/include/TGeoNavigator.h
  /opt/sphenix/core/root-6.06.02/include/TGeoNode.h
  /opt/sphenix/core/root-6.06.02/include/TGeoPatternFinder.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoPcon.h
  /opt/sphenix/core/root-6.06.02/include/TGeoShape.h
  /opt/sphenix/core/root-6.06.02/include/TGeoStateInfo.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoTube.h
  /opt/sphenix/core/root-6.06.02/include/TGeoVolume.h
  /opt/sphenix/core/root-6.06.02/include/TGraph.h
  /opt/sphenix/core/root-6.06.02/include/TH1.h
+ /opt/sphenix/core/root-6.06.02/include/TH1D.h
+ /opt/sphenix/core/root-6.06.02/include/TH2.h
+ /opt/sphenix/core/root-6.06.02/include/TH2D.h
+ /opt/sphenix/core/root-6.06.02/include/THashTable.h
  /opt/sphenix/core/root-6.06.02/include/TInterpreter.h
  /opt/sphenix/core/root-6.06.02/include/TIterator.h
+ /opt/sphenix/core/root-6.06.02/include/TLine.h
  /opt/sphenix/core/root-6.06.02/include/TList.h
+ /opt/sphenix/core/root-6.06.02/include/TMap.h
  /opt/sphenix/core/root-6.06.02/include/TMathBase.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixD.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDBasefwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDUtilsfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixF.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFBasefwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFUtilsfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixT.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixTBase.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixTUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMethodCall.h
  /opt/sphenix/core/root-6.06.02/include/TNamed.h
+ /opt/sphenix/core/root-6.06.02/include/TNtuple.h
  /opt/sphenix/core/root-6.06.02/include/TObjArray.h
  /opt/sphenix/core/root-6.06.02/include/TObjString.h
  /opt/sphenix/core/root-6.06.02/include/TObject.h
  /opt/sphenix/core/root-6.06.02/include/TPad.h
  /opt/sphenix/core/root-6.06.02/include/TPoint.h
+ /opt/sphenix/core/root-6.06.02/include/TPolyLine.h
  /opt/sphenix/core/root-6.06.02/include/TPolyLine3D.h
  /opt/sphenix/core/root-6.06.02/include/TPolyMarker3D.h
  /opt/sphenix/core/root-6.06.02/include/TQClass.h
  /opt/sphenix/core/root-6.06.02/include/TQConnection.h
  /opt/sphenix/core/root-6.06.02/include/TQObject.h
  /opt/sphenix/core/root-6.06.02/include/TQObjectEmitVA.h
+ /opt/sphenix/core/root-6.06.02/include/TROOT.h
+ /opt/sphenix/core/root-6.06.02/include/TRandom.h
+ /opt/sphenix/core/root-6.06.02/include/TRandom3.h
  /opt/sphenix/core/root-6.06.02/include/TSchemaHelper.h
  /opt/sphenix/core/root-6.06.02/include/TSeqCollection.h
  /opt/sphenix/core/root-6.06.02/include/TStorage.h
  /opt/sphenix/core/root-6.06.02/include/TString.h
+ /opt/sphenix/core/root-6.06.02/include/TStyle.h
+ /opt/sphenix/core/root-6.06.02/include/TTree.h
+ /opt/sphenix/core/root-6.06.02/include/TUUID.h
+ /opt/sphenix/core/root-6.06.02/include/TUrl.h
  /opt/sphenix/core/root-6.06.02/include/TVectorDfwd.h
  /opt/sphenix/core/root-6.06.02/include/TVectorFfwd.h
  /opt/sphenix/core/root-6.06.02/include/TVersionCheck.h
  /opt/sphenix/core/root-6.06.02/include/TView.h
  /opt/sphenix/core/root-6.06.02/include/TVirtualMutex.h
  /opt/sphenix/core/root-6.06.02/include/TVirtualPad.h
+ /opt/sphenix/core/root-6.06.02/include/TVirtualTreePlayer.h
  /opt/sphenix/core/root-6.06.02/include/TVirtualX.h
  /opt/sphenix/core/root-6.06.02/include/ThreadLocalStorage.h
  /opt/sphenix/core/root-6.06.02/include/Varargs.h
@@ -2121,12 +2418,15 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPhysics.cc.o
  ../include/GarfieldAnalysis.hh
  ../include/GarfieldPhysics.hh
  ../include/global.h
- /home/sphenix/Desktop/Geant4/Geant4GarfieldInterface/src/GarfieldPhysics.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldPhysics.cc
  /home/sphenix/work/garfield/Include/AvalancheMC.hh
  /home/sphenix/work/garfield/Include/AvalancheMicroscopic.hh
  /home/sphenix/work/garfield/Include/ComponentAnalyticField.hh
+ /home/sphenix/work/garfield/Include/ComponentAnsys121.hh
  /home/sphenix/work/garfield/Include/ComponentBase.hh
+ /home/sphenix/work/garfield/Include/ComponentCST.hh
  /home/sphenix/work/garfield/Include/ComponentConstant.hh
+ /home/sphenix/work/garfield/Include/ComponentFieldMap.hh
  /home/sphenix/work/garfield/Include/FundamentalConstants.hh
  /home/sphenix/work/garfield/Include/GeometryBase.hh
  /home/sphenix/work/garfield/Include/GeometryRoot.hh
@@ -2134,13 +2434,24 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPhysics.cc.o
  /home/sphenix/work/garfield/Include/Medium.hh
  /home/sphenix/work/garfield/Include/MediumGas.hh
  /home/sphenix/work/garfield/Include/MediumMagboltz.hh
+ /home/sphenix/work/garfield/Include/Plotting.hh
+ /home/sphenix/work/garfield/Include/PlottingEngine.hh
+ /home/sphenix/work/garfield/Include/PlottingEngineRoot.hh
+ /home/sphenix/work/garfield/Include/Random.hh
+ /home/sphenix/work/garfield/Include/RandomEngine.hh
+ /home/sphenix/work/garfield/Include/RandomEngineRoot.hh
  /home/sphenix/work/garfield/Include/Sensor.hh
  /home/sphenix/work/garfield/Include/Solid.hh
  /home/sphenix/work/garfield/Include/SolidTube.hh
+ /home/sphenix/work/garfield/Include/TetrahedralTree.hh
  /home/sphenix/work/garfield/Include/Track.hh
  /home/sphenix/work/garfield/Include/TrackHeed.hh
  /home/sphenix/work/garfield/Include/TrackSimple.hh
  /home/sphenix/work/garfield/Include/ViewDrift.hh
+ /home/sphenix/work/garfield/Include/ViewFEMesh.hh
+ /home/sphenix/work/garfield/Include/ViewField.hh
+ /home/sphenix/work/garfield/Include/ViewMedium.hh
+ /home/sphenix/work/garfield/Include/ViewSignal.hh
  /opt/sphenix/core/geant4.10.02/include/Geant4/G4AnalysisManagerState.hh
  /opt/sphenix/core/geant4.10.02/include/Geant4/G4AnalysisUtilities.hh
  /opt/sphenix/core/geant4.10.02/include/Geant4/G4AnalysisVerbose.hh
@@ -2285,6 +2596,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPhysics.cc.o
  /opt/sphenix/core/root-6.06.02/include/ESTLType.h
  /opt/sphenix/core/root-6.06.02/include/Foption.h
  /opt/sphenix/core/root-6.06.02/include/GuiTypes.h
+ /opt/sphenix/core/root-6.06.02/include/Math/ParamFunctor.h
  /opt/sphenix/core/root-6.06.02/include/RConfig.h
  /opt/sphenix/core/root-6.06.02/include/RConfigure.h
  /opt/sphenix/core/root-6.06.02/include/RStringView.h
@@ -2294,6 +2606,8 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPhysics.cc.o
  /opt/sphenix/core/root-6.06.02/include/Rtypeinfo.h
  /opt/sphenix/core/root-6.06.02/include/Rtypes.h
  /opt/sphenix/core/root-6.06.02/include/RtypesCore.h
+ /opt/sphenix/core/root-6.06.02/include/TApplication.h
+ /opt/sphenix/core/root-6.06.02/include/TApplicationImp.h
  /opt/sphenix/core/root-6.06.02/include/TArray.h
  /opt/sphenix/core/root-6.06.02/include/TArrayC.h
  /opt/sphenix/core/root-6.06.02/include/TArrayD.h
@@ -2310,24 +2624,33 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPhysics.cc.o
  /opt/sphenix/core/root-6.06.02/include/TAttPad.h
  /opt/sphenix/core/root-6.06.02/include/TAttText.h
  /opt/sphenix/core/root-6.06.02/include/TAxis.h
+ /opt/sphenix/core/root-6.06.02/include/TBits.h
  /opt/sphenix/core/root-6.06.02/include/TBranch.h
  /opt/sphenix/core/root-6.06.02/include/TBuffer.h
  /opt/sphenix/core/root-6.06.02/include/TCanvas.h
  /opt/sphenix/core/root-6.06.02/include/TCanvasImp.h
  /opt/sphenix/core/root-6.06.02/include/TClass.h
  /opt/sphenix/core/root-6.06.02/include/TCollection.h
+ /opt/sphenix/core/root-6.06.02/include/TColor.h
  /opt/sphenix/core/root-6.06.02/include/TDataType.h
  /opt/sphenix/core/root-6.06.02/include/TDatime.h
  /opt/sphenix/core/root-6.06.02/include/TDictionary.h
  /opt/sphenix/core/root-6.06.02/include/TDirectory.h
  /opt/sphenix/core/root-6.06.02/include/TDirectoryFile.h
+ /opt/sphenix/core/root-6.06.02/include/TError.h
+ /opt/sphenix/core/root-6.06.02/include/TF1.h
+ /opt/sphenix/core/root-6.06.02/include/TF2.h
  /opt/sphenix/core/root-6.06.02/include/TFile.h
  /opt/sphenix/core/root-6.06.02/include/TFitResultPtr.h
+ /opt/sphenix/core/root-6.06.02/include/TFormula.h
+ /opt/sphenix/core/root-6.06.02/include/TGaxis.h
  /opt/sphenix/core/root-6.06.02/include/TGenericClassInfo.h
  /opt/sphenix/core/root-6.06.02/include/TGeoAtt.h
  /opt/sphenix/core/root-6.06.02/include/TGeoBBox.h
  /opt/sphenix/core/root-6.06.02/include/TGeoCache.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoCompositeShape.h
  /opt/sphenix/core/root-6.06.02/include/TGeoElement.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoHalfSpace.h
  /opt/sphenix/core/root-6.06.02/include/TGeoManager.h
  /opt/sphenix/core/root-6.06.02/include/TGeoMaterial.h
  /opt/sphenix/core/root-6.06.02/include/TGeoMatrix.h
@@ -2335,17 +2658,37 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPhysics.cc.o
  /opt/sphenix/core/root-6.06.02/include/TGeoNavigator.h
  /opt/sphenix/core/root-6.06.02/include/TGeoNode.h
  /opt/sphenix/core/root-6.06.02/include/TGeoPatternFinder.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoPcon.h
  /opt/sphenix/core/root-6.06.02/include/TGeoShape.h
  /opt/sphenix/core/root-6.06.02/include/TGeoStateInfo.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoTube.h
  /opt/sphenix/core/root-6.06.02/include/TGeoVolume.h
  /opt/sphenix/core/root-6.06.02/include/TGraph.h
  /opt/sphenix/core/root-6.06.02/include/TH1.h
+ /opt/sphenix/core/root-6.06.02/include/TH1D.h
+ /opt/sphenix/core/root-6.06.02/include/TH2.h
+ /opt/sphenix/core/root-6.06.02/include/TH2D.h
  /opt/sphenix/core/root-6.06.02/include/THashTable.h
  /opt/sphenix/core/root-6.06.02/include/TInterpreter.h
  /opt/sphenix/core/root-6.06.02/include/TIterator.h
+ /opt/sphenix/core/root-6.06.02/include/TLine.h
  /opt/sphenix/core/root-6.06.02/include/TList.h
  /opt/sphenix/core/root-6.06.02/include/TMap.h
  /opt/sphenix/core/root-6.06.02/include/TMathBase.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixD.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDBasefwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDUtilsfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixF.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFBasefwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFUtilsfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixT.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixTBase.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixTUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMethodCall.h
  /opt/sphenix/core/root-6.06.02/include/TNamed.h
  /opt/sphenix/core/root-6.06.02/include/TNtuple.h
  /opt/sphenix/core/root-6.06.02/include/TObjArray.h
@@ -2353,6 +2696,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPhysics.cc.o
  /opt/sphenix/core/root-6.06.02/include/TObject.h
  /opt/sphenix/core/root-6.06.02/include/TPad.h
  /opt/sphenix/core/root-6.06.02/include/TPoint.h
+ /opt/sphenix/core/root-6.06.02/include/TPolyLine.h
  /opt/sphenix/core/root-6.06.02/include/TPolyLine3D.h
  /opt/sphenix/core/root-6.06.02/include/TPolyMarker3D.h
  /opt/sphenix/core/root-6.06.02/include/TQClass.h
@@ -2360,10 +2704,13 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPhysics.cc.o
  /opt/sphenix/core/root-6.06.02/include/TQObject.h
  /opt/sphenix/core/root-6.06.02/include/TQObjectEmitVA.h
  /opt/sphenix/core/root-6.06.02/include/TROOT.h
+ /opt/sphenix/core/root-6.06.02/include/TRandom.h
+ /opt/sphenix/core/root-6.06.02/include/TRandom3.h
  /opt/sphenix/core/root-6.06.02/include/TSchemaHelper.h
  /opt/sphenix/core/root-6.06.02/include/TSeqCollection.h
  /opt/sphenix/core/root-6.06.02/include/TStorage.h
  /opt/sphenix/core/root-6.06.02/include/TString.h
+ /opt/sphenix/core/root-6.06.02/include/TStyle.h
  /opt/sphenix/core/root-6.06.02/include/TTree.h
  /opt/sphenix/core/root-6.06.02/include/TUUID.h
  /opt/sphenix/core/root-6.06.02/include/TUrl.h
@@ -2383,12 +2730,15 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPhysics.cc.o
 CMakeFiles/exampleGarfield.dir/src/GarfieldPhysicsList.cc.o
  ../include/GarfieldPhysics.hh
  ../include/GarfieldPhysicsList.hh
- /home/sphenix/Desktop/Geant4/Geant4GarfieldInterface/src/GarfieldPhysicsList.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldPhysicsList.cc
  /home/sphenix/work/garfield/Include/AvalancheMC.hh
  /home/sphenix/work/garfield/Include/AvalancheMicroscopic.hh
  /home/sphenix/work/garfield/Include/ComponentAnalyticField.hh
+ /home/sphenix/work/garfield/Include/ComponentAnsys121.hh
  /home/sphenix/work/garfield/Include/ComponentBase.hh
+ /home/sphenix/work/garfield/Include/ComponentCST.hh
  /home/sphenix/work/garfield/Include/ComponentConstant.hh
+ /home/sphenix/work/garfield/Include/ComponentFieldMap.hh
  /home/sphenix/work/garfield/Include/FundamentalConstants.hh
  /home/sphenix/work/garfield/Include/GeometryBase.hh
  /home/sphenix/work/garfield/Include/GeometryRoot.hh
@@ -2396,13 +2746,24 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPhysicsList.cc.o
  /home/sphenix/work/garfield/Include/Medium.hh
  /home/sphenix/work/garfield/Include/MediumGas.hh
  /home/sphenix/work/garfield/Include/MediumMagboltz.hh
+ /home/sphenix/work/garfield/Include/Plotting.hh
+ /home/sphenix/work/garfield/Include/PlottingEngine.hh
+ /home/sphenix/work/garfield/Include/PlottingEngineRoot.hh
+ /home/sphenix/work/garfield/Include/Random.hh
+ /home/sphenix/work/garfield/Include/RandomEngine.hh
+ /home/sphenix/work/garfield/Include/RandomEngineRoot.hh
  /home/sphenix/work/garfield/Include/Sensor.hh
  /home/sphenix/work/garfield/Include/Solid.hh
  /home/sphenix/work/garfield/Include/SolidTube.hh
+ /home/sphenix/work/garfield/Include/TetrahedralTree.hh
  /home/sphenix/work/garfield/Include/Track.hh
  /home/sphenix/work/garfield/Include/TrackHeed.hh
  /home/sphenix/work/garfield/Include/TrackSimple.hh
  /home/sphenix/work/garfield/Include/ViewDrift.hh
+ /home/sphenix/work/garfield/Include/ViewFEMesh.hh
+ /home/sphenix/work/garfield/Include/ViewField.hh
+ /home/sphenix/work/garfield/Include/ViewMedium.hh
+ /home/sphenix/work/garfield/Include/ViewSignal.hh
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Geometry/Normal3D.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -3072,6 +3433,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPhysicsList.cc.o
  /opt/sphenix/core/root-6.06.02/include/ESTLType.h
  /opt/sphenix/core/root-6.06.02/include/Foption.h
  /opt/sphenix/core/root-6.06.02/include/GuiTypes.h
+ /opt/sphenix/core/root-6.06.02/include/Math/ParamFunctor.h
  /opt/sphenix/core/root-6.06.02/include/RConfig.h
  /opt/sphenix/core/root-6.06.02/include/RConfigure.h
  /opt/sphenix/core/root-6.06.02/include/RStringView.h
@@ -3081,6 +3443,8 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPhysicsList.cc.o
  /opt/sphenix/core/root-6.06.02/include/Rtypeinfo.h
  /opt/sphenix/core/root-6.06.02/include/Rtypes.h
  /opt/sphenix/core/root-6.06.02/include/RtypesCore.h
+ /opt/sphenix/core/root-6.06.02/include/TApplication.h
+ /opt/sphenix/core/root-6.06.02/include/TApplicationImp.h
  /opt/sphenix/core/root-6.06.02/include/TArray.h
  /opt/sphenix/core/root-6.06.02/include/TArrayC.h
  /opt/sphenix/core/root-6.06.02/include/TArrayD.h
@@ -3097,17 +3461,33 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPhysicsList.cc.o
  /opt/sphenix/core/root-6.06.02/include/TAttPad.h
  /opt/sphenix/core/root-6.06.02/include/TAttText.h
  /opt/sphenix/core/root-6.06.02/include/TAxis.h
+ /opt/sphenix/core/root-6.06.02/include/TBits.h
+ /opt/sphenix/core/root-6.06.02/include/TBranch.h
  /opt/sphenix/core/root-6.06.02/include/TBuffer.h
  /opt/sphenix/core/root-6.06.02/include/TCanvas.h
  /opt/sphenix/core/root-6.06.02/include/TCanvasImp.h
  /opt/sphenix/core/root-6.06.02/include/TClass.h
  /opt/sphenix/core/root-6.06.02/include/TCollection.h
+ /opt/sphenix/core/root-6.06.02/include/TColor.h
+ /opt/sphenix/core/root-6.06.02/include/TDataType.h
+ /opt/sphenix/core/root-6.06.02/include/TDatime.h
  /opt/sphenix/core/root-6.06.02/include/TDictionary.h
+ /opt/sphenix/core/root-6.06.02/include/TDirectory.h
+ /opt/sphenix/core/root-6.06.02/include/TDirectoryFile.h
+ /opt/sphenix/core/root-6.06.02/include/TError.h
+ /opt/sphenix/core/root-6.06.02/include/TF1.h
+ /opt/sphenix/core/root-6.06.02/include/TF2.h
+ /opt/sphenix/core/root-6.06.02/include/TFile.h
  /opt/sphenix/core/root-6.06.02/include/TFitResultPtr.h
+ /opt/sphenix/core/root-6.06.02/include/TFormula.h
+ /opt/sphenix/core/root-6.06.02/include/TGaxis.h
  /opt/sphenix/core/root-6.06.02/include/TGenericClassInfo.h
  /opt/sphenix/core/root-6.06.02/include/TGeoAtt.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoBBox.h
  /opt/sphenix/core/root-6.06.02/include/TGeoCache.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoCompositeShape.h
  /opt/sphenix/core/root-6.06.02/include/TGeoElement.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoHalfSpace.h
  /opt/sphenix/core/root-6.06.02/include/TGeoManager.h
  /opt/sphenix/core/root-6.06.02/include/TGeoMaterial.h
  /opt/sphenix/core/root-6.06.02/include/TGeoMatrix.h
@@ -3115,37 +3495,69 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPhysicsList.cc.o
  /opt/sphenix/core/root-6.06.02/include/TGeoNavigator.h
  /opt/sphenix/core/root-6.06.02/include/TGeoNode.h
  /opt/sphenix/core/root-6.06.02/include/TGeoPatternFinder.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoPcon.h
  /opt/sphenix/core/root-6.06.02/include/TGeoShape.h
  /opt/sphenix/core/root-6.06.02/include/TGeoStateInfo.h
+ /opt/sphenix/core/root-6.06.02/include/TGeoTube.h
  /opt/sphenix/core/root-6.06.02/include/TGeoVolume.h
  /opt/sphenix/core/root-6.06.02/include/TGraph.h
  /opt/sphenix/core/root-6.06.02/include/TH1.h
+ /opt/sphenix/core/root-6.06.02/include/TH1D.h
+ /opt/sphenix/core/root-6.06.02/include/TH2.h
+ /opt/sphenix/core/root-6.06.02/include/TH2D.h
+ /opt/sphenix/core/root-6.06.02/include/THashTable.h
  /opt/sphenix/core/root-6.06.02/include/TInterpreter.h
  /opt/sphenix/core/root-6.06.02/include/TIterator.h
+ /opt/sphenix/core/root-6.06.02/include/TLine.h
  /opt/sphenix/core/root-6.06.02/include/TList.h
+ /opt/sphenix/core/root-6.06.02/include/TMap.h
  /opt/sphenix/core/root-6.06.02/include/TMathBase.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixD.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDBasefwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDUtilsfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixDfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixF.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFBasefwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFUtilsfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixFfwd.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixT.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixTBase.h
+ /opt/sphenix/core/root-6.06.02/include/TMatrixTUtils.h
+ /opt/sphenix/core/root-6.06.02/include/TMethodCall.h
  /opt/sphenix/core/root-6.06.02/include/TNamed.h
+ /opt/sphenix/core/root-6.06.02/include/TNtuple.h
  /opt/sphenix/core/root-6.06.02/include/TObjArray.h
  /opt/sphenix/core/root-6.06.02/include/TObjString.h
  /opt/sphenix/core/root-6.06.02/include/TObject.h
  /opt/sphenix/core/root-6.06.02/include/TPad.h
  /opt/sphenix/core/root-6.06.02/include/TPoint.h
+ /opt/sphenix/core/root-6.06.02/include/TPolyLine.h
  /opt/sphenix/core/root-6.06.02/include/TPolyLine3D.h
  /opt/sphenix/core/root-6.06.02/include/TPolyMarker3D.h
  /opt/sphenix/core/root-6.06.02/include/TQClass.h
  /opt/sphenix/core/root-6.06.02/include/TQConnection.h
  /opt/sphenix/core/root-6.06.02/include/TQObject.h
  /opt/sphenix/core/root-6.06.02/include/TQObjectEmitVA.h
+ /opt/sphenix/core/root-6.06.02/include/TROOT.h
+ /opt/sphenix/core/root-6.06.02/include/TRandom.h
+ /opt/sphenix/core/root-6.06.02/include/TRandom3.h
  /opt/sphenix/core/root-6.06.02/include/TSchemaHelper.h
  /opt/sphenix/core/root-6.06.02/include/TSeqCollection.h
  /opt/sphenix/core/root-6.06.02/include/TStorage.h
  /opt/sphenix/core/root-6.06.02/include/TString.h
+ /opt/sphenix/core/root-6.06.02/include/TStyle.h
+ /opt/sphenix/core/root-6.06.02/include/TTree.h
+ /opt/sphenix/core/root-6.06.02/include/TUUID.h
+ /opt/sphenix/core/root-6.06.02/include/TUrl.h
  /opt/sphenix/core/root-6.06.02/include/TVectorDfwd.h
  /opt/sphenix/core/root-6.06.02/include/TVectorFfwd.h
  /opt/sphenix/core/root-6.06.02/include/TVersionCheck.h
  /opt/sphenix/core/root-6.06.02/include/TView.h
  /opt/sphenix/core/root-6.06.02/include/TVirtualMutex.h
  /opt/sphenix/core/root-6.06.02/include/TVirtualPad.h
+ /opt/sphenix/core/root-6.06.02/include/TVirtualTreePlayer.h
  /opt/sphenix/core/root-6.06.02/include/TVirtualX.h
  /opt/sphenix/core/root-6.06.02/include/ThreadLocalStorage.h
  /opt/sphenix/core/root-6.06.02/include/Varargs.h
@@ -3154,7 +3566,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldPhysicsList.cc.o
  /opt/sphenix/core/root-6.06.02/include/strlcpy.h
 CMakeFiles/exampleGarfield.dir/src/GarfieldPrimaryGeneratorAction.cc.o
  ../include/GarfieldPrimaryGeneratorAction.hh
- /home/sphenix/Desktop/Geant4/Geant4GarfieldInterface/src/GarfieldPrimaryGeneratorAction.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldPrimaryGeneratorAction.cc
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Geometry/Normal3D.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -3419,7 +3831,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldRunAction.cc.o
  ../include/GarfieldAnalysis.hh
  ../include/GarfieldRunAction.hh
  ../include/global.h
- /home/sphenix/Desktop/Geant4/Geant4GarfieldInterface/src/GarfieldRunAction.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldRunAction.cc
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Random/DualRand.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Random/JamesRandom.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Random/MTwistEngine.h
@@ -3859,7 +4271,7 @@ CMakeFiles/exampleGarfield.dir/src/GarfieldSteppingAction.cc.o
  ../include/GarfieldDetectorConstruction.hh
  ../include/GarfieldEventAction.hh
  ../include/GarfieldSteppingAction.hh
- /home/sphenix/Desktop/Geant4/Geant4GarfieldInterface/src/GarfieldSteppingAction.cc
+ /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/src/GarfieldSteppingAction.cc
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Random/DualRand.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Random/JamesRandom.h
  /opt/sphenix/core/geant4.10.02/include/Geant4/CLHEP/Random/MTwistEngine.h

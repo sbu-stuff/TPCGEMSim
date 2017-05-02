@@ -48,10 +48,10 @@ RM = /opt/sphenix/utils/stow/cmake-3.4.1/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sphenix/Desktop/Geant4/Geant4GarfieldInterface
+CMAKE_SOURCE_DIR = /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sphenix/Desktop/Geant4/Geant4GarfieldInterface/exampleGarfield
+CMAKE_BINARY_DIR = /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/exampleGarfield
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -124,9 +124,9 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sphenix/Desktop/Geant4/Geant4GarfieldInterface/exampleGarfield/CMakeFiles /home/sphenix/Desktop/Geant4/Geant4GarfieldInterface/exampleGarfield/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/exampleGarfield/CMakeFiles /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/exampleGarfield/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sphenix/Desktop/Geant4/Geant4GarfieldInterface/exampleGarfield/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sphenix/Desktop/TPC/Geant4/Geant4GarfieldInterface/exampleGarfield/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

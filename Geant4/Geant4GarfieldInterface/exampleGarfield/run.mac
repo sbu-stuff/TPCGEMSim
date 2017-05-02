@@ -10,6 +10,9 @@
 
 /exampleGarfield/absorber/setMat G4_Pb
 
+/globalField/setValue 0 0 1.5 tesla
+/globalField/verbose 1
+
 /control/execute ./physics.mac			
 /run/initialize
 
@@ -22,14 +25,14 @@
 #/run/beamOn 5
 
 #outside tube
-/gun/particle mu+
-/gun/direction 1 1 1
-/gun/position 21 21 0 cm
-/gun/energy 4 GeV
-/run/beamOn 1
+#/gun/particle mu+
+#/gun/direction 1 1 1
+#/gun/position 21 21 0 cm
+#/gun/energy 4 GeV
+#/run/beamOn 2
 
 /gun/particle pi-
 /gun/direction 1 1 4
-/gun/position 30 40 0 cm
+/gun/position 45 55 0 cm
 /gun/energy 4 GeV
 /run/beamOn 1
