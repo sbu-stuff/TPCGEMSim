@@ -27,15 +27,11 @@
 //
 /// \file GarfieldPhysics.cc
 /// \brief Implementation of the GarfieldPhysics class
-#include <TFile.h>
-#include <TNtuple.h>
-#include <TROOT.h>
+
+
 
 #include "GarfieldPhysics.hh"
 #include "global.h"
-
-#include "TGeoManager.h"
-#include "TGeoBBox.h"
 
 #include "GarfieldAnalysis.hh"
 /*
@@ -263,30 +259,58 @@ double GarfieldPhysics::GetMaxEnergyMeVParticle(std::string name,
 
 void GarfieldPhysics::InitializePhysics() {
 
+	const double rOuterTube = 80;
+	const double rInnerTube = 20;
+//	const double rTube = 1.451;
+// Half-length of the tube [cm]
+	const double lTube = 100.;
+        //const char *Distortion[3]  = {"0_2_mm","0_5_mm","1_0_mm"};
+
 	fMediumMagboltz = new Garfield::MediumMagboltz();
 
-	// fMediumMagboltz->SetComposition("ar", 70., "co2", 30.);
-	fMediumMagboltz->SetComposition("ne", 95., "cf4", 5.);
-	fMediumMagboltz->SetTemperature(293.15);
-	fMediumMagboltz->SetPressure(760.);
-	fMediumMagboltz->EnableDebugging();
-	fMediumMagboltz->Initialise(true);
-	fMediumMagboltz->DisableDebugging();
-// Set the Penning transfer efficiency.
-	const double rPenning = 0.57;
-	const double lambdaPenning = 0.;
-	fMediumMagboltz->EnablePenningTransfer(rPenning, lambdaPenning, "ne");
-	fMediumMagboltz->LoadGasFile("ne_95_cf4_5_1000mbar.gas");
+	// Set the Penning transfer efficiency.
+
+	fMediumMagboltz->LoadGasFile("Ne_CF4_IC4H10_95_3_2.gas");
 
 	fSensor = new Garfield::Sensor();
 	fDrift = new Garfield::AvalancheMC();
-	//fAvalanche = new Garfield::AvalancheMicroscopic();
-	fComponentAnalyticField = new Garfield::ComponentAnalyticField();
+	fComponentAnalyticField = new Garfield::ComponentAnsys121();
 
-	CreateGeometry();
+	const std::string efile = Form("ELIST_1050_mem_up_0_2_mm.lis");
+       	const std::string nfile = Form("NLIST_1050_mem_up_0_2_mm.lis");       
+	const std::string mfile = Form("MPLIST_1050_mem_up_0_2_mm.lis");     
+	const std::string sfile = Form("PRNSOL_1050_mem_up_0_2_mm.lis");  
+    
+	fComponentAnalyticField->Initialise(efile, nfile, mfile, sfile, "mm");
+	fComponentAnalyticField->EnableRotationSymmetryY();
+
+	fComponentAnalyticField->SetMagneticField(0, 0, 1.5);
+
+	const int nMaterials = fComponentAnalyticField->GetNumberOfMaterials();
+	for (int i = 0; i < nMaterials; ++i) {
+	  const double eps = fComponentAnalyticField->GetPermittivity(i);
+	  //	  std::cout<< "eps: \t"<< eps<< std::endl;
+	  if (fabs(eps - 1.) < 1.e-3) fComponentAnalyticField->SetMedium(i, fMediumMagboltz);
+	}
+
+	fMediumMagboltz->EnableDebugging();
+	fMediumMagboltz->Initialise(true);
+	fMediumMagboltz->DisableDebugging();
+
+	fSensor->AddComponent(fComponentAnalyticField);
+	fSensor->SetArea(-rOuterTube, -rInnerTube, -lTube/2, rOuterTube, rInnerTube, lTube/2);
+
+
+	const double rPenning = 0.57;
+	const double lambdaPenning = 0.;
+	fMediumMagboltz->EnablePenningTransfer(rPenning, lambdaPenning, "ne");
+
+	//CreateGeometry();
 
 	fDrift->SetSensor(fSensor);
-	//fAvalanche->SetSensor(fSensor);
+	fDrift->SetDistanceSteps(.01);
+	fDrift->EnableMagneticField();
+	fDrift->EnableDiffusion();
 
 	fTrackHeed = new Garfield::TrackHeed();
 	fTrackHeed->EnableDebugging();
@@ -306,38 +330,22 @@ void GarfieldPhysics::CreateGeometry() {
 	const double lTube = 100.;
 //	const double lTube = 10.;
 
-	fGeometrySimple = new Garfield::GeometrySimple();
+	//fGeometrySimple = new Garfield::GeometrySimple();
 // Make a tube (centered at the origin, inner radius: 0, outer radius: rTube).
-	fTube = new Garfield::SolidTube(0., 0., 0., rInnerTube, rOuterTube, lTube);
+	//fTube = new Garfield::SolidTube(0., 0., 0., rInnerTube, rOuterTube, lTube);
 // Add the solid to the geometry, together with the medium inside.
-	fGeometrySimple->AddSolid(fTube, fMediumMagboltz);
+	//fGeometrySimple->AddSolid(fTube, fMediumMagboltz);
 
-	componentConstant = new Garfield::ComponentConstant();
+	//componentConstant = new Garfield::ComponentConstant();
        	//componentConstant->SetElectricField(0, 0, 400);
-       	componentConstant->SetElectricField(0, 400, 400);
-       	componentConstant->SetMagneticField(0, 0, 1.5);
+       	//componentConstant->SetElectricField(0, 400, 400);
+       	//componentConstant->SetMagneticField(0, 0, 1.5);
 
-	componentConstant->SetGeometry(fGeometrySimple);
+	//componentConstant->SetGeometry(fGeometrySimple);
 
-	fSensor->AddComponent(componentConstant);
+
+	//fSensor->AddComponent(componentConstant);
 	//fComponentAnalyticField->ElectricField
-
-// Voltages
-	//const double vWire = 1000.;
-	//const double vWire = 1000.;
-	//const double vTube = 0.;
-// Add the wire in the center.
-	//fComponentAnalyticField->AddWire(0., 0., 2 * rWire, vWire, "w");
-// Add the tube.
-	//fComponentAnalyticField->AddTube(rTube, vTube, 0, "t");
-	//fComponentAnalyticField->AddTube(rInnerTube, 0, 0, "t");
-
-	/*
-      	fComponentAnalyticField->SetGeometry(fGeometrySimple);
-	fComponentAnalyticField->AddWire(0., 0., 2 * rInnerTube, 0, "w");
-	fComponentAnalyticField->AddTube(rOuterTube, 0, 0, "t");
-	fSensor->AddComponent(fComponentAnalyticField);
-	*/
 
 }
 
@@ -357,7 +365,7 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 	if ((ntuple = (TNtuple*) f->Get(particleId.c_str())) == NULL)
 	  {
 	    G4cout << "New TNtuple";
-	    ntuple = new TNtuple(particleId.c_str(), eventId.c_str(), "xpos:ypos:zpos:nc");
+	    ntuple = new TNtuple(particleId.c_str(), eventId.c_str(), "xpos:ypos:zpos:xe1:ye1:ze1:xe2:ye2:ze2:nc");
 	  }
 
 	//G4cout << particleId << " " << particleName << " " << time << " " << x_cm << " " <<  dx << G4endl;
@@ -414,7 +422,6 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 					fEnergyDeposit += fTrackHeed->GetW();
 				}
 				//G4cout << "cl,xe,ye,ze,te,ee,dxe" << " " << cl <<" " << xe <<" " << ye <<" " << ze <<" " << te <<" " << ee <<" " << dxe << G4endl;
-				ntuple->Fill(xe,ye,ze,nc);
 				if (createSecondariesInGeant4) {
 					double newTime = te;
 					if (newTime < time) {
@@ -479,6 +486,7 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 				fAvalanche->GetAvalancheSize(ne, ni);
 				fAvalancheSize += ne;
 				*/
+				ntuple->Fill(xe,ye,ze,xe1,ye1,ze1,xe2,ye2,ze2,nc);
 			}
 		}
 	} else {
@@ -574,5 +582,3 @@ void GarfieldPhysics::DeleteSecondaryParticles() {
 				fSecondaryParticles->end());
 	}
 }
-
-
