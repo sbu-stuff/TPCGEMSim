@@ -34,7 +34,35 @@
 #include <map>
 #include <vector>
 #include <iostream>
+#include <fstream>
 
+#include <cmath>
+#include <TApplication.h>
+
+#include <TGeoManager.h>
+#include <TGeoMaterial.h>
+#include <TGeoMedium.h>
+#include <TGeoVolume.h>
+#include <TGeoBBox.h>
+#include <TGeoTube.h>
+#include <TGeoPcon.h>
+#include <TGeoHalfSpace.h>
+#include <TGeoMatrix.h>
+#include <TGeoCompositeShape.h>
+#include <TCanvas.h>
+#include <TFile.h>
+#include <TNtuple.h>
+#include <TROOT.h>
+#include <TAxis.h>
+#include "TMatrixF.h"
+
+#include "ViewField.hh"
+#include "ViewMedium.hh"
+#include "ViewSignal.hh"
+#include "ViewFEMesh.hh"
+
+#include "Random.hh"
+#include "Plotting.hh"
 #include "Sensor.hh"
 #include "AvalancheMC.hh"
 #include "AvalancheMicroscopic.hh"
@@ -46,6 +74,8 @@
 #include "GeometryRoot.hh"
 #include "GeometrySimple.hh"
 #include "SolidTube.hh"
+#include "ComponentAnsys121.hh"
+
 /*
 namespace Garfield {
 
@@ -132,7 +162,7 @@ private:
 	Garfield::GeometryRoot* fGeometryRoot;
 	Garfield::GeometrySimple* fGeometrySimple;
         Garfield::ComponentConstant* componentConstant;
-	Garfield::ComponentAnalyticField* fComponentAnalyticField;
+	Garfield::ComponentAnsys121* fComponentAnalyticField;
 	Garfield::SolidTube* fTube;
   //Medium* medium;
   
