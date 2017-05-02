@@ -298,8 +298,8 @@ void GarfieldPhysics::InitializePhysics() {
 	fMediumMagboltz->DisableDebugging();
 
 	fSensor->AddComponent(fComponentAnalyticField);
-	fSensor->SetArea(-rOuterTube, -rInnerTube, -lTube/2, rOuterTube, rInnerTube, lTube/2);
-
+	//fSensor->SetArea(-rOuterTube, -rInnerTube, -lTube/2, rOuterTube, rInnerTube, lTube/2);
+	//fSensor->SetArea(-rOuterTube, -rOuterTube, -lTube/2, rOuterTube, rOuterTube, lTube/2);
 
 	const double rPenning = 0.57;
 	const double lambdaPenning = 0.;
@@ -395,8 +395,7 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 			fTrackHeed->TransportPhoton(x_cm, y_cm, z_cm, time, eKin_eV, dx, dy,
 					dz, nc);
 		} else {
-			fTrackHeed->TransportDeltaElectron(x_cm, y_cm, z_cm, time, eKin_eV,
-					dx, dy, dz, nc);
+			fTrackHeed->TransportDeltaElectron(x_cm, y_cm, z_cm, time, eKin_eV,dx, dy, dz, nc);
 			fEnergyDeposit = eKin_eV;
 		}
 		G4cout << "Collisional output " << nc << G4endl; 
@@ -412,6 +411,8 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 		  }
 		}
 		*/ 
+		G4cout << "x,y,z,time,eKin,dx,dy,dz,nc" << x_cm << " " << y_cm <<  " " <<z_cm <<  " " <<time<<  " " <<eKin_eV <<  " " <<dx <<  " " <<dy <<  " " <<dz <<  " " <<nc <<G4endl;
+		return;
 		for (int cl = 0; cl < nc; cl++) {
 			double xe, ye, ze, te;
 			double ee, dxe, dye, dze;

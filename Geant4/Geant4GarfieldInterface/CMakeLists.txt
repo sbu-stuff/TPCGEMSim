@@ -69,7 +69,11 @@ set(EXAMPLEGARFIELD_SCRIPTS
   init_vis.mac
   run.mac
   vis.mac
-  ne_95_cf4_5_1000mbar.gas
+  Ne_CF4_IC4H10_95_3_2.gas
+  ELIST_1050_mem_up_0_2_mm.lis
+  NLIST_1050_mem_up_0_2_mm.lis
+  MPLIST_1050_mem_up_0_2_mm.lis
+  PRNSOL_1050_mem_up_0_2_mm.lis
   )
 
 
