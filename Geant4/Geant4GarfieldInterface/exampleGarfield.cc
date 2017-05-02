@@ -28,6 +28,8 @@
 /// \file exampleB4a.cc
 /// \brief Main program of the B4a example
 
+#define UNUSED(expr) do { (void)(expr); } while (0) 
+
 #include <TROOT.h>
 #include <TFile.h>
 
@@ -66,7 +68,9 @@ void PrintUsage() {
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 int main(int argc, char** argv) {
-  
+
+  UNUSED(argc);
+
   TFile *f = new TFile("Garfield.root","RECREATE");
   f->Write();
   f->Close();
