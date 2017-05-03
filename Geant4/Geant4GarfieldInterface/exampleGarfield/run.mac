@@ -10,8 +10,8 @@
 
 /exampleGarfield/absorber/setMat G4_Pb
 
-/globalField/setValue 0 0 1.5 tesla
-/globalField/verbose 1
+#/globalField/setValue 0 0 1.5 tesla
+#/globalField/verbose 1
 
 /control/execute ./physics.mac			
 /run/initialize

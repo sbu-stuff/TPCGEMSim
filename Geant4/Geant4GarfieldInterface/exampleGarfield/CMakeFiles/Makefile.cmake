@@ -132,9 +132,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "vis.mac"
   "Ne_CF4_IC4H10_95_3_2.gas"
   "ELIST_1050_mem_up_0_2_mm.lis"
-  "PRNSOL_1050_mem_up_0_2_mm.lis"
-  "MPLIST_1050_mem_up_0_2_mm.lis"
   "NLIST_1050_mem_up_0_2_mm.lis"
+  "MPLIST_1050_mem_up_0_2_mm.lis"
+  "PRNSOL_1050_mem_up_0_2_mm.lis"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 

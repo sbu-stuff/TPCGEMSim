@@ -391,105 +391,22 @@ void GarfieldPhysics::DoIt(std::string particleName, double ekin_MeV,
 	double extra = 0.;
 	fEnergyDeposit = 0;
 	if (fIonizationModel != "Heed" || particleName == "gamma") {
-		if (particleName == "gamma") {
-			fTrackHeed->TransportPhoton(x_cm, y_cm, z_cm, time, eKin_eV, dx, dy,
-					dz, nc);
-		} else {
-			fTrackHeed->TransportDeltaElectron(x_cm, y_cm, z_cm, time, eKin_eV,dx, dy, dz, nc);
-			fEnergyDeposit = eKin_eV;
-		}
-		G4cout << "Collisional output " << nc << G4endl; 
-		Garfield::Medium* medium = NULL;
-		/*
-		for (int x=-80;x<81;x+=5){
-		  for (int y=-80;y<81;y+=5){
-		    for (int z=-100;z<101;z+=5){
-		      if (fSensor->GetMedium(x, y, z, medium)) {
-			std::cerr << "    Medium at "<< x << " " <<y << " " <<z<< "\n";		
-		      }
-		    }
-		  }
-		}
-		*/ 
-		G4cout << "x,y,z,time,eKin,dx,dy,dz,nc" << x_cm << " " << y_cm <<  " " <<z_cm <<  " " <<time<<  " " <<eKin_eV <<  " " <<dx <<  " " <<dy <<  " " <<dz <<  " " <<nc <<G4endl;
-		return;
-		for (int cl = 0; cl < nc; cl++) {
-			double xe, ye, ze, te;
-			double ee, dxe, dye, dze;
-			fTrackHeed->GetElectron(cl, xe, ye, ze, te, ee, dxe, dye, dze);
-			if (ze < lTube && ze > -lTube && sqrt(xe * xe + ye * ye) < rOuterTube && sqrt(xe * xe + ye * ye) > rInnerTube) {
-				nsum++;
-				if (particleName == "gamma") {
-					fEnergyDeposit += fTrackHeed->GetW();
-				}
-				//G4cout << "cl,xe,ye,ze,te,ee,dxe" << " " << cl <<" " << xe <<" " << ye <<" " << ze <<" " << te <<" " << ee <<" " << dxe << G4endl;
-				if (createSecondariesInGeant4) {
-					double newTime = te;
-					if (newTime < time) {
-						newTime += time;
-					}
-					fSecondaryParticles->push_back(
-							new GarfieldParticle("e-",ee, newTime, xe, ye, ze, dxe,
-									dye, dze));
-				}
+	  fDrift->DriftElectron(x_cm, y_cm, z_cm, time);
+      
+      
+	  const int nc = fDrift->GetNumberOfElectronEndpoints();
+      
+	  double xe1, ye1, ze1, te1;
+	  double xe2, ye2, ze2, te2;
+	  int status;
 
-				fDrift->DriftElectron(xe, ye, ze, te);
-
-				double xe1, ye1, ze1, te1;
-				double xe2, ye2, ze2, te2;
-
-				int status;
-				fDrift->GetElectronEndpoint(0, xe1, ye1, ze1, te1, xe2, ye2,
-						ze2, te2, status);
-
-				if (0 < xe2 && xe2 < rInnerTube) {
-					xe2 += 2 * rInnerTube;
-				}
-				if (0 > xe2 && xe2 > -rInnerTube) {
-					xe2 += -2 * rInnerTube;
-				}
-				if (0 < ye2 && ye2 < rInnerTube) {
-					ye2 += 2 * rInnerTube;
-				}
-				if (0 > ye2 && ye2 > -rInnerTube) {
-					ye2 += -2 * rInnerTube;
-				}
-				/*
-				if (0 < xe2 && xe2 < rWire) {
-					xe2 += 2 * rWire;
-				}
-				if (0 > xe2 && xe2 > -rWire) {
-					xe2 += -2 * rWire;
-				}
-				if (0 < ye2 && ye2 < rWire) {
-					ye2 += 2 * rWire;
-				}
-				if (0 > ye2 && ye2 > -rWire) {
-					ye2 += -2 * rWire;
-				}
-				*/
-				double e2 = 0.1;
-				/*
-				Garfield::Medium* medium = NULL;
-				if (fSensor->GetMedium(xe1, ye1, ze1, medium)) {
-				  std::cerr << "    Medium at "<< xe1 << " " <<ye1 << " " <<ze1<< "\n";		}
-				
-				if (!fSensor->GetMedium(xe2, ye2, ze2, medium)) {
-				  std::cerr << "    No medium at "<< xe2 << " " <<ye2 << " " <<ze2<< "\n";		}
-				
-				if (fSensor->GetMedium(xe2+1., ye2-1., (ze2-1.), medium)) {
-				  std::cerr << "    Medium at varied "<< xe2+1. << " " <<ye2 -1.<< " " <<(ze2-1.)<< "\n";		}
-				else {std::cerr << "    No medium at varied "<< xe2+1. << " " <<ye2 -1.<< " " <<(ze2-1.)<< "\n";}
-				
-				fAvalanche->AvalancheElectron(xe2, ye2, ze2, te2, e2, 0, 0, 0);
-
-				int ne = 0, ni = 0;
-				fAvalanche->GetAvalancheSize(ne, ni);
-				fAvalancheSize += ne;
-				*/
-				ntuple->Fill(xe,ye,ze,xe1,ye1,ze1,xe2,ye2,ze2,nc);
-			}
-		}
+	  for (int j = nc; j--;) {	      
+	    fDrift->GetElectronEndpoint(j, xe1, ye1, ze1, te1, 
+					 xe2, ye2, ze2, te2, status);
+	    
+	  
+	  }
+	  ntuple->Fill(x_cm,y_cm,z_cm,xe1,ye1,ze1,xe2,ye2,ze2,nc);
 	} else {
 		fTrackHeed->SetParticle(particleName);
 		fTrackHeed->SetKineticEnergy(eKin_eV);
